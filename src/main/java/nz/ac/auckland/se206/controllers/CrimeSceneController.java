@@ -1,3 +1,9 @@
 package nz.ac.auckland.se206.controllers;
 
-public class CrimeSceneController {}
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+public class CrimeSceneController {
+
+  @FXML private Button viewEvidenceBtn;
+}

@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="523.0" fitWidth="651.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/background_crime-cropped.png" />
+            <Image url="@../images/background_crime-cropped-item-glow.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="196.0" fitWidth="200.0" layoutX="685.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">

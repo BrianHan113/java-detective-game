@@ -91,5 +91,8 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" layoutX="300.0" layoutY="44.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" layoutX="500.0" layoutY="44.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" layoutX="700.0" layoutY="44.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
    </children>
 </Pane>

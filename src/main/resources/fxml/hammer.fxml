@@ -8,7 +8,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HammerController">
    <children>
       <ImageView fitHeight="550.0" fitWidth="1099.0" pickOnBounds="true" preserveRatio="true">
@@ -26,9 +25,9 @@
             <Image url="@../images/fingerprint_exwife_blur_inverted.png" />
          </image>
       </ImageView>
-      <Circle fill="#b1e5f2" layoutX="50.0" layoutY="50.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="65.0" endY="50.0" rotate="45.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
-      <Line endX="65.0" endY="50.0" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
+      <Circle fill="#b1e5f2" layoutX="45.0" layoutY="45.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" rotate="45.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
+      <Line endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
       <Label layoutX="37.0" layoutY="488.0" prefHeight="35.0" prefWidth="546.0" text="Click and Drag the Brush to Dust for Fingerprint" textFill="#fffafa">
          <font>
             <Font name="System Bold" size="24.0" />

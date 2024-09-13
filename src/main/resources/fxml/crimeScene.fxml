@@ -46,5 +46,10 @@
       <Rectangle fx:id="hammerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" layoutX="458.0" layoutY="405.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
       <Rectangle fx:id="shoeprintRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="100.0" layoutY="326.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
       <Rectangle fx:id="securityCameraRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="509.0" layoutY="48.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+      <Button fx:id="guessBtn" layoutX="698.0" layoutY="417.0" mnemonicParsing="false" onAction="#guessBtnClicked" prefHeight="43.0" prefWidth="160.0" style="-fx-background-color: B1E5F2;" text="Guess">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

@@ -15,9 +15,15 @@ public class CrimeSceneController {
   @FXML private Rectangle sonPinRect;
   @FXML private Rectangle friendPinRect;
   @FXML private Rectangle wifePinRect;
+  @FXML private Button guessBtn;
 
   @FXML
   private void showEvidence() {
     System.out.println("Show Evidence Button Clicked");
+  }
+
+  @FXML
+  private void guessBtnClicked() {
+    System.out.println("Guess Button Clicked");
   }
 }

@@ -24,6 +24,7 @@ public abstract class Chat {
   private ChatCompletionRequest chatCompletionRequest;
   private String role;
   private String promptFilename;
+  private String suspectName;
 
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
@@ -48,7 +49,7 @@ public abstract class Chat {
   public void setRole(String role, String promptFilename) {
     this.role = role;
     this.promptFilename = promptFilename;
-    System.out.println(this);
+    this.suspectName = role; // Add suspectName param when names are given
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
       chatCompletionRequest =
@@ -94,13 +95,13 @@ public abstract class Chat {
           chatCompletionRequest.addMessage(result.getChatMessage());
 
           // Create temp message to change role name
-          ChatMessage tempMsg = new ChatMessage(role, result.getChatMessage().getContent());
+          ChatMessage tempMsg = new ChatMessage(suspectName, result.getChatMessage().getContent());
 
           Platform.runLater(() -> {
-            // Append text and ren-enable button on task complete
+            // Append text and re-enable button on task complete
             appendChatMessage(tempMsg);
             sendButton.setDisable(false);
-            FreeTextToSpeech.speak(result.getChatMessage().getContent());
+            // FreeTextToSpeech.speak(result.getChatMessage().getContent()); Turn off tts, probably will delete
           });
         } catch (ApiProxyException e) {
           e.printStackTrace();

@@ -24,7 +24,7 @@
             <Font name="Engravers MT" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="503.0" layoutY="429.0" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="52.0" prefWidth="344.0" style="-fx-border-radius: 15; -fx-background-color: fff; -fx-border-width: 2; -fx-border-color: 000; -fx-border-style: solid;" text="Quit">
+      <Button fx:id="quitButton" layoutX="503.0" layoutY="429.0" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="52.0" prefWidth="344.0" style="-fx-border-radius: 15; -fx-background-color: fff; -fx-border-width: 2; -fx-border-style: solid;" text="Quit">
          <font>
             <Font name="Engravers MT" size="36.0" />
          </font>

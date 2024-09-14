@@ -23,7 +23,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public abstract class Chat {
   private ChatCompletionRequest chatCompletionRequest;
   private String role;
-  private String suspectName = "Ex-Wife";
+  private String promptFilename;
 
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
@@ -37,7 +37,7 @@ public abstract class Chat {
   private String getSystemPrompt() {
     Map<String, String> map = new HashMap<>();
     map.put("role", role);
-    return PromptEngineering.getPrompt("chat.txt", map); //Remember to change this to exwife.txt
+    return PromptEngineering.getPrompt(promptFilename, map);
   }
 
   /**
@@ -45,8 +45,9 @@ public abstract class Chat {
    *
    * @param role the role to set
    */
-  public void setRole(String role) {
+  public void setRole(String role, String promptFilename) {
     this.role = role;
+    this.promptFilename = promptFilename;
     System.out.println(this);
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
@@ -93,7 +94,7 @@ public abstract class Chat {
           chatCompletionRequest.addMessage(result.getChatMessage());
 
           // Create temp message to change role name
-          ChatMessage tempMsg = new ChatMessage(suspectName, result.getChatMessage().getContent());
+          ChatMessage tempMsg = new ChatMessage(role, result.getChatMessage().getContent());
 
           Platform.runLater(() -> {
             // Append text and ren-enable button on task complete

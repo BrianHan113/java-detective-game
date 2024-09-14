@@ -90,8 +90,4 @@ public class App extends Application {
   private void handleWindowClose(WindowEvent event) {
     FreeTextToSpeech.deallocateSynthesizer();
   }
-
-  public static void setTheRoot(Parent fxml) throws IOException {
-    scene.setRoot(fxml);
-  }
 }

@@ -1,12 +1,5 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javafx.application.Platform;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,15 +7,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.shape.Rectangle;
-import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
-import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
-import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
-import nz.ac.auckland.apiproxy.chat.openai.Choice;
-import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.Chat;
-import nz.ac.auckland.se206.prompts.PromptEngineering;
-import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
 public class ExwifeController extends Chat{
 
@@ -48,5 +34,6 @@ public class ExwifeController extends Chat{
         sendButton.fire();
       }
     });
+    setRole("Ex-Wife", "chat.txt");
   }
 }

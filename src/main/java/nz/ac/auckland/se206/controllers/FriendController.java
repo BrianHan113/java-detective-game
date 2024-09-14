@@ -27,13 +27,13 @@ public class FriendController extends Chat{
    */
   @FXML
   public void initialize() throws ApiProxyException {
-    System.out.println("Initialized Ex-wife Chat: "+this);
+    System.out.println("Initialized Friend Chat: "+this);
     // Bind <Enter> key to sendButton
     txtInput.setOnKeyPressed(event -> {
       if (event.getCode() == KeyCode.ENTER) {
         sendButton.fire();
       }
     });
-    
+    setRole("Friend", "chat.txt");
   }
 }

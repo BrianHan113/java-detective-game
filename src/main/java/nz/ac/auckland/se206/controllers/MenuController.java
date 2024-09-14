@@ -22,7 +22,7 @@ public class MenuController {
   @FXML
   private void playButtonClicked(ActionEvent event) throws IOException {
     // Change to correct room to start game.
-    App.setRoot("exwife");
+    App.setRoot("son");
   }
 
   @FXML

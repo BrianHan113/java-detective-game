@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,7 +20,6 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -33,7 +34,8 @@ public class ExwifeController {
   @FXML private Rectangle friendRect;
 
   private ChatCompletionRequest chatCompletionRequest;
-  private String profession;
+  private String role;
+  private String suspectName = "Ex-Wife";
 
   /**
    * Initializes the chat view.
@@ -42,7 +44,7 @@ public class ExwifeController {
    */
   @FXML
   public void initialize() throws ApiProxyException {
-    System.out.println("Initialized Ex-wife Chat");
+    System.out.println("Initialized Ex-wife Chat: "+this);
     // Bind <Enter> key to sendButton
     txtInput.setOnKeyPressed(event -> {
       if (event.getCode() == KeyCode.ENTER) {
@@ -52,23 +54,24 @@ public class ExwifeController {
   }
 
   /**
-   * Generates the system prompt based on the profession.
+   * Generates the system prompt based on the role.
    *
    * @return the system prompt string
    */
   private String getSystemPrompt() {
     Map<String, String> map = new HashMap<>();
-    map.put("profession", profession);
-    return PromptEngineering.getPrompt("exwife.txt", map);
+    map.put("role", role);
+    return PromptEngineering.getPrompt("chat.txt", map);
   }
 
   /**
-   * Sets the profession for the chat context and initializes the ChatCompletionRequest.
+   * Sets the role for the chat context and initializes the ChatCompletionRequest.
    *
-   * @param profession the profession to set
+   * @param role the role to set
    */
-  public void setProfession(String profession) {
-    this.profession = profession;
+  public void setRole(String role) {
+    this.role = role;
+    System.out.println(this);
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
       chatCompletionRequest =
@@ -99,19 +102,39 @@ public class ExwifeController {
    * @return the response chat message
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
-  private ChatMessage runGpt(ChatMessage msg) throws ApiProxyException {
+  private void runGpt(ChatMessage msg) throws ApiProxyException {
     chatCompletionRequest.addMessage(msg);
-    try {
-      ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
-      Choice result = chatCompletionResult.getChoices().iterator().next();
-      chatCompletionRequest.addMessage(result.getChatMessage());
-      appendChatMessage(result.getChatMessage());
-      FreeTextToSpeech.speak(result.getChatMessage().getContent());
-      return result.getChatMessage();
-    } catch (ApiProxyException e) {
-      e.printStackTrace();
-      return null;
-    }
+
+    Task<Void> gptTask = new Task<Void>() {
+      @Override
+      protected Void call() {
+        try {
+          //Disable button so another request cannot be sent
+          sendButton.setDisable(true);
+
+          ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
+          Choice result = chatCompletionResult.getChoices().iterator().next();
+          chatCompletionRequest.addMessage(result.getChatMessage());
+
+          // Create temp message to change role name
+          ChatMessage tempMsg = new ChatMessage(suspectName, result.getChatMessage().getContent());
+
+          Platform.runLater(() -> {
+            // Append text and ren-enable button on task complete
+            appendChatMessage(tempMsg);
+            sendButton.setDisable(false);
+            FreeTextToSpeech.speak(result.getChatMessage().getContent());
+          });
+        } catch (ApiProxyException e) {
+          e.printStackTrace();
+        }
+        return null;
+      }
+    };
+    
+    Thread bgThread = new Thread(gptTask);
+    bgThread.start();
+
   }
 
   /**
@@ -128,20 +151,11 @@ public class ExwifeController {
       return;
     }
     txtInput.clear();
-    ChatMessage msg = new ChatMessage("user", message);
-    appendChatMessage(msg);
-    runGpt(msg);
-  }
 
-  /**
-   * Navigates back to the previous view.
-   *
-   * @param event the action event triggered by the go back button
-   * @throws ApiProxyException if there is an error communicating with the API proxy
-   * @throws IOException if there is an I/O error
-   */
-  @FXML
-  private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
-    App.setRoot("room");
+    // Create tempMsg to change role name
+    ChatMessage tempMsg = new ChatMessage("Detective", message);
+    appendChatMessage(tempMsg);
+    ChatMessage msg = new ChatMessage("user", message);
+    runGpt(msg);
   }
 }

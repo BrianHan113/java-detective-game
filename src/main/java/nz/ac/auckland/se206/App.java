@@ -79,7 +79,7 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    Parent root = loadFxml("room");
+    Parent root = loadFxml("menu");
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
@@ -89,5 +89,9 @@ public class App extends Application {
 
   private void handleWindowClose(WindowEvent event) {
     FreeTextToSpeech.deallocateSynthesizer();
+  }
+
+  public static void setTheRoot(Parent fxml) throws IOException {
+    scene.setRoot(fxml);
   }
 }

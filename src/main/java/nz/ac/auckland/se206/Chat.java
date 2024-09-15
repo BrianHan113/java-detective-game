@@ -1,9 +1,8 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.HashMap;
-
+import java.util.Map;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -18,7 +17,6 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
-import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
 public abstract class Chat {
   private ChatCompletionRequest chatCompletionRequest;
@@ -29,7 +27,7 @@ public abstract class Chat {
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
   @FXML private TextField txtInput;
-  
+
   /**
    * Generates the system prompt based on the role.
    *
@@ -70,7 +68,7 @@ public abstract class Chat {
    * @param msg the chat message to append
    */
   private void appendChatMessage(ChatMessage msg) {
-    txtArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n");
+    txtArea.appendText("\n" + msg.getRole() + ": " + msg.getContent() + "\n");
   }
 
   /**
@@ -83,33 +81,37 @@ public abstract class Chat {
   private void runGpt(ChatMessage msg) throws ApiProxyException {
     chatCompletionRequest.addMessage(msg);
 
-    Task<Void> gptTask = new Task<Void>() {
-      @Override
-      protected Void call() {
-        try {
-          //Disable button so another request cannot be sent
-          sendButton.setDisable(true);
+    Task<Void> gptTask =
+        new Task<Void>() {
+          @Override
+          protected Void call() {
+            try {
+              // Disable button so another request cannot be sent
+              sendButton.setDisable(true);
 
-          ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
-          Choice result = chatCompletionResult.getChoices().iterator().next();
-          chatCompletionRequest.addMessage(result.getChatMessage());
+              ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
+              Choice result = chatCompletionResult.getChoices().iterator().next();
+              chatCompletionRequest.addMessage(result.getChatMessage());
 
-          // Create temp message to change role name
-          ChatMessage tempMsg = new ChatMessage(suspectName, result.getChatMessage().getContent());
+              // Create temp message to change role name
+              ChatMessage tempMsg =
+                  new ChatMessage(suspectName, result.getChatMessage().getContent());
 
-          Platform.runLater(() -> {
-            // Append text and re-enable button on task complete
-            appendChatMessage(tempMsg);
-            sendButton.setDisable(false);
-            // FreeTextToSpeech.speak(result.getChatMessage().getContent()); Turn off tts, probably will delete
-          });
-        } catch (ApiProxyException e) {
-          e.printStackTrace();
-        }
-        return null;
-      }
-    };
-    
+              Platform.runLater(
+                  () -> {
+                    // Append text and re-enable button on task complete
+                    appendChatMessage(tempMsg);
+                    sendButton.setDisable(false);
+                    // FreeTextToSpeech.speak(result.getChatMessage().getContent()); Turn off tts,
+                    // probably will delete
+                  });
+            } catch (ApiProxyException e) {
+              e.printStackTrace();
+            }
+            return null;
+          }
+        };
+
     Thread bgThread = new Thread(gptTask);
     bgThread.start();
   }

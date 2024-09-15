@@ -10,7 +10,7 @@ import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.Chat;
 
-public class FriendController extends Chat{
+public class FriendController extends Chat {
 
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
@@ -27,13 +27,14 @@ public class FriendController extends Chat{
    */
   @FXML
   public void initialize() throws ApiProxyException {
-    System.out.println("Initialized Friend Chat: "+this);
+    System.out.println("Initialized Friend Chat: " + this);
     // Bind <Enter> key to sendButton
-    txtInput.setOnKeyPressed(event -> {
-      if (event.getCode() == KeyCode.ENTER) {
-        sendButton.fire();
-      }
-    });
-    setRole("Friend", "chat.txt");
+    txtInput.setOnKeyPressed(
+        event -> {
+          if (event.getCode() == KeyCode.ENTER) {
+            sendButton.fire();
+          }
+        });
+    setRole("Friend", "friend.txt");
   }
 }

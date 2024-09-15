@@ -27,13 +27,14 @@ public class SonController extends Chat {
    */
   @FXML
   public void initialize() throws ApiProxyException {
-    System.out.println("Initialized Son Chat: "+this);
+    System.out.println("Initialized Son Chat: " + this);
     // Bind <Enter> key to sendButton
-    txtInput.setOnKeyPressed(event -> {
-      if (event.getCode() == KeyCode.ENTER) {
-        sendButton.fire();
-      }
-    });
+    txtInput.setOnKeyPressed(
+        event -> {
+          if (event.getCode() == KeyCode.ENTER) {
+            sendButton.fire();
+          }
+        });
     setRole("Son", "chat.txt");
   }
 }

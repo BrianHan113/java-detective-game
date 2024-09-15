@@ -39,7 +39,7 @@ public class FriendController extends Chat {
             sendButton.fire();
           }
         });
-    setRole("Friend", "chat.txt");
+    setRole("Friend", "friend.txt");
   }
 
   @FXML

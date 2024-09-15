@@ -39,7 +39,7 @@ public class SonController extends Chat {
             sendButton.fire();
           }
         });
-    setRole("Son", "chat.txt");
+    setRole("Son", "son.txt");
   }
 
   @FXML

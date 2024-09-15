@@ -39,7 +39,7 @@ public class ExwifeController extends Chat {
             sendButton.fire();
           }
         });
-    setRole("Ex-Wife", "chat.txt");
+    setRole("Ex-Wife", "exwife.txt");
   }
 
   @FXML

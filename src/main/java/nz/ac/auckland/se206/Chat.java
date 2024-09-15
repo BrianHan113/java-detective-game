@@ -68,7 +68,7 @@ public abstract class Chat {
    * @param msg the chat message to append
    */
   private void appendChatMessage(ChatMessage msg) {
-    txtArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n");
+    txtArea.appendText("\n" + msg.getRole() + ": " + msg.getContent() + "\n");
   }
 
   /**

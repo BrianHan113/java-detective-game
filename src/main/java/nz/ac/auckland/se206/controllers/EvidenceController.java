@@ -1,3 +1,17 @@
 package nz.ac.auckland.se206.controllers;
 
-public class EvidenceController {}
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.shape.Circle;
+
+public class EvidenceController {
+
+  @FXML private Circle exitCircle;
+  @FXML private Label timerLabel;
+  @FXML private Label fingerprintLabel;
+  @FXML private Label shoeprintLabel;
+  @FXML private Label securityCamLabel;
+  @FXML private Label fingerprintHideLabel;
+  @FXML private Label shoeprintHideLabel;
+  @FXML private Label securityCamHideLabel;
+}

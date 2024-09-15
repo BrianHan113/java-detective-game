@@ -16,5 +16,5 @@ public class GuessController {
   @FXML private Rectangle sonRect;
   @FXML private Rectangle friendRect;
   @FXML private TextField txtInput;
-  @FXML private Button sendButton;
+  @FXML private Button submitButton;
 }

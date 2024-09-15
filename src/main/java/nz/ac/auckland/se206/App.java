@@ -81,6 +81,8 @@ public class App extends Application {
   @Override
   public void start(final Stage stage) throws IOException {
 
+    // Uncomment these if fxmls have something in them, otherwise compilation error
+
     SceneManager.addUi(AppUi.MAIN_MENU, loadFxml("menu"));
     SceneManager.addUi(AppUi.SON, loadFxml("son"));
     SceneManager.addUi(AppUi.CRIME_SCENE, loadFxml("crimeScene"));

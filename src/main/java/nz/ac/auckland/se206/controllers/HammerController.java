@@ -13,12 +13,15 @@ public class HammerController {
   @FXML private Label timerLabel;
   @FXML private ImageView fingerprintImage;
   @FXML private ImageView brushImage;
+  @FXML private Label evidenceLbl;
+
   public double opacity = 0;
   private boolean isFingerprintDusted = false;
 
   @FXML
   public void initialize() {
     fingerprintImage.setOpacity(opacity);
+    evidenceLbl.setVisible(false);
   }
 
   @FXML
@@ -27,7 +30,10 @@ public class HammerController {
 
     if (isCollidingWithFingerprint()) {
       System.out.println("Colliding");
-      revealFingerprint();
+
+      if (!isFingerprintDusted) {
+        revealFingerprint();
+      }
     }
   }
 
@@ -50,12 +56,11 @@ public class HammerController {
   }
 
   private void revealFingerprint() {
-    if (!isFingerprintDusted) {
-      this.opacity = this.opacity + 0.001;
-      fingerprintImage.setOpacity(opacity);
-      if (opacity >= 1) {
-        isFingerprintDusted = true;
-      }
+    this.opacity = this.opacity + 0.001;
+    fingerprintImage.setOpacity(opacity);
+    if (opacity >= 1) {
+      isFingerprintDusted = true;
+      evidenceLbl.setVisible(true);
     }
   }
 }

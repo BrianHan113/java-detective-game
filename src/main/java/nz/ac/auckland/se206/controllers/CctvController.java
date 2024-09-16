@@ -56,19 +56,11 @@ public class CctvController {
   @FXML
   void handlePlayClick(ActionEvent event) {
     videoPlayer.play();
-    System.out.println("Play");
   }
 
   @FXML
   void onMediaError(ActionEvent event) {
     System.out.println("Broken Media");
-  }
-
-  @FXML
-  void onMouseClicked() {
-    System.out.println(mediaView.fitWidthProperty());
-    System.out.println(mediaView.fitHeightProperty());
-    System.out.println(mediaView.getViewport());
   }
 
 }

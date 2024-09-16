@@ -81,25 +81,29 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <VBox layoutX="13.0" layoutY="436.0" prefHeight="98.0" prefWidth="874.0">
+      <Pane layoutY="78.0" prefHeight="479.0" prefWidth="687.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <MediaView fx:id="mediaView" fitHeight="360.0" fitWidth="640.0" layoutX="24.0" layoutY="18.0" onError="#onMediaError">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </MediaView>
+            <VBox layoutX="45.0" layoutY="367.0" prefHeight="98.0" prefWidth="597.0">
                <children>
-                  <Slider fx:id="progressSlider" prefHeight="14.0" prefWidth="527.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Slider fx:id="progressSlider" prefHeight="0.0" prefWidth="527.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="92.0" prefWidth="874.0" spacing="50.0">
+                     <children>
+                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#handlePlayClick" prefHeight="25.0" prefWidth="96.0" text="Play" />
+                        <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#handlePauseClick" prefHeight="25.0" prefWidth="96.0" text="Pause" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="92.0" prefWidth="874.0" spacing="50.0">
-               <children>
-                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#handlePlayClick" text="Play" />
-                  <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#handlePauseClick" text="Pause" />
-               </children>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
-      <MediaView fx:id="mediaView" fitHeight="300.0" fitWidth="300.0" layoutX="300.0" layoutY="125.0" onError="#onMediaError" onMouseClicked="#onMouseClicked" preserveRatio="false">
-         <viewport>
-            <Rectangle2D />
-         </viewport>
-      </MediaView>
+      </Pane>
    </children>
 </Pane>

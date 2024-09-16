@@ -94,7 +94,7 @@ public class App extends Application {
     SceneManager.addUi(AppUi.FRIEND, loadFxml("friend"));
     // SceneManager.addUi(AppUi.GUESSING, loadFxml("guess"));
     // SceneManager.addUi(AppUi.HAMMER, loadFxml("hammer"));
-    // SceneManager.addUi(AppUi.CCTV, loadFxml("cctv"));
+    SceneManager.addUi(AppUi.CCTV, loadFxml("cctv"));
 
     Parent root = SceneManager.getUiRoot(AppUi.MAIN_MENU);
 

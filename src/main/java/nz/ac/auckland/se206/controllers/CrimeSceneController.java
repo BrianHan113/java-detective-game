@@ -33,7 +33,6 @@ public class CrimeSceneController {
 
   private int minute;
   private int second;
-  private int millisecond;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
 
@@ -55,8 +54,7 @@ public class CrimeSceneController {
   private void updateTimerLabel() {
     minute = timeManager.getMinute();
     second = timeManager.getSecond();
-    millisecond = timeManager.getMillisecond();
-    if (minute == 0 && second == 0 && millisecond == 0) {
+    if (minute == 0 && second == 0) {
       timerLbl.setText("Time's Up!");
       try {
         afterTimeLimit();
@@ -64,7 +62,7 @@ public class CrimeSceneController {
         e.printStackTrace();
       }
     } else {
-      timerLbl.setText(String.format("%02d:%02d:%03d", minute, second, millisecond));
+      timerLbl.setText(String.format("%02d:%02d", minute, second));
     }
   }
 

@@ -64,11 +64,10 @@ public class ExwifeController extends Chat {
   private void updateTimerLabel() {
     minute = timeManager.getMinute();
     second = timeManager.getSecond();
-    millisecond = timeManager.getMillisecond();
-    if (minute == 0 && second == 0 && millisecond == 0) {
+    if (minute == 0 && second == 0) {
       timerLabel.setText("Time's Up!");
     } else {
-      timerLabel.setText(String.format("%02d:%02d:%03d", minute, second, millisecond));
+      timerLabel.setText(String.format("%02d:%02d", minute, second));
     }
   }
 

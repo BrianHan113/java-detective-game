@@ -22,7 +22,7 @@ public class TimeManager {
   private Timeline timeline;
 
   private TimeManager() {
-    time = 2 * 60 * 1000;
+    time = 5 * 60 * 1000;
   }
 
   public void startTimer() {

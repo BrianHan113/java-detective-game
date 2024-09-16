@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Bounds;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +24,18 @@ public class HammerController {
   @FXML
   private void handleBrushDrag(MouseEvent event) {
     moveBrush(event.getSceneX(), event.getSceneY());
+
+    if (isCollidingWithFingerprint()) {
+      System.out.println("Coliding");
+    }
+  }
+
+  private boolean isCollidingWithFingerprint() {
+    Bounds fingerprintBounds = fingerprintImage.getBoundsInParent();
+    Bounds brushBounds = brushImage.getBoundsInParent();
+
+    // Return true if the brush overlaps the fingerprint
+    return fingerprintBounds.intersects(brushBounds);
   }
 
   private void moveBrush(double x, double y) {

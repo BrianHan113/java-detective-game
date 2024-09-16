@@ -15,12 +15,12 @@
             <Image url="@../images/crowbar_close.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="brushImage" fitHeight="183.0" fitWidth="116.0" layoutX="744.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="brushImage" fitHeight="183.0" fitWidth="116.0" layoutX="722.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/fingerprint_brush.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fingerprintImage" fitHeight="106.0" fitWidth="84.0" layoutX="476.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" rotate="230.0">
+      <ImageView fx:id="fingerprintImage" fitHeight="106.0" fitWidth="84.0" layoutX="476.0" layoutY="144.0" onMouseDragged="#handleMouseDragged" pickOnBounds="true" preserveRatio="true" rotate="230.0">
          <image>
             <Image url="@../images/fingerprint_exwife_blur_inverted.png" />
          </image>

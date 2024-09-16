@@ -16,13 +16,12 @@ public class TimeManager {
   }
 
   private int minute;
-  private int millisecond;
   private int second;
   private int time;
   private Timeline timeline;
 
   private TimeManager() {
-    time = 2 * 60 * 1000;
+    time = 5 * 60 * 1000;
   }
 
   public void startTimer() {
@@ -44,8 +43,7 @@ public class TimeManager {
   public String formatTime() {
     minute = time / 60000;
     second = (time % 60000) / 1000;
-    millisecond = time % 1000;
-    return String.format("%02d:%02d:%03d", minute, second, millisecond);
+    return String.format("%02d:%02d", minute, second);
   }
 
   public int getMinute() {
@@ -58,16 +56,11 @@ public class TimeManager {
     return second;
   }
 
-  public int getMillisecond() {
-    millisecond = time % 1000;
-    return millisecond;
-  }
-
   public void stop() {
     timeline.stop();
   }
 
-  public void resetTimer(int min, int sec, int milli) {
-    time = min * 60000 + sec * 1000 + milli;
+  public void resetTimer(int min) {
+    time = min * 60000;
   }
 }

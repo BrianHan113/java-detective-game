@@ -30,7 +30,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="752.0" layoutY="30.0" text="Timer">
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="704.0" layoutY="30.0" prefHeight="35.0" prefWidth="160.0" text="Timer">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

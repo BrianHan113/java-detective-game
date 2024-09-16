@@ -20,9 +20,9 @@ public class FriendController extends Chat {
   @FXML private TextArea txtArea;
   @FXML private TextField txtInput;
   @FXML private Label timerLabel;
-  @FXML private Rectangle crimeSceneRect;
-  @FXML private Rectangle sonRect;
-  @FXML private Rectangle exwifeRect;
+  @FXML private Rectangle crimeScenePinRect;
+  @FXML private Rectangle sonPinRect;
+  @FXML private Rectangle wifePinRect;
 
   /**
    * Initializes the chat view.

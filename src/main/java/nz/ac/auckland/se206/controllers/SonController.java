@@ -20,9 +20,9 @@ public class SonController extends Chat {
   @FXML private TextArea txtArea;
   @FXML private TextField txtInput;
   @FXML private Label timerLabel;
-  @FXML private Rectangle crimeSceneRect;
-  @FXML private Rectangle friendRect;
-  @FXML private Rectangle exwifeRect;
+  @FXML private Rectangle crimeScenePinRect;
+  @FXML private Rectangle friendPinRect;
+  @FXML private Rectangle wifeRect;
 
   /**
    * Initializes the chat view.

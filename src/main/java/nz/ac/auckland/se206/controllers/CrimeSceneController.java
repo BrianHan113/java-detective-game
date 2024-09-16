@@ -110,7 +110,7 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void handleNavigationClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
     Scene sceneOfShape = shape.getScene();
@@ -124,6 +124,15 @@ public class CrimeSceneController {
         break;
       case "sonPinRect":
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        break;
+      case "securityCameraRect":
+        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
+        break;
+      case "shoeprintRect":
+        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
+        break;
+      case "hammerRect":
+        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.HAMMER));
         break;
 
       default:

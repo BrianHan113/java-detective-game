@@ -71,7 +71,7 @@ public class ExwifeController extends Chat {
   }
 
   @FXML
-  private void handleNavigationClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
     Scene sceneOfShape = shape.getScene();

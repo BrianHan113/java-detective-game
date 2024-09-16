@@ -76,24 +76,28 @@ public class CrimeSceneController {
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
       System.out.println("Clues: Y, All suspects: Y");
+      timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
       System.out.println("Clues: N, All suspects: Y");
+      timeOver = true;
     } else if (!timeOver
         && interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: Y, All suspects: N");
+      timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: N, All suspects: N");
+      timeOver = true;
     }
   }
 

@@ -29,7 +29,6 @@ public class HammerController {
     moveBrush(event.getSceneX(), event.getSceneY());
 
     if (isCollidingWithFingerprint()) {
-      System.out.println("Colliding");
 
       if (!isFingerprintDusted) {
         revealFingerprint();

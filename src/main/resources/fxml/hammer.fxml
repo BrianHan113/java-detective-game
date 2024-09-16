@@ -43,7 +43,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="evidenceLbl" layoutX="338.0" layoutY="28.0" prefHeight="35.0" prefWidth="225.0" text="Added To Evidence" textFill="#fffafa">
+      <Label fx:id="evidenceLbl" layoutX="280.0" layoutY="28.0" prefHeight="35.0" prefWidth="350.0" text="Added Fingerprint To Evidence" textFill="#fffafa">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

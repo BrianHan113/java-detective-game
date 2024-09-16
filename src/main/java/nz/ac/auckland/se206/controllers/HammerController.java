@@ -61,6 +61,10 @@ public class HammerController {
     if (opacity >= 1) {
       isFingerprintDusted = true;
       evidenceLbl.setVisible(true);
+
+      // To the guy implementing fingerprint clue scene,
+      // this is where fingerprint is fully dusted
+
     }
   }
 }

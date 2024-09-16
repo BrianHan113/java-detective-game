@@ -26,7 +26,8 @@ public class HammerController {
     moveBrush(event.getSceneX(), event.getSceneY());
 
     if (isCollidingWithFingerprint()) {
-      System.out.println("Coliding");
+      System.out.println("Colliding");
+      revealFingerprint();
     }
   }
 
@@ -48,15 +49,13 @@ public class HammerController {
     brushImage.setLayoutY(y - brushImage.getFitHeight() / 2);
   }
 
-  // @FXML
-  // private void handleMouseDragged(MouseEvent event) {
-  //   if (!isFingerprintDusted) {
-  //     this.opacity = this.opacity + 0.001;
-  //     fingerprintImage.setOpacity(opacity);
-  //     System.out.println("weiofj");
-  //     if (opacity >= 1) {
-  //       isFingerprintDusted = true;
-  //     }
-  //   }
-  // }
+  private void revealFingerprint() {
+    if (!isFingerprintDusted) {
+      this.opacity = this.opacity + 0.001;
+      fingerprintImage.setOpacity(opacity);
+      if (opacity >= 1) {
+        isFingerprintDusted = true;
+      }
+    }
+  }
 }

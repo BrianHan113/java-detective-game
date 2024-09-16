@@ -41,7 +41,6 @@ public class CrimeSceneController {
   public void initialize() {
     if (isFirstTimeInit) {
       isFirstTimeInit = false;
-      timeManager.startTimer();
     }
     timerLbl.setText(timeManager.formatTime());
     decrementTime();

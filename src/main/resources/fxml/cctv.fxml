@@ -31,34 +31,34 @@
             <Image url="@../images/other_page_colour.png" />
          </image>
       </ImageView>
-      <Label fx:id="evidenceLabel" layoutX="115.0" layoutY="50.0" text="EVIDENCE" textFill="WHITE">
+      <Label fx:id="evidenceLabel" layoutX="115.0" layoutY="50.0" text="EVIDENCE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="300.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/other_page_colour.png" />
+            <Image url="@../images/other_page.png" />
          </image>
       </ImageView>
-      <Label fx:id="fingerprintLabel" layoutX="315.0" layoutY="50.0" text="Fingerprint" textFill="WHITE">
+      <Label fx:id="fingerprintLabel" layoutX="315.0" layoutY="50.0" text="Fingerprint">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="500.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/other_page_colour.png" />
+            <Image url="@../images/other_page.png" />
          </image>
       </ImageView>
-      <Label fx:id="shoeprintLabel" layoutX="515.0" layoutY="50.0" text="Shoeprint" textFill="WHITE">
+      <Label fx:id="shoeprintLabel" layoutX="515.0" layoutY="50.0" text="Shoeprint">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="700.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/current_page_colour.png" />
+            <Image url="@../images/current_page.png" />
          </image>
       </ImageView>
       <Label layoutX="715.0" layoutY="50.0" text="Security Cam">
@@ -66,16 +66,16 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="fingerprintHideLabel" layoutX="374.0" layoutY="50.0" text="???" textFill="WHITE">
+      <Label fx:id="fingerprintHideLabel" layoutX="374.0" layoutY="50.0" text="???">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="shoeprintHideLabel" layoutX="574.0" layoutY="50.0" text="???" textFill="WHITE">
+      <Label fx:id="shoeprintHideLabel" layoutX="574.0" layoutY="50.0" text="???">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <AnchorPane layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="900.0" style="-fx-background-color: e9cca2;" />
+      <AnchorPane layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="900.0" />
    </children>
 </Pane>

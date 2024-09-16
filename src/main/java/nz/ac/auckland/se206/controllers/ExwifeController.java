@@ -30,7 +30,6 @@ public class ExwifeController extends Chat {
 
   private int minute;
   private int second;
-  private int millisecond;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
 

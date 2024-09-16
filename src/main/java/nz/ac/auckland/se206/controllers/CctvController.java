@@ -20,7 +20,6 @@ public class CctvController {
 
   private int minute;
   private int second;
-  private int millisecond;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
 

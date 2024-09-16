@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 
@@ -22,9 +21,8 @@ public class MenuController {
   @FXML
   private void playButtonClicked(ActionEvent event) throws IOException {
     // Change to correct room to start game.
-    // Scene sceneOfBtn = ((Button) event.getSource()).getScene();
-    // sceneOfBtn.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
-    App.setRoot("videoplayer");
+    Scene sceneOfBtn = ((Button) event.getSource()).getScene();
+    sceneOfBtn.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
   }
 
   @FXML

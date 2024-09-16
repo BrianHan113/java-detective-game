@@ -39,7 +39,7 @@ public class CctvController {
   @FXML
   public void initialize() throws ApiProxyException {
     try {
-      footage = new Media(App.class.getResource("/videos/security_cam_footage.mp4").toURI().toString());
+      footage = new Media(App.class.getResource("/videos/SecurityCam3.mp4").toURI().toString());
       videoPlayer = new MediaPlayer(footage);
       mediaView.setMediaPlayer(videoPlayer);
     } catch (URISyntaxException e) {

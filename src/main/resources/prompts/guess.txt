@@ -1,1 +1,5 @@
-I think it's the {suspect}. 
+This is my guess as to who the culprit is: {suspect}
+This is the physical evidence I have gathered: {fingerprint}, {security_footage}, {shoe}.
+Remember, do not mention parts of the rubric if I have not gathered the evidence for that part.
+
+My Reasoning: 

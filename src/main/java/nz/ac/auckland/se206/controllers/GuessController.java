@@ -97,7 +97,7 @@ public class GuessController {
       selectLabel.setText("Please click on who you think it is.");
       return;
     }
-    
+
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
       return;
@@ -105,6 +105,10 @@ public class GuessController {
     txtInput.clear();
     Map<String, String> map = new HashMap<>();
     map.put("suspect", suspectName);
+    map.put("fingerprint", ""); // Temp blank
+    map.put("security_footage", "");
+    map.put("shoe", "");
+
     String submitPrefix = PromptEngineering.getPrompt("guess.txt", map);
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
     System.out.println(msg.getContent());

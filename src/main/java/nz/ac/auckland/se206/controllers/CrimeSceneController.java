@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -100,8 +101,10 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void showEvidence() {
-    System.out.println("Show Evidence Button Clicked");
+  private void showEvidence(ActionEvent event) {
+    Button button = (Button) event.getSource();
+    Scene scene = button.getScene();
+    scene.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
   }
 
   @FXML

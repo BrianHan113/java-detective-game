@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
-import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
@@ -28,25 +27,11 @@ public class EvidenceController {
   private int second;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
-  private InteractionManager interact = InteractionManager.getInstance();
 
   @FXML
   public void initialize() {
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
-
-    if (interact.getInteractHammer()) {
-      fingerprintHideLabel.setVisible(false);
-      fingerprintLabel.setVisible(true);
-    }
-    if (interact.getInteractFootprint()) {
-      shoeprintHideLabel.setVisible(false);
-      shoeprintLabel.setVisible(true);
-    }
-    if (interact.getInteractSecurityCamera()) {
-      securityCamHideLabel.setVisible(false);
-      securityCamLabel.setVisible(true);
-    }
   }
 
   @FXML

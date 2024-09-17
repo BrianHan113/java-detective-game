@@ -129,18 +129,12 @@ public class CrimeSceneController {
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.SON));
         break;
       case "securityCameraRect":
-        interact.setInteractClue(true);
-        interact.setInteractSecurityCamera(true);
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
       case "shoeprintRect":
-        interact.setInteractClue(true);
-        interact.setInteractFootprint(true);
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "hammerRect":
-        interact.setInteractClue(true);
-        interact.setInteractHammer(true);
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.HAMMER));
         break;
 

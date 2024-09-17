@@ -21,7 +21,6 @@ public class CctvController {
   @FXML private Label fingerprintHideLabel;
   @FXML private Label fingerprintLabel;
   @FXML private MediaView mediaView;
-  @FXML private Button pauseButton;
   @FXML private Button playButton;
   @FXML private Slider progressSlider;
   @FXML private Label shoeprintHideLabel;
@@ -30,6 +29,7 @@ public class CctvController {
 
   private Media footage;
   private MediaPlayer videoPlayer;
+  private boolean isPlaying;
 
   /**
    * Initializes the Security Cam view.
@@ -44,24 +44,34 @@ public class CctvController {
       mediaView.setMediaPlayer(videoPlayer);
     } catch (URISyntaxException e) {
       // Handle the exception as needed
+      System.out.println("Problem with the media file");
       e.printStackTrace();
     }
-  }
 
-  @FXML
-  void handlePauseClick(ActionEvent event) {
-    videoPlayer.stop();
+    videoPlayer.setOnEndOfMedia(() -> {
+      isPlaying = false;
+      videoPlayer.stop();
+      playButton.setText("PLAY");
+      System.out.println("End of Media");
+    });
   }
 
   @FXML
   void handlePlayClick(ActionEvent event) {
-    videoPlayer.play();
+    if (isPlaying) {
+      videoPlayer.pause();
+      playButton.setText("PLAY");
+      isPlaying = false;
+    } else {
+      videoPlayer.play();
+      playButton.setText("PAUSE");
+      isPlaying = true;
+    }
   }
 
   @FXML
   void onMediaError(ActionEvent event) {
     System.out.println("Broken Media");
   }
-
 }
 

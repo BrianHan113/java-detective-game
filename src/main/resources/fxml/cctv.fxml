@@ -83,12 +83,12 @@
       </Label>
       <Pane layoutY="78.0" prefHeight="479.0" prefWidth="687.0">
          <children>
-            <MediaView fx:id="mediaView" fitHeight="360.0" fitWidth="640.0" layoutX="24.0" layoutY="18.0" onError="#onMediaError">
+            <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="227.0" layoutY="50.0" onError="#onMediaError">
                <viewport>
                   <Rectangle2D />
                </viewport>
             </MediaView>
-            <VBox layoutX="45.0" layoutY="367.0" prefHeight="98.0" prefWidth="597.0">
+            <VBox layoutX="168.0" layoutY="357.0" prefHeight="98.0" prefWidth="597.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -97,8 +97,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="92.0" prefWidth="874.0" spacing="50.0">
                      <children>
-                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#handlePlayClick" prefHeight="25.0" prefWidth="96.0" text="Play" />
-                        <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#handlePauseClick" prefHeight="25.0" prefWidth="96.0" text="Pause" />
+                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#handlePlayClick" prefHeight="25.0" prefWidth="96.0" text="PLAY" />
                      </children>
                   </HBox>
                </children>

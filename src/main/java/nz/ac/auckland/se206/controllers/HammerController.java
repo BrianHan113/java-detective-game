@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -21,6 +22,7 @@ public class HammerController {
   @FXML private ImageView fingerprintImage;
   @FXML private ImageView brushImage;
   @FXML private Label evidenceLbl;
+  @FXML private Line crossLine;
 
   public double opacity = 0;
   private boolean isFingerprintDusted = false;
@@ -54,6 +56,13 @@ public class HammerController {
   private void exitToCrimeScene(MouseEvent event) {
     Circle button = (Circle) event.getSource();
     Scene scene = button.getScene();
+    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
+
+  @FXML
+  private void exitToCrimeSceneLine(MouseEvent event) {
+    Line line = (Line) event.getSource();
+    Scene scene = line.getScene();
     scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 

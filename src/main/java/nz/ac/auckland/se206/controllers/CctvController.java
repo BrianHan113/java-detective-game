@@ -17,6 +17,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
@@ -36,6 +37,7 @@ public class CctvController {
   @FXML private Label shoeprintHideLabel;
   @FXML private Label shoeprintLabel;
   @FXML private Label timerLabel;
+  @FXML private Line crossLine;
 
   private Media footage;
   private MediaPlayer videoPlayer;
@@ -129,6 +131,16 @@ public class CctvController {
   }
 
   @FXML
+  private void exitToCrimeSceneLine(MouseEvent event) {
+    videoPlayer.pause();
+    playButton.setText("PLAY");
+    isPlaying = false;
+    Line line = (Line) event.getSource();
+    Scene scene = line.getScene();
+    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
+
+  @FXML
   private void moveToOtherEvidence(MouseEvent event) {
     Label label = (Label) event.getSource();
     String labelId = label.getId();
@@ -151,7 +163,6 @@ public class CctvController {
         break;
     }
   }
-
 
   private void decrementTime() {
     timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel()));

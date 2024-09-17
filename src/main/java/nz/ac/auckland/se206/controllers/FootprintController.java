@@ -54,7 +54,7 @@ public class FootprintController {
 
   private void moveRuler(double x, double y) {
     // Prevent ruler from going off screen
-    if (x < 50 || x > 850 || y < 50 || y > 500) {
+    if (x < 50 || x > 850 || y < 150 || y > 500) {
       return;
     }
 

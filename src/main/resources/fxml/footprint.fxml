@@ -26,14 +26,14 @@
                   <Image url="@../images/footprint.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="rulerImage" fitHeight="40.0" fitWidth="370.0" layoutX="74.0" layoutY="356.0" onMouseDragged="#handleRulerDrag" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/footprint_ruler.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="234.0" fitWidth="413.0" layoutX="486.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/footprint_shoechart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rulerImage" fitHeight="40.0" fitWidth="370.0" layoutX="74.0" layoutY="356.0" onMouseDragged="#handleRulerDrag" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/footprint_ruler.png" />
                </image>
             </ImageView>
          </children>

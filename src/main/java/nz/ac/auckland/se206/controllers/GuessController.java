@@ -93,6 +93,11 @@ public class GuessController {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
+    if (suspectName == null) {
+      selectLabel.setText("Please click on who you think it is.");
+      return;
+    }
+    
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
       return;

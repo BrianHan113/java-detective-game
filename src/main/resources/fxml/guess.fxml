@@ -37,7 +37,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="selectLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="754.0" layoutY="314.0">
+      <Label fx:id="selectLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="686.0" layoutY="323.0" prefHeight="57.0" prefWidth="189.0" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>

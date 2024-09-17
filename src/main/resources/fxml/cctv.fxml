@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
@@ -76,6 +81,28 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <AnchorPane layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="900.0" />
+      <Pane layoutY="78.0" prefHeight="479.0" prefWidth="687.0">
+         <children>
+            <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="227.0" layoutY="50.0" onError="#onMediaError">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </MediaView>
+            <VBox layoutX="168.0" layoutY="357.0" prefHeight="98.0" prefWidth="597.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Slider fx:id="progressSlider" prefHeight="0.0" prefWidth="527.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="92.0" prefWidth="874.0" spacing="50.0">
+                     <children>
+                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#handlePlayClick" prefHeight="25.0" prefWidth="96.0" text="PLAY" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
    </children>
 </Pane>

@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -32,5 +34,6 @@ public class MenuController {
   @FXML
   private void quitButtonClicked(ActionEvent event) {
     // Quit game
+    Platform.exit();
   }
 }

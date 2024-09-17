@@ -20,8 +20,8 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Ellipse fill="WHITE" layoutX="224.0" layoutY="228.0" radiusX="95.0" radiusY="150.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="4.0" />
-            <ImageView fitHeight="242.0" fitWidth="240.0" layoutX="102.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+            <Ellipse fill="WHITE" layoutX="269.0" layoutY="230.0" radiusX="106.0" radiusY="181.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="4.0" />
+            <ImageView fitHeight="418.0" fitWidth="333.0" layoutX="103.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
                   <Image url="@../images/footprint.png" />
                </image>
@@ -31,7 +31,7 @@
                   <Image url="@../images/footprint_shoechart.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="rulerImage" fitHeight="40.0" fitWidth="370.0" layoutX="74.0" layoutY="356.0" onMouseDragged="#handleRulerDrag" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="rulerImage" fitHeight="51.0" fitWidth="515.0" layoutX="67.0" layoutY="371.0" onMouseDragged="#handleRulerDrag" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/footprint_ruler.png" />
                </image>

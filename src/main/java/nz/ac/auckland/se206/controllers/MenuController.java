@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +26,7 @@ public class MenuController {
   private void playButtonClicked(ActionEvent event) throws IOException {
     // Change to correct room to start game.
     Scene sceneOfBtn = ((Button) event.getSource()).getScene();
-    sceneOfBtn.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+    sceneOfBtn.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
     timeManager.startTimer();
   }
 

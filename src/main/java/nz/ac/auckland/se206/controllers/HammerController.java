@@ -4,11 +4,14 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
 public class HammerController {
@@ -30,7 +33,7 @@ public class HammerController {
   public void initialize() {
     fingerprintImage.setOpacity(opacity);
     evidenceLbl.setVisible(false);
-    
+
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
   }
@@ -45,6 +48,13 @@ public class HammerController {
         revealFingerprint();
       }
     }
+  }
+
+  @FXML
+  private void exitToCrimeScene(MouseEvent event) {
+    Circle button = (Circle) event.getSource();
+    Scene scene = button.getScene();
+    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 
   private boolean isCollidingWithFingerprint() {
@@ -76,7 +86,7 @@ public class HammerController {
       // this is where fingerprint is fully dusted
     }
   }
-  
+
   private void decrementTime() {
     timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel()));
     timeline.setCycleCount(Timeline.INDEFINITE);

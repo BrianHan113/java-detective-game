@@ -11,10 +11,15 @@ public class InteractionManager {
     return instance;
   }
 
-  private boolean interactClue;
-  private boolean interactExwife;
-  private boolean interactFriend;
-  private boolean interactSon;
+  private boolean interactClue = false;
+  private boolean interactExwife = false;
+  private boolean interactFriend = false;
+  private boolean interactSon = false;
+
+  private boolean interactHammer = false;
+  private boolean interactFingerprintDusted = false;
+  private boolean interactFootprint = false;
+  private boolean interactSecurityCamera = false;
 
   private InteractionManager() {}
 
@@ -34,6 +39,22 @@ public class InteractionManager {
     return interactSon;
   }
 
+  public boolean getInteractHammer() {
+    return interactHammer;
+  }
+
+  public boolean getInteractFingerprintDusted() {
+    return interactFingerprintDusted;
+  }
+
+  public boolean getInteractFootprint() {
+    return interactFootprint;
+  }
+
+  public boolean getInteractSecurityCamera() {
+    return interactSecurityCamera;
+  }
+
   public void setInteractClue(boolean interactClue) {
     this.interactClue = interactClue;
   }
@@ -48,5 +69,21 @@ public class InteractionManager {
 
   public void setInteractSon(boolean interactSon) {
     this.interactSon = interactSon;
+  }
+
+  public void setInteractHammer(boolean interactHammer) {
+    this.interactHammer = interactHammer;
+  }
+
+  public void setInteractFingerprintDusted(boolean interactFingerprint) {
+    this.interactFingerprintDusted = interactFingerprint;
+  }
+
+  public void setInteractFootprint(boolean interactFootprint) {
+    this.interactFootprint = interactFootprint;
+  }
+
+  public void setInteractSecurityCamera(boolean interactSecurityCamera) {
+    this.interactSecurityCamera = interactSecurityCamera;
   }
 }

@@ -3,9 +3,13 @@ package nz.ac.auckland.se206.controllers;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
 public class EvidenceController {
@@ -24,9 +28,41 @@ public class EvidenceController {
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
 
+  @FXML
   public void initialize() {
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
+  }
+
+  @FXML
+  private void exitToCrimeScene(MouseEvent event) {
+    Circle circle = (Circle) event.getSource();
+    Scene scene = circle.getScene();
+    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
+
+  @FXML
+  private void moveToOtherEvidence(MouseEvent event) {
+    Label label = (Label) event.getSource();
+    String labelId = label.getId();
+    Scene scene = label.getScene();
+
+    switch (labelId) {
+      case "evidenceLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
+        break;
+      case "fingerprintLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
+        break;
+      case "shoeprintLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
+        break;
+      case "securityCamLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
+        break;
+      default:
+        break;
+    }
   }
 
   private void decrementTime() {

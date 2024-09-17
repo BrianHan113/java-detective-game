@@ -27,7 +27,7 @@ public class MenuController {
   private void playButtonClicked(ActionEvent event) throws IOException {
     // Change to correct room to start game.
     Scene sceneOfBtn = ((Button) event.getSource()).getScene();
-    sceneOfBtn.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+    sceneOfBtn.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
     timeManager.startTimer();
   }
 

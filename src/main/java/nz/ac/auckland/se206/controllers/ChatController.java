@@ -14,7 +14,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
-import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -22,7 +22,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
  * Controller class for the chat view. Handles user interactions and communication with the GPT
  * model via the API proxy.
  */
-public class ChatController {
+public class ChatController implements Controller{
 
   @FXML private TextArea txtaChat;
   @FXML private TextField txtInput;
@@ -37,7 +37,7 @@ public class ChatController {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   @FXML
-  public void initialize() throws ApiProxyException {
+  public void initialize() {
     // Any required initialization code can be placed here
   }
 
@@ -123,15 +123,4 @@ public class ChatController {
     runGpt(msg);
   }
 
-  /**
-   * Navigates back to the previous view.
-   *
-   * @param event the action event triggered by the go back button
-   * @throws ApiProxyException if there is an error communicating with the API proxy
-   * @throws IOException if there is an I/O error
-   */
-  @FXML
-  private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
-    App.setRoot("room");
-  }
 }

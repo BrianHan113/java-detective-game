@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
@@ -18,11 +19,12 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
-public class GuessController {
+public class GuessController implements Controller{
 
   @FXML private Label timerLabel;
   @FXML private Label selectLabel;
@@ -41,7 +43,7 @@ public class GuessController {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   @FXML
-  public void initialize() throws ApiProxyException {
+  public void initialize() {
     Map<String, String> map = new HashMap<>();
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
@@ -55,6 +57,13 @@ public class GuessController {
     } catch (ApiProxyException e) {
       e.printStackTrace();
     }
+    // Bind <Enter> key to sendButton
+    txtInput.setOnKeyPressed(
+        event -> {
+          if (event.getCode() == KeyCode.ENTER) {
+            submitButton.fire();
+          }
+        });
   }
 
   /**

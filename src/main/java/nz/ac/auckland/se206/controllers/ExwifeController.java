@@ -39,7 +39,7 @@ public class ExwifeController extends Chat {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   @FXML
-  public void initialize() throws ApiProxyException {
+  public void initialize() {
     System.out.println("Initialized Ex-wife Chat: " + this);
     // Bind <Enter> key to sendButton
     txtInput.setOnKeyPressed(

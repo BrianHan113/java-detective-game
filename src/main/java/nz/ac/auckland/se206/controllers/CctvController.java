@@ -20,11 +20,12 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class CctvController {
+public class CctvController implements Controller{
 
   @FXML private Label evidenceLabel;
   @FXML private Circle exitCircle;
@@ -50,8 +51,9 @@ public class CctvController {
    *
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
-  @FXML
-  public void initialize() throws ApiProxyException {
+  
+  @FXML @Override
+  public void initialize() throws ApiProxyException{
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
 

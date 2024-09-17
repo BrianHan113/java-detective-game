@@ -8,11 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class EvidenceController {
+public class EvidenceController implements Controller{
 
   @FXML private Circle exitCircle;
   @FXML private Label timerLabel;

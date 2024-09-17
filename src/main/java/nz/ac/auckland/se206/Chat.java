@@ -18,7 +18,7 @@ import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
-public abstract class Chat {
+public abstract class Chat implements Controller{
   private ChatCompletionRequest chatCompletionRequest;
   private String role;
   private String promptFilename;

@@ -59,6 +59,6 @@ public class FootprintController {
     }
 
     rulerImage.setLayoutX(x - rulerImage.getFitWidth() / 2);
-    rulerImage.setLayoutY(y - rulerImage.getFitHeight());
+    rulerImage.setLayoutY(y - rulerImage.getFitHeight() - 70);
   }
 }

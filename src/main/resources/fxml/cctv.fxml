@@ -83,7 +83,7 @@
       </Label>
       <Pane layoutY="78.0" prefHeight="479.0" prefWidth="687.0">
          <children>
-            <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="227.0" layoutY="50.0" onError="#onMediaError">
+            <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="227.0" layoutY="50.0">
                <viewport>
                   <Rectangle2D />
                </viewport>

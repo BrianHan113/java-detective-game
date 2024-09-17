@@ -119,11 +119,6 @@ public class CctvController {
   }
 
   @FXML
-  private void onMediaError(ActionEvent event) {
-    System.out.println("Broken Media");
-  }
-
-  @FXML
   private void exitToCrimeScene(MouseEvent event) {
     videoPlayer.pause();
     playButton.setText("PLAY");
@@ -156,6 +151,7 @@ public class CctvController {
         break;
     }
   }
+
 
   private void decrementTime() {
     timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel()));

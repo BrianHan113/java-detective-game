@@ -128,9 +128,33 @@ public class CctvController {
     videoPlayer.pause();
     playButton.setText("PLAY");
     isPlaying = false;
-    Circle button = (Circle) event.getSource();
-    Scene scene = button.getScene();
+    Circle circle = (Circle) event.getSource();
+    Scene scene = circle.getScene();
     scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
+
+  @FXML
+  private void moveToOtherEvidence(MouseEvent event) {
+    Label label = (Label) event.getSource();
+    String labelId = label.getId();
+    Scene scene = label.getScene();
+
+    switch (labelId) {
+      case "evidenceLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
+        break;
+      case "fingerprintLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
+        break;
+      case "shoeprintLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
+        break;
+      case "securityCamLabel":
+        scene.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
+        break;
+      default:
+        break;
+    }
   }
 
   private void decrementTime() {

@@ -10,12 +10,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public abstract class Chat implements Controller{
@@ -136,5 +139,29 @@ public abstract class Chat implements Controller{
     appendChatMessage(tempMsg);
     ChatMessage msg = new ChatMessage("user", message);
     runGpt(msg);
+  }
+
+  @FXML
+  private void handleRectangleClick(MouseEvent event) throws IOException{
+    Rectangle shape = (Rectangle) event.getSource();
+    String shapeId = shape.getId();
+
+    switch (shapeId) {
+      case "friendPinRect":
+        App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        break;
+      case "sonPinRect":
+        App.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        break;
+      case "wifePinRect":
+        App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        break;
+      case "crimeScenePinRect":
+        App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+        break;
+
+      default:
+        break;
+    }
   }
 }

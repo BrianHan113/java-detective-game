@@ -2,6 +2,9 @@ package nz.ac.auckland.se206.controllers;
 
 import java.net.URISyntaxException;
 
+import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,16 +51,34 @@ public class CctvController {
       e.printStackTrace();
     }
 
-    videoPlayer.setOnEndOfMedia(() -> {
-      isPlaying = false;
-      videoPlayer.stop();
-      playButton.setText("PLAY");
-      System.out.println("End of Media");
+    // Bind video player progress with progress slider
+    videoPlayer.currentTimeProperty().addListener(new InvalidationListener() {
+      public void invalidated(Observable ov) {
+        updateValues();
+      }
+    });
+
+    // Bind progress slider with video property to allow for jumping
+    progressSlider.valueProperty().addListener(new InvalidationListener() {
+      public void invalidated(Observable ov) {
+        if (progressSlider.isPressed()) {
+          videoPlayer.seek(videoPlayer.getMedia().getDuration().multiply(progressSlider.getValue()/100));
+        }
+      }
+    });
+  }
+
+  // Method to update progress slider to follow video
+  protected void updateValues() {
+    Platform.runLater(new Runnable() {
+      public void run() {
+        progressSlider.setValue(videoPlayer.getCurrentTime().toMillis() / videoPlayer.getTotalDuration().toMillis() * 100);
+      }
     });
   }
 
   @FXML
-  void handlePlayClick(ActionEvent event) {
+  private void handlePlayClick(ActionEvent event) {
     if (isPlaying) {
       videoPlayer.pause();
       playButton.setText("PLAY");
@@ -70,7 +91,7 @@ public class CctvController {
   }
 
   @FXML
-  void onMediaError(ActionEvent event) {
+  private void onMediaError(ActionEvent event) {
     System.out.println("Broken Media");
   }
 }

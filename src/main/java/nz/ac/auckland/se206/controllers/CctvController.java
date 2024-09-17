@@ -101,11 +101,6 @@ public class CctvController {
       isPlaying = true;
     }
   }
-
-  @FXML
-  private void onMediaError(ActionEvent event) {
-    System.out.println("Broken Media");
-  }
   
   private void decrementTime() {
     timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel()));

@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -24,6 +25,7 @@ public class FingerprintController {
   @FXML private Label shoeprintHideLabel;
   @FXML private Label securityCamHideLabel;
   @FXML private Label imageHideLabel;
+  @FXML private Line crossLine;
 
   private int minute;
   private int second;
@@ -40,6 +42,13 @@ public class FingerprintController {
   private void exitToCrimeScene(MouseEvent event) {
     Circle circle = (Circle) event.getSource();
     Scene scene = circle.getScene();
+    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
+
+  @FXML
+  private void exitToCrimeSceneLine(MouseEvent event) {
+    Line line = (Line) event.getSource();
+    Scene scene = line.getScene();
     scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 

@@ -125,6 +125,9 @@ public class CctvController {
 
   @FXML
   private void exitToCrimeScene(MouseEvent event) {
+    videoPlayer.pause();
+    playButton.setText("PLAY");
+    isPlaying = false;
     Circle button = (Circle) event.getSource();
     Scene scene = button.getScene();
     scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));

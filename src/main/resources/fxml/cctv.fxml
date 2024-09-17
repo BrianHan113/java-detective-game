@@ -18,7 +18,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CctvController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272635" height="90.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
-      <Circle fx:id="exitCircle" fill="#b1e5f2" layoutX="45.0" layoutY="45.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="exitCircle" fill="#b1e5f2" layoutX="45.0" layoutY="45.0" onMouseClicked="#exitToCrimeScene" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
       <Line endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
       <Line endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" rotate="45.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="685.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">

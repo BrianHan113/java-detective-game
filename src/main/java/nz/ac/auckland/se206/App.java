@@ -96,7 +96,7 @@ public class App extends Application {
     SceneManager.addUi(AppUi.HAMMER, loadFxml("hammer"));
     SceneManager.addUi(AppUi.CCTV, loadFxml("cctv"));
 
-    Parent root = SceneManager.getUiRoot(AppUi.MAIN_MENU);
+    Parent root = SceneManager.getUiRoot(AppUi.FOOTPRINT);
 
     scene = new Scene(root);
     stage.setScene(scene);

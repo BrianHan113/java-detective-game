@@ -28,6 +28,9 @@ public class PromptEngineering {
       URL resourceUrl = PromptEngineering.class.getClassLoader().getResource("prompts/"+promptId);
       String template = loadTemplate(resourceUrl.toURI());
       // Fill the template with the provided data
+      if (data == null) {
+        return template;
+      } 
       return fillTemplate(template, data);
     } catch (IOException | URISyntaxException e) {
       e.printStackTrace();

@@ -37,28 +37,18 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="exwifeLabel" layoutX="754.0" layoutY="314.0" text="Ex-Wife">
+      <Label fx:id="selectLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="754.0" layoutY="314.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="friendLabel" layoutX="759.0" layoutY="314.0" text="Friend">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="sonLabel" layoutX="769.0" layoutY="314.0" text="Son">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Rectangle fx:id="exwifeRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="236.0" layoutX="120.0" layoutY="149.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
-      <Rectangle fx:id="friendRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="289.0" layoutY="142.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="249.0" layoutX="447.0" layoutY="136.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="134.0" />
+      <Rectangle fx:id="exwifeRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="236.0" layoutX="120.0" layoutY="149.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      <Rectangle fx:id="friendRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="289.0" layoutY="142.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="sonRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="249.0" layoutX="447.0" layoutY="136.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="134.0" />
       <AnchorPane layoutY="386.0" prefHeight="165.0" prefWidth="900.0">
          <children>
             <TextField fx:id="txtInput" layoutX="15.0" layoutY="14.0" prefHeight="136.0" prefWidth="780.0" />
-            <Button fx:id="submitButton" layoutX="800.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Submit" />
+            <Button fx:id="submitButton" layoutX="800.0" layoutY="125.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="25.0" prefWidth="85.0" text="Submit" />
          </children>
       </AnchorPane>
    </children>

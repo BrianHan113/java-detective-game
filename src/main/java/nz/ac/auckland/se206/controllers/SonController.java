@@ -1,5 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,10 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.Chat;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
+import nz.ac.auckland.se206.TimeManager;
 
 public class SonController extends Chat {
 
@@ -20,9 +24,14 @@ public class SonController extends Chat {
   @FXML private TextArea txtArea;
   @FXML private TextField txtInput;
   @FXML private Label timerLabel;
-  @FXML private Rectangle crimeSceneRect;
-  @FXML private Rectangle friendRect;
-  @FXML private Rectangle exwifeRect;
+  @FXML private Rectangle crimeScenePinRect;
+  @FXML private Rectangle friendPinRect;
+  @FXML private Rectangle wifeRect;
+
+  private int minute;
+  private int second;
+  private Timeline timeline;
+  private TimeManager timeManager = TimeManager.getInstance();
 
   /**
    * Initializes the chat view.
@@ -40,10 +49,29 @@ public class SonController extends Chat {
           }
         });
     setRole("Son", "son.txt");
+
+    timerLabel.setText(timeManager.formatTime());
+    decrementTime();
+  }
+
+  private void decrementTime() {
+    timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel()));
+    timeline.setCycleCount(Timeline.INDEFINITE);
+    timeline.play();
+  }
+
+  private void updateTimerLabel() {
+    minute = timeManager.getMinute();
+    second = timeManager.getSecond();
+    if (minute == 0 && second == 0) {
+      timerLabel.setText("Time's Up!");
+    } else {
+      timerLabel.setText(String.format("%02d:%02d", minute, second));
+    }
   }
 
   @FXML
-  private void handleNavigationClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
     Scene sceneOfShape = shape.getScene();

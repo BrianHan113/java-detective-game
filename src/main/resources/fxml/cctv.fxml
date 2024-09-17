@@ -26,19 +26,19 @@
             <Image url="@../images/timer.png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLabel" layoutX="751.0" layoutY="485.0" text="Timer">
+      <Label fx:id="timerLabel" alignment="CENTER" layoutX="705.0" layoutY="485.0" prefWidth="160.0" text="Timer">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="46.0" fitWidth="180.0" layoutX="100.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/other_page.png" />
+            <Image url="@../images/other_page_colour.png" />
          </image>
       </ImageView>
       <Label fx:id="evidenceLabel" layoutX="115.0" layoutY="50.0" text="EVIDENCE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="300.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -48,7 +48,7 @@
       </ImageView>
       <Label fx:id="fingerprintLabel" layoutX="315.0" layoutY="50.0" text="Fingerprint">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="500.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -58,17 +58,17 @@
       </ImageView>
       <Label fx:id="shoeprintLabel" layoutX="515.0" layoutY="50.0" text="Shoeprint">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="700.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="700.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/current_page.png" />
          </image>
       </ImageView>
       <Label layoutX="715.0" layoutY="50.0" text="Security Cam">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Label fx:id="fingerprintHideLabel" layoutX="374.0" layoutY="50.0" text="???">

@@ -30,22 +30,22 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="752.0" layoutY="30.0" text="Timer">
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="704.0" layoutY="30.0" prefHeight="35.0" prefWidth="160.0" text="Timer">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleNavigationClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="sonPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="721.0" layoutY="152.0" onMouseClicked="#handleNavigationClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleNavigationClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="sonPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="721.0" layoutY="152.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="viewEvidenceBtn" layoutX="698.0" layoutY="356.0" mnemonicParsing="false" onAction="#showEvidence" prefHeight="43.0" prefWidth="160.0" style="-fx-background-color: B1E5F2;" text="View Evidence">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Rectangle fx:id="hammerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" layoutX="458.0" layoutY="405.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
-      <Rectangle fx:id="shoeprintRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="100.0" layoutY="326.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
-      <Rectangle fx:id="securityCameraRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="509.0" layoutY="48.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+      <Rectangle fx:id="hammerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" layoutX="458.0" layoutY="405.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="shoeprintRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="100.0" layoutY="326.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
+      <Rectangle fx:id="securityCameraRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="509.0" layoutY="48.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
       <Button fx:id="guessBtn" layoutX="698.0" layoutY="417.0" mnemonicParsing="false" onAction="#guessBtnClicked" prefHeight="43.0" prefWidth="160.0" style="-fx-background-color: B1E5F2;" text="Guess">
          <font>
             <Font name="System Bold" size="12.0" />

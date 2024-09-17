@@ -86,14 +86,14 @@ public class App extends Application {
     SceneManager.addUi(AppUi.MAIN_MENU, loadFxml("menu"));
     SceneManager.addUi(AppUi.SON, loadFxml("son"));
     SceneManager.addUi(AppUi.CRIME_SCENE, loadFxml("crimeScene"));
-    // SceneManager.addUi(AppUi.EVIDENCE, loadFxml("evidence"));
+    SceneManager.addUi(AppUi.EVIDENCE, loadFxml("evidence"));
     SceneManager.addUi(AppUi.EX_WIFE, loadFxml("exwife"));
-    // SceneManager.addUi(AppUi.FEEDBACK, loadFxml("feedback"));
-    // SceneManager.addUi(AppUi.FINGERPRINT, loadFxml("fingerprint"));
-    // SceneManager.addUi(AppUi.FOOTPRINT, loadFxml("footprint"));
+    SceneManager.addUi(AppUi.FEEDBACK, loadFxml("feedback"));
+    SceneManager.addUi(AppUi.FINGERPRINT, loadFxml("fingerprint"));
+    SceneManager.addUi(AppUi.FOOTPRINT, loadFxml("footprint"));
     SceneManager.addUi(AppUi.FRIEND, loadFxml("friend"));
-    // SceneManager.addUi(AppUi.GUESSING, loadFxml("guess"));
-    // SceneManager.addUi(AppUi.HAMMER, loadFxml("hammer"));
+    SceneManager.addUi(AppUi.GUESSING, loadFxml("guess"));
+    SceneManager.addUi(AppUi.HAMMER, loadFxml("hammer"));
     SceneManager.addUi(AppUi.CCTV, loadFxml("cctv"));
 
     Parent root = SceneManager.getUiRoot(AppUi.MAIN_MENU);

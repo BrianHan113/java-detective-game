@@ -11,6 +11,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EvidenceController">
    <children>
+      <ImageView fitHeight="583.0" fitWidth="909.0" layoutX="-4.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/background_evidence.png" />
+         </image>
+      </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272635" height="90.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
       <Circle fx:id="exitCircle" fill="#b1e5f2" layoutX="45.0" layoutY="45.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
       <Line endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
@@ -20,19 +25,19 @@
             <Image url="@../images/timer.png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLabel" layoutX="751.0" layoutY="485.0" text="Timer">
+      <Label fx:id="timerLabel" alignment="CENTER" layoutX="705.0" layoutY="485.0" prefWidth="160.0" text="Timer">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="46.0" fitWidth="180.0" layoutX="100.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="46.0" fitWidth="180.0" layoutX="100.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/current_page.png" />
+            <Image url="@../images/current_page_colour.png" />
          </image>
       </ImageView>
-      <Label layoutX="115.0" layoutY="50.0" text="EVIDENCE">
+      <Label layoutX="115.0" layoutY="51.0" text="EVIDENCE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="300.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -42,7 +47,7 @@
       </ImageView>
       <Label fx:id="fingerprintLabel" layoutX="315.0" layoutY="50.0" text="Fingerprint">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="500.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -52,7 +57,7 @@
       </ImageView>
       <Label fx:id="shoeprintLabel" layoutX="515.0" layoutY="50.0" text="Shoeprint">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="700.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -62,7 +67,7 @@
       </ImageView>
       <Label fx:id="securityCamLabel" layoutX="715.0" layoutY="50.0" text="Security Cam">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Label fx:id="fingerprintHideLabel" layoutX="374.0" layoutY="50.0" text="???">
@@ -80,7 +85,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="167.0" layoutY="275.0" text="Try and Find All Three Clues from the Crime Scene&#10;and Investigate the Clues" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="280.0" layoutY="275.0" prefHeight="143.0" prefWidth="361.0" text="Try and Find All Three Clues &#10;from the Crime Scene&#10;and Investigate the Clues" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

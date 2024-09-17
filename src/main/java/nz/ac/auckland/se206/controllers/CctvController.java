@@ -21,12 +21,12 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
-import nz.ac.auckland.se206.Controller;
+import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class CctvController implements Controller{
+public class CctvController extends Evidence{
 
   @FXML private Label evidenceLabel;
   @FXML private Circle exitCircle;
@@ -54,7 +54,7 @@ public class CctvController implements Controller{
    */
   
   @FXML @Override
-  public void initialize() throws ApiProxyException{
+  public void initialize(){
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
 
@@ -127,29 +127,6 @@ public class CctvController implements Controller{
     playButton.setText("PLAY");
     isPlaying = false;
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
-  }
-
-  @FXML
-  private void moveToOtherEvidence(MouseEvent event) throws IOException{
-    Label label = (Label) event.getSource();
-    String labelId = label.getId();
-
-    switch (labelId) {
-      case "evidenceLabel":
-        App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
-        break;
-      case "fingerprintLabel":
-        App.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
-        break;
-      case "shoeprintLabel":
-        App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
-        break;
-      case "securityCamLabel":
-        App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
-        break;
-      default:
-        break;
-    }
   }
 
 

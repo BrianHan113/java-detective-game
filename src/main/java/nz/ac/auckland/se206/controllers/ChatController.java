@@ -14,7 +14,6 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
-import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -22,7 +21,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
  * Controller class for the chat view. Handles user interactions and communication with the GPT
  * model via the API proxy.
  */
-public class ChatController implements Controller{
+public class ChatController {
 
   @FXML private TextArea txtaChat;
   @FXML private TextField txtInput;

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,6 +18,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -125,9 +125,7 @@ public class GuessController implements Controller{
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
     System.out.println(msg.getContent());
     ChatMessage feedback = runGpt(msg);
-    Button btn = (Button) event.getSource();
-    Scene sceneOfRect = btn.getScene();
-    sceneOfRect.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+    App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
   }
 
   @FXML

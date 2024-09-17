@@ -1,9 +1,9 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Chat;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -71,20 +72,19 @@ public class SonController extends Chat {
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) throws IOException{
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
-    Scene sceneOfShape = shape.getScene();
 
     switch (shapeId) {
-      case "wifePinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
-        break;
       case "friendPinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        break;
+      case "sonPinRect":
+        App.setRoot(SceneManager.getUiRoot(AppUi.SON));
         break;
       case "crimeScenePinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+        App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
         break;
 
       default:

@@ -1,15 +1,16 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -52,10 +53,8 @@ public class HammerController implements Controller{
   }
 
   @FXML
-  private void exitToCrimeScene(MouseEvent event) {
-    Circle button = (Circle) event.getSource();
-    Scene scene = button.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  private void exitToCrimeScene(MouseEvent event) throws IOException {
+    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 
   private boolean isCollidingWithFingerprint() {

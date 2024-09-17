@@ -1,14 +1,15 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -38,30 +39,27 @@ public class FingerprintController implements Controller{
   }
 
   @FXML
-  private void exitToCrimeScene(MouseEvent event) {
-    Circle circle = (Circle) event.getSource();
-    Scene scene = circle.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  private void exitToCrimeScene(MouseEvent event) throws IOException {
+    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 
   @FXML
-  private void moveToOtherEvidence(MouseEvent event) {
+  private void moveToOtherEvidence(MouseEvent event) throws IOException{
     Label label = (Label) event.getSource();
     String labelId = label.getId();
-    Scene scene = label.getScene();
 
     switch (labelId) {
       case "evidenceLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
+        App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
         break;
       case "fingerprintLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
+        App.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
         break;
       case "shoeprintLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
+        App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "securityCamLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
+        App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
       default:
         break;

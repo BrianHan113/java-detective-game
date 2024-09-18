@@ -30,6 +30,7 @@ public class FeedbackController implements Controller {
   }
 
   public void displayFeedback(String feedback) {
+    feedbackStatusLbl.setText("Review your Feedback!");
     feedbackTextArea.appendText(feedback);
   }
 }

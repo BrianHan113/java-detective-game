@@ -108,7 +108,7 @@ public class GuessController implements Controller{
                     submitButton.setDisable(false);
                     feedback = result.getChatMessage();
                     if (msg.getRole() == "user") {
-                      goToFeedback();
+                      feedbackController.displayFeedback(feedback.getContent());
                     }
                   }
               );
@@ -152,6 +152,7 @@ public class GuessController implements Controller{
     String submitPrefix = PromptEngineering.getPrompt("guess.txt", map);
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
     runGpt(msg);
+    App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
   }
 
   @FXML
@@ -172,16 +173,5 @@ public class GuessController implements Controller{
         return;
     }
     selectLabel.setText(suspectName);
-  }
-
-  private void goToFeedback() {
-    // Send feedback to feedback controller in order to display it.
-    feedbackController.displayFeedback(feedback.getContent());
-    // Handle the IOException when moving to new scene
-    try {
-      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 }

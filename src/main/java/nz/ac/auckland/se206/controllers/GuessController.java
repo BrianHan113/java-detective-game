@@ -3,7 +3,8 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -22,9 +24,10 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
+import nz.ac.auckland.se206.TimeManager;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
-public class GuessController implements Controller{
+public class GuessController implements Controller {
 
   @FXML private Label timerLabel;
   @FXML private Label selectLabel;
@@ -36,6 +39,10 @@ public class GuessController implements Controller{
 
   private ChatCompletionRequest chatCompletionRequest;
   private String suspectName;
+  private int minute;
+  private int second;
+  private Timeline timeline;
+  private TimeManager timeManager = TimeManager.getInstance();
 
   /**
    * Initializes the chat view.
@@ -64,6 +71,36 @@ public class GuessController implements Controller{
             submitButton.fire();
           }
         });
+
+    timerLabel.setText(timeManager.formatTime());
+    decrementTime();
+  }
+
+  private void decrementTime() {
+    timeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.millis(1),
+                e -> {
+                  try {
+                    updateTimerLabel();
+                  } catch (IOException e1) {
+                    e1.printStackTrace();
+                  }
+                }));
+    timeline.setCycleCount(Timeline.INDEFINITE);
+    timeline.play();
+  }
+
+  private void updateTimerLabel() throws IOException {
+    minute = timeManager.getMinute();
+    second = timeManager.getSecond();
+    if (minute == 0 && second == 0) {
+      timerLabel.setText("Time's Up!");
+      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+    } else {
+      timerLabel.setText(String.format("%02d:%02d", minute, second));
+    }
   }
 
   /**

@@ -76,6 +76,12 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
       System.out.println("Clues: Y, All suspects: Y");
+
+      timeManager.resetTimer(1);
+      timerLbl.setText(timeManager.formatTime());
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+
       timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
@@ -83,6 +89,9 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
       System.out.println("Clues: N, All suspects: Y");
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
       timeOver = true;
     } else if (!timeOver
         && interact.getInteractClue()
@@ -90,6 +99,9 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: Y, All suspects: N");
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
       timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
@@ -97,6 +109,9 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: N, All suspects: N");
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
       timeOver = true;
     }
   }

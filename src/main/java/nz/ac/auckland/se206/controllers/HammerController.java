@@ -13,6 +13,7 @@ import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
+import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
@@ -32,6 +33,7 @@ public class HammerController implements Controller {
   private int second;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
+  private static InteractionManager interact = InteractionManager.getInstance();
 
   @FXML
   public void initialize() {
@@ -84,8 +86,7 @@ public class HammerController implements Controller {
       isFingerprintDusted = true;
       evidenceLbl.setVisible(true);
 
-      // To the guy implementing fingerprint clue scene,
-      // this is where fingerprint is fully dusted
+      interact.setInteractClue(true);
     }
   }
 

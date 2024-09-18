@@ -17,7 +17,7 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class CrimeSceneController implements Controller{
+public class CrimeSceneController implements Controller {
 
   private static boolean isFirstTimeInit = true;
   private static boolean timeOver = false;
@@ -76,6 +76,12 @@ public class CrimeSceneController implements Controller{
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
       System.out.println("Clues: Y, All suspects: Y");
+
+      timeManager.resetTimer(1);
+      timerLbl.setText(timeManager.formatTime());
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+
       timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
@@ -83,6 +89,9 @@ public class CrimeSceneController implements Controller{
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
       System.out.println("Clues: N, All suspects: Y");
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
       timeOver = true;
     } else if (!timeOver
         && interact.getInteractClue()
@@ -90,6 +99,9 @@ public class CrimeSceneController implements Controller{
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: Y, All suspects: N");
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
       timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
@@ -97,12 +109,15 @@ public class CrimeSceneController implements Controller{
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: N, All suspects: N");
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
       timeOver = true;
     }
   }
 
   @FXML
-  private void showEvidence(ActionEvent event) throws IOException{
+  private void showEvidence(ActionEvent event) throws IOException {
     App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
   }
 
@@ -112,7 +127,7 @@ public class CrimeSceneController implements Controller{
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) throws IOException{
+  private void handleRectangleClick(MouseEvent event) throws IOException {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
 
@@ -127,9 +142,11 @@ public class CrimeSceneController implements Controller{
         App.setRoot(SceneManager.getUiRoot(AppUi.SON));
         break;
       case "securityCameraRect":
+        interact.setInteractClue(true);
         App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
       case "shoeprintRect":
+        interact.setInteractClue(true);
         App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "hammerRect":

@@ -6,9 +6,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 
-public abstract class Evidence implements Controller{
+public abstract class Evidence implements Controller {
   @FXML
-  private void moveToOtherEvidence(MouseEvent event) throws IOException{
+  private void moveToOtherEvidence(MouseEvent event) throws IOException {
     Label label = (Label) event.getSource();
     String labelId = label.getId();
 

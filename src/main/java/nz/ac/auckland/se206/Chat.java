@@ -3,7 +3,6 @@ package nz.ac.auckland.se206;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -11,8 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -26,7 +23,6 @@ public abstract class Chat {
   private String role;
   private String promptFilename;
   private String suspectName;
-  private MediaPlayer mediaPlayer;
 
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
@@ -134,7 +130,7 @@ public abstract class Chat {
       return;
     }
 
-    fillerVoiceLines();
+    Voicelines.fillerVoiceLines(this.role);
 
     txtInput.clear();
 
@@ -143,43 +139,5 @@ public abstract class Chat {
     appendChatMessage(tempMsg);
     ChatMessage msg = new ChatMessage("user", message);
     runGpt(msg);
-  }
-
-  private void fillerVoiceLines() {
-    // Generate random int from 1 to 4 to get random voice lines
-    Random random = new Random();
-    int randomInt = random.nextInt(4) + 1;
-    Media sound;
-
-    // Play a random voice line for each suspect in the game
-    switch (this.role) {
-      case "Ex-Wife":
-        sound =
-            new Media(
-                App.class
-                    .getResource("/sounds/exwife_tts/line_" + randomInt + ".mp3")
-                    .toExternalForm());
-        break;
-      case "Son":
-        sound =
-            new Media(
-                App.class
-                    .getResource("/sounds/son_tts/line_" + randomInt + ".mp3")
-                    .toExternalForm());
-        break;
-      case "Friend":
-        sound =
-            new Media(
-                App.class
-                    .getResource("/sounds/friend_tts/line_" + randomInt + ".mp3")
-                    .toExternalForm());
-        break;
-
-      default:
-        sound = new Media(App.class.getResource("/sounds/friend_tts/line_1.mp3").toExternalForm());
-        break;
-    }
-    mediaPlayer = new MediaPlayer(sound);
-    mediaPlayer.play();
   }
 }

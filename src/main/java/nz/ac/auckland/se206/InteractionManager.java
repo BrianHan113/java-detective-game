@@ -21,6 +21,34 @@ public class InteractionManager {
   private boolean interactFootprint = false;
   private boolean interactSecurityCamera = false;
 
+  private static boolean isVisitExWife = false;
+  private static boolean isVisitFriend = false;
+  private static boolean isVisitSon = false;
+
+  public static boolean isVisitExWife() {
+    return isVisitExWife;
+  }
+
+  public static void setVisitExWife(boolean isVisitExWife) {
+    InteractionManager.isVisitExWife = isVisitExWife;
+  }
+
+  public static boolean isVisitFriend() {
+    return isVisitFriend;
+  }
+
+  public static void setVisitFriend(boolean isVisitFriend) {
+    InteractionManager.isVisitFriend = isVisitFriend;
+  }
+
+  public static boolean isVisitSon() {
+    return isVisitSon;
+  }
+
+  public static void setVisitSon(boolean isVisitSon) {
+    InteractionManager.isVisitSon = isVisitSon;
+  }
+
   private InteractionManager() {}
 
   public boolean getInteractClue() {

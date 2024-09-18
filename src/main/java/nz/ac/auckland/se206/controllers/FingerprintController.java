@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.TimeManager;
@@ -21,6 +22,7 @@ public class FingerprintController extends Evidence{
   @FXML private Label shoeprintHideLabel;
   @FXML private Label securityCamHideLabel;
   @FXML private Label imageHideLabel;
+  @FXML private Line crossLine;
 
   private int minute;
   private int second;

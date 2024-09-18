@@ -21,11 +21,12 @@ import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
-public abstract class Chat implements Controller{
+public abstract class Chat implements Controller {
   private ChatCompletionRequest chatCompletionRequest;
   private String role;
   private String promptFilename;
   private String suspectName;
+  private InteractionManager interact = InteractionManager.getInstance();
 
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
@@ -134,6 +135,20 @@ public abstract class Chat implements Controller{
     }
     txtInput.clear();
 
+    switch (role) {
+      case "Friend":
+        interact.setInteractFriend(true);
+        break;
+      case "Son":
+        interact.setInteractSon(true);
+        break;
+      case "Ex-Wife":
+        interact.setInteractExwife(true);
+        break;
+      default:
+        break;
+    }
+
     // Create tempMsg to change role name
     ChatMessage tempMsg = new ChatMessage("Detective", message);
     appendChatMessage(tempMsg);
@@ -142,7 +157,7 @@ public abstract class Chat implements Controller{
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) throws IOException{
+  private void handleRectangleClick(MouseEvent event) throws IOException {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
 

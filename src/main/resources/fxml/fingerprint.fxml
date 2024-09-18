@@ -64,8 +64,8 @@
       </AnchorPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272635" height="90.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
       <Circle fx:id="exitCircle" fill="#b1e5f2" layoutX="45.0" layoutY="45.0" onMouseClicked="#exitToCrimeScene" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line fx:id="crossLine" endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" onMouseClicked="#exitToCrimeSceneLine" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
-      <Line fx:id="crossLine" endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" onMouseClicked="#exitToCrimeSceneLine" rotate="45.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
+      <Line fx:id="crossLine" endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" onMouseClicked="#exitToCrimeScene" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
+      <Line fx:id="crossLine" endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" onMouseClicked="#exitToCrimeScene" rotate="45.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="685.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/timer.png" />

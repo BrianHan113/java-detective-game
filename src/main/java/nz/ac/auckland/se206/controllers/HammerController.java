@@ -5,7 +5,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -58,13 +57,6 @@ public class HammerController implements Controller {
   @FXML
   private void exitToCrimeScene(MouseEvent event) throws IOException {
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
-  }
-
-  @FXML
-  private void exitToCrimeSceneLine(MouseEvent event) {
-    Line line = (Line) event.getSource();
-    Scene scene = line.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 
   private boolean isCollidingWithFingerprint() {

@@ -14,9 +14,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.Chat;
+import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
+import nz.ac.auckland.se206.Voicelines;
 
 public class FriendController extends Chat {
 
@@ -79,14 +81,21 @@ public class FriendController extends Chat {
     switch (shapeId) {
       case "wifePinRect":
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        if (!InteractionManager.isVisitExWife()) {
+          Voicelines.introVoiceLines("Ex-Wife");
+          InteractionManager.setVisitExWife(true);
+        }
+        break;
+      case "sonPinRect":
+        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        if (!InteractionManager.isVisitSon()) {
+          Voicelines.introVoiceLines("Son");
+          InteractionManager.setVisitSon(true);
+        }
         break;
       case "crimeScenePinRect":
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
         break;
-      case "sonPinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.SON));
-        break;
-
       default:
         break;
     }

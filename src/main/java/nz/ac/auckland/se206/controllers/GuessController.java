@@ -41,7 +41,8 @@ public class GuessController implements Controller {
 
   private ChatCompletionRequest chatCompletionRequest;
   private ChatMessage feedback;
-  private FeedbackController feedbackController = (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+  private FeedbackController feedbackController =
+      (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
   private String suspectName;
   private int minute;
   private int second;
@@ -63,7 +64,7 @@ public class GuessController implements Controller {
               .setN(1)
               .setTemperature(0.2)
               .setTopP(0.5)
-              .setMaxTokens(100);
+              .setMaxTokens(400);
       runGpt(new ChatMessage("system", getPrompt(map)));
     } catch (ApiProxyException e) {
       e.printStackTrace();
@@ -147,8 +148,7 @@ public class GuessController implements Controller {
                     if (msg.getRole() == "user") {
                       feedbackController.displayFeedback(feedback.getContent());
                     }
-                  }
-              );
+                  });
             } catch (ApiProxyException e) {
               e.printStackTrace();
             }

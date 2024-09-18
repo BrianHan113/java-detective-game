@@ -1,8 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.net.URISyntaxException;
 import java.io.IOException;
-
+import java.net.URISyntaxException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -27,7 +26,7 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class CctvController extends Evidence{
+public class CctvController extends Evidence {
 
   @FXML private Label evidenceLabel;
   @FXML private Circle exitCircle;
@@ -54,9 +53,9 @@ public class CctvController extends Evidence{
    *
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
-  
-  @FXML @Override
-  public void initialize(){
+  @FXML
+  @Override
+  public void initialize() {
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
 
@@ -129,7 +128,41 @@ public class CctvController extends Evidence{
     playButton.setText("PLAY");
     isPlaying = false;
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
 
+  @FXML
+  private void moveToOtherEvidence(MouseEvent event) throws IOException {
+    Label label = (Label) event.getSource();
+    String labelId = label.getId();
+
+    switch (labelId) {
+      case "evidenceLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
+        break;
+      case "fingerprintLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
+        break;
+      case "shoeprintLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
+        break;
+      case "securityCamLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
+        break;
+      default:
+        break;
+    }
   }
 
   private void decrementTime() {

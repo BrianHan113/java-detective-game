@@ -26,4 +26,8 @@ public class FeedbackController implements Controller {
   private void resetGame() {
     System.out.println("Reset Game Button Pressed");
   }
+
+  public void displayFeedback() {
+    
+  }
 }

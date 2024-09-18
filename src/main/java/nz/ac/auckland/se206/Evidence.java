@@ -34,4 +34,9 @@ public abstract class Evidence implements Controller {
   private void exitToCrimeScene(MouseEvent event) throws IOException {
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
+
+  @FXML
+  private void exitToCrimeSceneLine(MouseEvent event) throws IOException {
+    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
 }

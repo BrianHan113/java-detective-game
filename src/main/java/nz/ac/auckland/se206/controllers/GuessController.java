@@ -139,6 +139,7 @@ public class GuessController implements Controller{
 
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
+      selectLabel.setText("Please enter your reasoning.");
       return;
     }
     txtInput.clear();

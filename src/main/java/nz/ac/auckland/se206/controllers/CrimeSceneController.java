@@ -150,7 +150,6 @@ public class CrimeSceneController implements Controller {
         App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "hammerRect":
-        interact.setInteractClue(true);
         App.setRoot(SceneManager.getUiRoot(AppUi.HAMMER));
         break;
 

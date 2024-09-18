@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,11 +20,17 @@ public class FeedbackController implements Controller {
 
   @FXML
   private void exitGame() {
-    System.out.println("Exit Game Button Pressed");
+    // Quit game
+    Platform.exit();
   }
 
   @FXML
   private void resetGame() {
     System.out.println("Reset Game Button Pressed");
+  }
+
+  public void displayFeedback(String feedback) {
+    feedbackStatusLbl.setText("Review your Feedback!");
+    feedbackTextArea.appendText(feedback);
   }
 }

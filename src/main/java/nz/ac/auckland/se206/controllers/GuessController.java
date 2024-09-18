@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -35,6 +37,8 @@ public class GuessController implements Controller{
   @FXML private Button submitButton;
 
   private ChatCompletionRequest chatCompletionRequest;
+  private ChatMessage feedback;
+  private FeedbackController feedbackController = (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
   private String suspectName;
 
   /**
@@ -82,18 +86,41 @@ public class GuessController implements Controller{
    * @return the response chat message
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
-  private ChatMessage runGpt(ChatMessage msg) throws ApiProxyException {
+  private void runGpt(ChatMessage msg) throws ApiProxyException {
     chatCompletionRequest.addMessage(msg);
-    try {
-      ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
-      Choice result = chatCompletionResult.getChoices().iterator().next();
-      chatCompletionRequest.addMessage(result.getChatMessage());
-      System.out.println(result.getChatMessage().getContent());
-      return result.getChatMessage();
-    } catch (ApiProxyException e) {
-      e.printStackTrace();
-      return null;
-    }
+
+    Task<Void> gptTask =
+        new Task<Void>() {
+          @Override
+          protected Void call() {
+            try {
+              // Disable button so another request cannot be sent
+              submitButton.setDisable(true);
+
+              ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
+              Choice result = chatCompletionResult.getChoices().iterator().next();
+              chatCompletionRequest.addMessage(result.getChatMessage());
+
+              System.out.println(result.getChatMessage().getContent());
+
+              Platform.runLater(
+                  () -> {
+                    submitButton.setDisable(false);
+                    feedback = result.getChatMessage();
+                    if (msg.getRole() == "user") {
+                      feedbackController.displayFeedback(feedback.getContent());
+                    }
+                  }
+              );
+            } catch (ApiProxyException e) {
+              e.printStackTrace();
+            }
+            return null;
+          }
+        };
+
+    Thread bgThread = new Thread(gptTask);
+    bgThread.start();
   }
 
   /**
@@ -112,6 +139,7 @@ public class GuessController implements Controller{
 
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
+      selectLabel.setText("Please enter your reasoning.");
       return;
     }
     txtInput.clear();
@@ -123,8 +151,7 @@ public class GuessController implements Controller{
 
     String submitPrefix = PromptEngineering.getPrompt("guess.txt", map);
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
-    System.out.println(msg.getContent());
-    ChatMessage feedback = runGpt(msg);
+    runGpt(msg);
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
   }
 

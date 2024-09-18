@@ -107,8 +107,8 @@ public class CrimeSceneController implements Controller{
   }
 
   @FXML
-  private void guessBtnClicked() {
-    System.out.println("Guess Button Clicked");
+  private void guessBtnClicked() throws IOException{
+    App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
   }
 
   @FXML

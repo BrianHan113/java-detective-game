@@ -28,7 +28,7 @@ public class App extends Application {
    * @param args the command line arguments
    */
   public static void main(final String[] args) {
-    TextToSpeech.speak("Thank you for coming to chat");
+    TextToSpeech.speak("Absolutely, I can answer that");
 
     launch();
   }

@@ -21,23 +21,7 @@ public class InteractionManager {
   private boolean interactFootprint = false;
   private boolean interactSecurityCamera = false;
 
-  private static boolean visitSon = false;
-  private static boolean visitExwife = false;
-  private static boolean visitFriend = false;
-
   private InteractionManager() {}
-
-  public static boolean isVisitSon() {
-    return visitSon;
-  }
-
-  public static boolean isVisitExwife() {
-    return visitExwife;
-  }
-
-  public static boolean isVisitFriend() {
-    return visitFriend;
-  }
 
   public boolean getInteractClue() {
     return interactClue;
@@ -101,17 +85,5 @@ public class InteractionManager {
 
   public void setInteractSecurityCamera(boolean interactSecurityCamera) {
     this.interactSecurityCamera = interactSecurityCamera;
-  }
-
-  public static void setVisitSon(boolean visitSon) {
-    InteractionManager.visitSon = visitSon;
-  }
-
-  public static void setVisitExwife(boolean visitExwife) {
-    InteractionManager.visitExwife = visitExwife;
-  }
-
-  public static void setVisitFriend(boolean visitFriend) {
-    InteractionManager.visitFriend = visitFriend;
   }
 }

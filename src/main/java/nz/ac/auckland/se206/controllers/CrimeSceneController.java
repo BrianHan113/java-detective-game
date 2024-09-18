@@ -121,6 +121,10 @@ public class CrimeSceneController {
     switch (shapeId) {
       case "wifePinRect":
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        if (!InteractionManager.isVisitExwife()) {
+          InteractionManager.setVisitExwife(true);
+        }
+
         break;
       case "friendPinRect":
         sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));

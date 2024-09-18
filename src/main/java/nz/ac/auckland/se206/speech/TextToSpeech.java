@@ -35,7 +35,7 @@ public class TextToSpeech {
             try {
               ApiProxyConfig config = ApiProxyConfig.readConfig();
               Provider provider = Provider.OPENAI;
-              Voice voice = Voice.OPENAI_ONYX;
+              Voice voice = Voice.OPENAI_SHIMMER;
 
               TextToSpeechRequest ttsRequest = new TextToSpeechRequest(config);
               ttsRequest.setText(text).setProvider(provider).setVoice(voice);
@@ -43,7 +43,7 @@ public class TextToSpeech {
               TextToSpeechResult ttsResult = ttsRequest.execute();
               String audioUrl = ttsResult.getAudioUrl();
 
-              System.out.println(audioUrl);
+              // System.out.println(audioUrl);
 
               try (InputStream inputStream =
                   new BufferedInputStream(new URL(audioUrl).openStream())) {

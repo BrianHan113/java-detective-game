@@ -12,7 +12,6 @@ import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.controllers.ChatController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
-import nz.ac.auckland.se206.speech.TextToSpeech;
 
 /**
  * This is the entry point of the JavaFX application. This class initializes and runs the JavaFX
@@ -28,7 +27,7 @@ public class App extends Application {
    * @param args the command line arguments
    */
   public static void main(final String[] args) {
-    TextToSpeech.speak("Absolutely, I can answer that");
+    // TextToSpeech.speak("Why [pause] is that [pause] umm [pause] relevant?");
 
     launch();
   }

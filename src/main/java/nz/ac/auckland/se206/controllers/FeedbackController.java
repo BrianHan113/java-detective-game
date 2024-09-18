@@ -27,7 +27,7 @@ public class FeedbackController implements Controller {
     System.out.println("Reset Game Button Pressed");
   }
 
-  public void displayFeedback() {
-    
+  public void displayFeedback(String feedback) {
+    feedbackTextArea.appendText(feedback);
   }
 }

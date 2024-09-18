@@ -5,18 +5,19 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class CrimeSceneController {
+public class CrimeSceneController implements Controller{
 
   private static boolean isFirstTimeInit = true;
   private static boolean timeOver = false;
@@ -101,10 +102,8 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void showEvidence(ActionEvent event) {
-    Button button = (Button) event.getSource();
-    Scene scene = button.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
+  private void showEvidence(ActionEvent event) throws IOException{
+    App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
   }
 
   @FXML
@@ -113,29 +112,28 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) throws IOException{
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
-    Scene sceneOfShape = shape.getScene();
 
     switch (shapeId) {
       case "wifePinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
         break;
       case "friendPinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
         break;
       case "sonPinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        App.setRoot(SceneManager.getUiRoot(AppUi.SON));
         break;
       case "securityCameraRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
+        App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
       case "shoeprintRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
+        App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "hammerRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.HAMMER));
+        App.setRoot(SceneManager.getUiRoot(AppUi.HAMMER));
         break;
 
       default:

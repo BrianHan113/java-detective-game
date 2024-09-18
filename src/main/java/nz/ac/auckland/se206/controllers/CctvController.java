@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.net.URISyntaxException;
+import java.io.IOException;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -8,7 +10,6 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -21,11 +22,12 @@ import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class CctvController {
+public class CctvController extends Evidence{
 
   @FXML private Label evidenceLabel;
   @FXML private Circle exitCircle;
@@ -52,8 +54,9 @@ public class CctvController {
    *
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
-  @FXML
-  public void initialize() throws ApiProxyException {
+  
+  @FXML @Override
+  public void initialize(){
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
 
@@ -121,47 +124,12 @@ public class CctvController {
   }
 
   @FXML
-  private void exitToCrimeScene(MouseEvent event) {
+  private void exitToCrimeScene(MouseEvent event) throws IOException {
     videoPlayer.pause();
     playButton.setText("PLAY");
     isPlaying = false;
-    Circle circle = (Circle) event.getSource();
-    Scene scene = circle.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
-  }
+    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
 
-  @FXML
-  private void exitToCrimeSceneLine(MouseEvent event) {
-    videoPlayer.pause();
-    playButton.setText("PLAY");
-    isPlaying = false;
-    Line line = (Line) event.getSource();
-    Scene scene = line.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
-  }
-
-  @FXML
-  private void moveToOtherEvidence(MouseEvent event) {
-    Label label = (Label) event.getSource();
-    String labelId = label.getId();
-    Scene scene = label.getScene();
-
-    switch (labelId) {
-      case "evidenceLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
-        break;
-      case "fingerprintLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
-        break;
-      case "shoeprintLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
-        break;
-      case "securityCamLabel":
-        scene.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
-        break;
-      default:
-        break;
-    }
   }
 
   private void decrementTime() {

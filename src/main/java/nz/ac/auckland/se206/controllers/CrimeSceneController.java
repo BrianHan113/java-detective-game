@@ -122,8 +122,46 @@ public class CrimeSceneController implements Controller {
   }
 
   @FXML
-  private void guessBtnClicked() throws IOException{
-    App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+  private void guessBtnClicked() throws IOException {
+
+    if (interact.getInteractClue()
+        && interact.getInteractExwife()
+        && interact.getInteractFriend()
+        && interact.getInteractSon()) {
+      System.out.println("Clues: Y, All suspects: Y");
+
+      timeManager.resetTimer(1);
+      timerLbl.setText(timeManager.formatTime());
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+
+      timeOver = true;
+    } else if (!interact.getInteractClue()
+        && interact.getInteractExwife()
+        && interact.getInteractFriend()
+        && interact.getInteractSon()) {
+      System.out.println("Clues: N, All suspects: Y");
+      System.out.println("Interact with an item");
+      timeOver = true;
+    } else if (interact.getInteractClue()
+        && (!interact.getInteractExwife()
+            || !interact.getInteractFriend()
+            || !interact.getInteractSon())) {
+      System.out.println("Clues: Y, All suspects: N");
+
+      System.out.println("Chat to all three suspects");
+
+      timeOver = true;
+    } else if (!interact.getInteractClue()
+        && (!interact.getInteractExwife()
+            || !interact.getInteractFriend()
+            || !interact.getInteractSon())) {
+      System.out.println("Clues: N, All suspects: N");
+
+      System.out.println("Interact with an item and chat with all three suspects");
+
+      timeOver = true;
+    }
   }
 
   @FXML

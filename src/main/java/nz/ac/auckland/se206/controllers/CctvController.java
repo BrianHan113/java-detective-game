@@ -10,6 +10,7 @@ import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -38,7 +39,6 @@ public class CctvController extends Evidence {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   @FXML
-  @Override
   public void initialize() {
     timerLabel.setText(timeManager.formatTime());
     decrementTime();

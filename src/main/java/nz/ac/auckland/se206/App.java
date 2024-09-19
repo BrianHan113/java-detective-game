@@ -56,9 +56,10 @@ public class App extends Application {
 
     // Initialise all scenes and store them in scene manager.
     Map<AppUi, String> uiMap = new HashMap<>();
+
+    uiMap.put(AppUi.CCTV, "cctv");
     uiMap.put(AppUi.FINGERPRINT, "fingerprint");
     uiMap.put(AppUi.FOOTPRINT, "footprint");
-    uiMap.put(AppUi.CCTV, "cctv");
     uiMap.put(AppUi.EVIDENCE, "evidence");
     uiMap.put(AppUi.MAIN_MENU, "menu");
     uiMap.put(AppUi.SON, "son");

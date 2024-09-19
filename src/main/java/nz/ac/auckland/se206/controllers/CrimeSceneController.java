@@ -16,6 +16,7 @@ import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
+import nz.ac.auckland.se206.Voicelines;
 
 public class CrimeSceneController implements Controller {
 
@@ -165,12 +166,24 @@ public class CrimeSceneController implements Controller {
     switch (shapeId) {
       case "wifePinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        if (!InteractionManager.isVisitExWife()) {
+          Voicelines.introVoiceLines("Ex-Wife");
+          InteractionManager.setVisitExWife(true);
+        }
         break;
       case "friendPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        if (!InteractionManager.isVisitFriend()) {
+          Voicelines.introVoiceLines("Friend");
+          InteractionManager.setVisitFriend(true);
+        }
         break;
       case "sonPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        if (!InteractionManager.isVisitSon()) {
+          Voicelines.introVoiceLines("Son");
+          InteractionManager.setVisitSon(true);
+        }
         break;
       case "securityCameraRect":
         interact.setInteractClue(true);

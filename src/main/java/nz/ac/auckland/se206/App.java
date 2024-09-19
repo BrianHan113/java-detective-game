@@ -27,6 +27,8 @@ public class App extends Application {
    * @param args the command line arguments
    */
   public static void main(final String[] args) {
+    // TextToSpeech.speak("Why [pause] is that [pause] umm [pause] relevant?");
+
     launch();
   }
 
@@ -38,6 +40,10 @@ public class App extends Application {
    */
   public static void setRoot(Parent root) throws IOException {
     scene.setRoot(root);
+  }
+
+  public static Scene getScene() {
+    return App.scene;
   }
 
   /**

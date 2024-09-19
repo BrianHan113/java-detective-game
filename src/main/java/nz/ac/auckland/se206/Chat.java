@@ -19,6 +19,7 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.SceneManager.AppUi;
+
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public abstract class Chat implements Controller {
@@ -133,6 +134,9 @@ public abstract class Chat implements Controller {
     if (message.isEmpty()) {
       return;
     }
+
+    Voicelines.fillerVoiceLines(this.role);
+
     txtInput.clear();
 
     switch (role) {
@@ -162,14 +166,26 @@ public abstract class Chat implements Controller {
     String shapeId = shape.getId();
 
     switch (shapeId) {
+      case "wifePinRect":
+        App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        if (!InteractionManager.isVisitExWife()) {
+          Voicelines.introVoiceLines("Ex-Wife");
+          InteractionManager.setVisitExWife(true);
+        }
+        break;
       case "friendPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        if (!InteractionManager.isVisitFriend()) {
+          Voicelines.introVoiceLines("Friend");
+          InteractionManager.setVisitFriend(true);
+        }
         break;
       case "sonPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.SON));
-        break;
-      case "wifePinRect":
-        App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        if (!InteractionManager.isVisitSon()) {
+          Voicelines.introVoiceLines("Son");
+          InteractionManager.setVisitSon(true);
+        }
         break;
       case "crimeScenePinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));

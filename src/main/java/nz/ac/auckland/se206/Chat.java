@@ -161,7 +161,7 @@ public abstract class Chat implements Controller {
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) throws IOException {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
 

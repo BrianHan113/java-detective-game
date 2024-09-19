@@ -84,6 +84,7 @@ public class CrimeSceneController implements Controller {
       timeManager.resetTimer(1);
       timerLbl.setText(timeManager.formatTime());
 
+      audioPlayer.playAudio("/announcer/click_theif_submit.mp3");
       App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
 
       timeOver = true;
@@ -136,6 +137,7 @@ public class CrimeSceneController implements Controller {
       timeManager.resetTimer(1);
       timerLbl.setText(timeManager.formatTime());
 
+      audioPlayer.playAudio("/announcer/click_theif_submit.mp3");
       App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
 
       timeOver = true;

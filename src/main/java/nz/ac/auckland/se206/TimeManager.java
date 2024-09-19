@@ -21,7 +21,7 @@ public class TimeManager {
   private Timeline timeline;
 
   private TimeManager() {
-    time = 5 * 60 * 1000;
+    time = 15000;
   }
 
   public void startTimer() {
@@ -61,6 +61,6 @@ public class TimeManager {
   }
 
   public void resetTimer(int min) {
-    time = min * 60000;
+    time = min * 10000;
   }
 }

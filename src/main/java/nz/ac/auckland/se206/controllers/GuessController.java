@@ -23,6 +23,7 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.AudioPlayerManager;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -48,6 +49,7 @@ public class GuessController implements Controller {
   private int second;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
+  private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
   /**
    * Initializes the chat view.
@@ -169,11 +171,13 @@ public class GuessController implements Controller {
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
     if (suspectName == null) {
       selectLabel.setText("Please click on who you think it is.");
+      audioPlayer.playAudio("/announcer/select_suspect.mp3");
       return;
     }
 
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
+      audioPlayer.playAudio("/announcer/explain_choice.mp3");
       selectLabel.setText("Please enter your reasoning.");
       return;
     }

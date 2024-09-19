@@ -40,6 +40,8 @@ public class GuessController implements Controller {
   @FXML private TextField txtInput;
   @FXML private Button submitButton;
 
+  private static boolean timeOver = false;
+
   private ChatCompletionRequest chatCompletionRequest;
   private ChatMessage feedback;
   private FeedbackController feedbackController =
@@ -102,17 +104,19 @@ public class GuessController implements Controller {
   private void updateTimerLabel() throws IOException {
     minute = timeManager.getMinute();
     second = timeManager.getSecond();
-    if (minute == 0 && second == 0) {
+    if (!timeOver && minute == 0 && second == 0) {
       timerLabel.setText("Time's Up!");
       FeedbackController feedbackController =
           (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
       feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
       feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
       feedbackController
           .getFeedbackTextArea()
           .setText(
               "Try be a little faster next time! Top-notch detectives need to be able to think"
                   + " fast!");
+      timeOver = true;
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
     } else {
       timerLabel.setText(String.format("%02d:%02d", minute, second));
@@ -205,8 +209,12 @@ public class GuessController implements Controller {
 
     if (suspectName.equals("Ex-Wife")) {
       feedbackController.getWonLostLbl().setText("YOU WON!");
+      audioPlayer.playAudio("/announcer/won.mp3");
+      timeOver = true;
     } else {
       feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      timeOver = true;
     }
 
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));

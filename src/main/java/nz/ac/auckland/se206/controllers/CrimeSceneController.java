@@ -79,7 +79,6 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
-      System.out.println("Clues: Y, All suspects: Y");
 
       timeManager.resetTimer(1);
       timerLbl.setText(timeManager.formatTime());
@@ -93,7 +92,6 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
-      System.out.println("Clues: N, All suspects: Y");
 
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 
@@ -103,7 +101,6 @@ public class CrimeSceneController implements Controller {
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
-      System.out.println("Clues: Y, All suspects: N");
 
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 
@@ -113,7 +110,6 @@ public class CrimeSceneController implements Controller {
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
-      System.out.println("Clues: N, All suspects: N");
 
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 
@@ -132,7 +128,6 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
-      System.out.println("Clues: Y, All suspects: Y");
 
       timeManager.resetTimer(1);
       timerLbl.setText(timeManager.formatTime());
@@ -145,22 +140,19 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
-      // System.out.println("Clues: N, All suspects: Y");
-      // System.out.println("Interact with an item");
+
       audioPlayer.playAudio("/announcer/interact_item.mp3");
     } else if (interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
-      // System.out.println("Clues: Y, All suspects: N");
-      // System.out.println("Chat to all three suspects");
+
       audioPlayer.playAudio("/announcer/chat_suspects.mp3");
     } else if (!interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
-      // System.out.println("Clues: N, All suspects: N");
-      // System.out.println("Interact with an item and chat with all three suspects");
+
       audioPlayer.playAudio("/announcer/chat_and_interact.mp3");
     }
   }

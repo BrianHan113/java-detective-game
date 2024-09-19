@@ -2,25 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ContextController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="21.0" prefHeight="399.0" prefWidth="853.0" text="Being one of the best detectives in town, you have been assigned a recent high-priority case. A GREAT JEWEL has been stolen from a very opulent man and it is imperative we get it back! We have narrowed down the suspects to just 3 people! The rich man's SON, EX-WIFE, and CLOSE FRIEND." wrapText="true">
+      <ImageView fitHeight="550.0" fitWidth="900.0" opacity="0.6" pickOnBounds="true">
+         <image>
+            <Image url="@../images/MainMenu.png" />
+         </image>
+      </ImageView>
+      <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="103.0" prefHeight="312.0" prefWidth="559.0" style="-fx-background-color: edfffc; -fx-background-radius: 50;" text="&#10;Being one of the best detectives in town, &#10;you have been assigned a recent high-priority case. &#10;A GREAT JEWEL has been stolen from a very opulent &#10;man and it is imperative we get it back! &#10;We have narrowed down the suspects to just 3 people! &#10;The rich man's SON, EX-WIFE, and CLOSE FRIEND.&#10;&#10;Good Luck Detective! You'll need it.&#10;&#10;" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Button fx:id="continueButton" layoutX="328.0" layoutY="467.0" mnemonicParsing="false" onAction="#onContinuePressed" prefHeight="49.0" prefWidth="243.0" text="Begin Investigation">
+      <Button fx:id="continueButton" layoutX="279.0" layoutY="453.0" mnemonicParsing="false" onAction="#onContinuePressed" prefHeight="52.0" prefWidth="344.0" style="-fx-background-radius: 30;" text="BEGIN INVESTIGATION">
          <font>
-            <Font size="18.0" />
+            <Font name="Engravers MT" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="24.0" layoutY="307.0" text="Good Luck Detective! You'll need it.">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
    </children>
 </Pane>

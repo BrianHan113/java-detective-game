@@ -11,15 +11,15 @@ public class InteractionManager {
     return instance;
   }
 
-  private boolean interactClue = false;
-  private boolean interactExwife = false;
-  private boolean interactFriend = false;
-  private boolean interactSon = false;
+  private static boolean interactClue = false;
+  private static boolean interactExwife = false;
+  private static boolean interactFriend = false;
+  private static boolean interactSon = false;
 
-  private boolean interactHammer = false;
-  private boolean interactFingerprintDusted = false;
-  private boolean interactFootprint = false;
-  private boolean interactSecurityCamera = false;
+  private static boolean interactHammer = false;
+  private static boolean interactFingerprintDusted = false;
+  private static boolean interactFootprint = false;
+  private static boolean interactSecurityCamera = false;
 
   private static boolean isVisitExWife = false;
   private static boolean isVisitFriend = false;
@@ -83,35 +83,51 @@ public class InteractionManager {
     return interactSecurityCamera;
   }
 
-  public void setInteractClue(boolean interactClue) {
-    this.interactClue = interactClue;
+  public void setInteractClue(boolean bool) {
+    interactClue = bool;
   }
 
-  public void setInteractExwife(boolean interactExwife) {
-    this.interactExwife = interactExwife;
+  public void setInteractExwife(boolean bool) {
+    interactExwife = bool;
   }
 
-  public void setInteractFriend(boolean interactFriend) {
-    this.interactFriend = interactFriend;
+  public void setInteractFriend(boolean bool) {
+    interactFriend = bool;
   }
 
-  public void setInteractSon(boolean interactSon) {
-    this.interactSon = interactSon;
+  public void setInteractSon(boolean bool) {
+    interactSon = bool;
   }
 
-  public void setInteractHammer(boolean interactHammer) {
-    this.interactHammer = interactHammer;
+  public void setInteractHammer(boolean bool) {
+    interactHammer = bool;
   }
 
-  public void setInteractFingerprintDusted(boolean interactFingerprint) {
-    this.interactFingerprintDusted = interactFingerprint;
+  public void setInteractFingerprintDusted(boolean bool) {
+    interactFingerprintDusted = bool;
   }
 
-  public void setInteractFootprint(boolean interactFootprint) {
-    this.interactFootprint = interactFootprint;
+  public void setInteractFootprint(boolean bool) {
+    interactFootprint = bool;
   }
 
-  public void setInteractSecurityCamera(boolean interactSecurityCamera) {
-    this.interactSecurityCamera = interactSecurityCamera;
+  public void setInteractSecurityCamera(boolean bool) {
+    interactSecurityCamera = bool;
+  }
+
+  public static void resetManager() {
+    interactClue = false;
+    interactExwife = false;
+    interactFriend = false;
+    interactSon = false;
+
+    interactHammer = false;
+    interactFingerprintDusted = false;
+    interactFootprint = false;
+    interactSecurityCamera = false;
+
+    isVisitExWife = false;
+    isVisitFriend = false;
+    isVisitSon = false;
   }
 }

@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import nz.ac.auckland.se206.controllers.ContextController;
+import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
 /**
@@ -18,8 +18,7 @@ public class App extends Application {
 
   private static Scene scene;
   private static Parent menuRoot;
-  private static Parent contextRoot;
-  private static ContextController contextController;
+  private static MenuController menuController;
 
 
   /**
@@ -43,12 +42,12 @@ public class App extends Application {
     scene.setRoot(root);
   }
 
-  public static Parent getContextRoot() {
-    return App.contextRoot;
+  public static Parent getMenuRoot() {
+    return App.menuRoot;
   }
 
-  public static ContextController getContextController() {
-    return App.contextController;
+  public static MenuController getMenuController() {
+    return App.menuController;
   }
 
   /**
@@ -61,10 +60,8 @@ public class App extends Application {
   public void start(final Stage stage) throws IOException {
     FXMLLoader menuLoader = new FXMLLoader(App.class.getResource("/fxml/menu.fxml"));
     menuRoot = menuLoader.load();
-
-    FXMLLoader contextLoader = new FXMLLoader(App.class.getResource("/fxml/context.fxml"));
-    contextRoot = contextLoader.load();
-    contextController = contextLoader.getController();
+    menuController = menuLoader.getController();
+    
 
     scene = new Scene(menuRoot);
     stage.setScene(scene);

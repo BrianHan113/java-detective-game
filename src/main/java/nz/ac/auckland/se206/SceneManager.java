@@ -64,6 +64,7 @@ public class SceneManager {
       @Override
       protected Void call() {
         try {
+          InteractionManager.resetManager();
           if (!sceneMap.isEmpty()) {
             sceneMap.clear();
             controllerMap.clear();
@@ -79,7 +80,7 @@ public class SceneManager {
             SceneManager.addController(appUi, loader.getController());
           }
           Platform.runLater(() -> {
-            App.getContextController().enableContinueButton();
+            App.getMenuController().getContextController().enableContinueButton();
           });
         } catch (IOException e) {
           e.printStackTrace();

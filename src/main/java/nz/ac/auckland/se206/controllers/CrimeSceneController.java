@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.AudioPlayerManager;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.InteractionManager;
@@ -39,6 +40,7 @@ public class CrimeSceneController implements Controller {
   private int second;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
+  private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
   @FXML
   public void initialize() {
@@ -141,20 +143,23 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
-      System.out.println("Clues: N, All suspects: Y");
-      System.out.println("Interact with an item");
+      // System.out.println("Clues: N, All suspects: Y");
+      // System.out.println("Interact with an item");
+      audioPlayer.playAudio("/announcer/interact_item.mp3");
     } else if (interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
-      System.out.println("Clues: Y, All suspects: N");
-      System.out.println("Chat to all three suspects");
+      // System.out.println("Clues: Y, All suspects: N");
+      // System.out.println("Chat to all three suspects");
+      audioPlayer.playAudio("/announcer/chat_suspects.mp3");
     } else if (!interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
-      System.out.println("Clues: N, All suspects: N");
-      System.out.println("Interact with an item and chat with all three suspects");
+      // System.out.println("Clues: N, All suspects: N");
+      // System.out.println("Interact with an item and chat with all three suspects");
+      audioPlayer.playAudio("/announcer/chat_and_interact.mp3");
     }
   }
 

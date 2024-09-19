@@ -11,7 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
@@ -36,7 +36,7 @@ public class GuessController implements Controller {
   @FXML private Rectangle exwifeRect;
   @FXML private Rectangle sonRect;
   @FXML private Rectangle friendRect;
-  @FXML private TextField txtInput;
+  @FXML private TextArea txtInput;
   @FXML private Button submitButton;
 
   private ChatCompletionRequest chatCompletionRequest;

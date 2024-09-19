@@ -10,43 +10,27 @@ import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
-import nz.ac.auckland.se206.TimeManager;
 
 public class CctvController extends Evidence {
 
-  @FXML private Label evidenceLabel;
-  @FXML private Circle exitCircle;
-  @FXML private Label fingerprintHideLabel;
-  @FXML private Label fingerprintLabel;
   @FXML private MediaView mediaView;
   @FXML private Button playButton;
   @FXML private Slider progressSlider;
-  @FXML private Label shoeprintHideLabel;
-  @FXML private Label shoeprintLabel;
-  @FXML private Label timerLabel;
-  @FXML private Line crossLine;
 
   private Media footage;
   private MediaPlayer videoPlayer;
   private boolean isPlaying;
-  private int minute;
-  private int second;
-  private Timeline timeline;
-  private TimeManager timeManager = TimeManager.getInstance();
 
   /**
    * Initializes the Security Cam view.

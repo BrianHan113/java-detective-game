@@ -3,32 +3,14 @@ package nz.ac.auckland.se206.controllers;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.Evidence;
-import nz.ac.auckland.se206.TimeManager;
 
 public class EvidenceController extends Evidence {
 
-  @FXML private Circle exitCircle;
-  @FXML private Label timerLabel;
-  @FXML private Label fingerprintLabel;
-  @FXML private Label shoeprintLabel;
-  @FXML private Label securityCamLabel;
-  @FXML private Label fingerprintHideLabel;
-  @FXML private Label shoeprintHideLabel;
-  @FXML private Label securityCamHideLabel;
-  @FXML private Line crossLine;
-
-  private int minute;
-  private int second;
-  private Timeline timeline;
-  private TimeManager timeManager = TimeManager.getInstance();
-
   @FXML
   public void initialize() {
+    System.out.println("evidence" + shoeprintLabel);
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
   }

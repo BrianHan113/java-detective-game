@@ -12,7 +12,6 @@ import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
-
 /**
  * This is the entry point of the JavaFX application. This class initializes and runs the JavaFX
  * application.
@@ -54,21 +53,23 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    
+
     // Initialise all scenes and store them in scene manager.
     Map<AppUi, String> uiMap = new HashMap<>();
-    uiMap.put(AppUi.MAIN_MENU, "menu");
-    uiMap.put(AppUi.SON, "son");
-    uiMap.put(AppUi.CRIME_SCENE, "crimeScene");
-    uiMap.put(AppUi.EVIDENCE, "evidence");
-    uiMap.put(AppUi.EX_WIFE, "exwife");
-    uiMap.put(AppUi.FEEDBACK, "feedback");
     uiMap.put(AppUi.FINGERPRINT, "fingerprint");
     uiMap.put(AppUi.FOOTPRINT, "footprint");
+    uiMap.put(AppUi.CCTV, "cctv");
+    uiMap.put(AppUi.EVIDENCE, "evidence");
+    uiMap.put(AppUi.MAIN_MENU, "menu");
+    uiMap.put(AppUi.SON, "son");
+
+    uiMap.put(AppUi.EX_WIFE, "exwife");
+    uiMap.put(AppUi.FEEDBACK, "feedback");
+
     uiMap.put(AppUi.FRIEND, "friend");
     uiMap.put(AppUi.GUESSING, "guess");
     uiMap.put(AppUi.HAMMER, "hammer");
-    uiMap.put(AppUi.CCTV, "cctv");
+    uiMap.put(AppUi.CRIME_SCENE, "crimeScene");
 
     for (Map.Entry<AppUi, String> entry : uiMap.entrySet()) {
       AppUi appUi = entry.getKey();
@@ -76,7 +77,7 @@ public class App extends Application {
 
       FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/" + value + ".fxml"));
       Parent root = loader.load();
-      
+
       SceneManager.addUi(appUi, root);
       SceneManager.addController(appUi, loader.getController());
     }

@@ -13,6 +13,7 @@ import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
+import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -80,13 +81,16 @@ public class HammerController implements Controller {
   }
 
   private void revealFingerprint() {
+
     this.opacity = this.opacity + 0.001;
     fingerprintImage.setOpacity(opacity);
     if (opacity >= 1) {
+      Evidence fingController = (Evidence) SceneManager.getController(AppUi.FINGERPRINT);
       isFingerprintDusted = true;
       evidenceLbl.setVisible(true);
 
       interact.setInteractClue(true);
+      fingController.setFingerprintImageVisible();
     }
   }
 

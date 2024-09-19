@@ -26,7 +26,7 @@ public class MenuController implements Controller {
   @FXML
   private void playButtonClicked(ActionEvent event) throws IOException {
     // Change to correct room to start game.
-    App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
     timeManager.startTimer();
   }
 

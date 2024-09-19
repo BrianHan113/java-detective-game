@@ -15,8 +15,7 @@ public class FeedbackController implements Controller {
   @FXML private Button playAgainBtn;
 
   @FXML
-  public void initialize() {
-  }
+  public void initialize() {}
 
   @FXML
   private void exitGame() {
@@ -32,5 +31,17 @@ public class FeedbackController implements Controller {
   public void displayFeedback(String feedback) {
     feedbackStatusLbl.setText("Review your Feedback!");
     feedbackTextArea.appendText(feedback);
+  }
+
+  public Label getWonLostLbl() {
+    return wonLostLbl;
+  }
+
+  public Label getFeedbackStatusLbl() {
+    return feedbackStatusLbl;
+  }
+
+  public TextArea getFeedbackTextArea() {
+    return feedbackTextArea;
   }
 }

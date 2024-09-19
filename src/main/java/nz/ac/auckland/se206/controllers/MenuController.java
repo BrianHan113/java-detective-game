@@ -11,7 +11,7 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class MenuController implements Controller{
+public class MenuController implements Controller {
 
   @FXML private Button playButton;
   @FXML private Button quitButton;

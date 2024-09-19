@@ -23,6 +23,7 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.AudioPlayerManager;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -39,6 +40,8 @@ public class GuessController implements Controller {
   @FXML private TextArea txtInput;
   @FXML private Button submitButton;
 
+  private static boolean timeOver = false;
+
   private ChatCompletionRequest chatCompletionRequest;
   private ChatMessage feedback;
   private FeedbackController feedbackController =
@@ -48,6 +51,7 @@ public class GuessController implements Controller {
   private int second;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
+  private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
   /**
    * Initializes the chat view.
@@ -100,8 +104,19 @@ public class GuessController implements Controller {
   private void updateTimerLabel() throws IOException {
     minute = timeManager.getMinute();
     second = timeManager.getSecond();
-    if (minute == 0 && second == 0) {
+    if (!timeOver && minute == 0 && second == 0) {
       timerLabel.setText("Time's Up!");
+      FeedbackController feedbackController =
+          (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
+      timeOver = true;
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
     } else {
       timerLabel.setText(String.format("%02d:%02d", minute, second));
@@ -169,12 +184,13 @@ public class GuessController implements Controller {
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
     if (suspectName == null) {
       selectLabel.setText("Please click on who you think it is.");
+      audioPlayer.playAudio("/announcer/select_suspect.mp3");
       return;
     }
 
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
-      selectLabel.setText("Please enter your reasoning.");
+      audioPlayer.playAudio("/announcer/explain_choice.mp3");
       return;
     }
     txtInput.clear();
@@ -187,6 +203,20 @@ public class GuessController implements Controller {
     String submitPrefix = PromptEngineering.getPrompt("guess.txt", map);
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
     runGpt(msg);
+
+    FeedbackController feedbackController =
+        (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+
+    if (suspectName.equals("Ex-Wife")) {
+      feedbackController.getWonLostLbl().setText("YOU WON!");
+      audioPlayer.playAudio("/announcer/won.mp3");
+      timeOver = true;
+    } else {
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      timeOver = true;
+    }
+
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
   }
 

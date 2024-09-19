@@ -11,7 +11,7 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 
-public class MenuController implements Controller{
+public class MenuController implements Controller {
 
   @FXML private Button playButton;
   @FXML private Button quitButton;

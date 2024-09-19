@@ -20,6 +20,7 @@ public class FeedbackController implements Controller {
     backButton.setDisable(true);
   }
 
+
   @FXML
   private void onBackPressed() throws IOException {
     App.setRoot(App.getMenuRoot());
@@ -32,5 +33,17 @@ public class FeedbackController implements Controller {
 
   public void enableBackButton() {
     backButton.setDisable(false);
+  }
+
+  public Label getWonLostLbl() {
+    return wonLostLbl;
+  }
+
+  public Label getFeedbackStatusLbl() {
+    return feedbackStatusLbl;
+  }
+
+  public TextArea getFeedbackTextArea() {
+    return feedbackTextArea;
   }
 }

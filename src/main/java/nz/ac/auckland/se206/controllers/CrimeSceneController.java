@@ -142,25 +142,18 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractSon()) {
       System.out.println("Clues: N, All suspects: Y");
       System.out.println("Interact with an item");
-      timeOver = true;
     } else if (interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: Y, All suspects: N");
-
       System.out.println("Chat to all three suspects");
-
-      timeOver = true;
     } else if (!interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
       System.out.println("Clues: N, All suspects: N");
-
       System.out.println("Interact with an item and chat with all three suspects");
-
-      timeOver = true;
     }
   }
 

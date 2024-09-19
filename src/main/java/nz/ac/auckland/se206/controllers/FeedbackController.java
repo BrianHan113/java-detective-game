@@ -2,7 +2,6 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,26 +13,24 @@ public class FeedbackController implements Controller {
   @FXML private Label wonLostLbl;
   @FXML private Label feedbackStatusLbl;
   @FXML private TextArea feedbackTextArea;
-  @FXML private Button exitBtn;
-  @FXML private Button playAgainBtn;
+  @FXML private Button backButton;
 
   @FXML
   public void initialize() {
+    backButton.setDisable(true);
   }
 
   @FXML
-  private void exitGame() {
-    // Quit game
-    Platform.exit();
-  }
-
-  @FXML
-  private void resetGame() throws IOException {
+  private void onBackPressed() throws IOException {
     App.setRoot(App.getMenuRoot());
   }
 
   public void displayFeedback(String feedback) {
     feedbackStatusLbl.setText("Review your Feedback!");
     feedbackTextArea.appendText(feedback);
+  }
+
+  public void enableBackButton() {
+    backButton.setDisable(false);
   }
 }

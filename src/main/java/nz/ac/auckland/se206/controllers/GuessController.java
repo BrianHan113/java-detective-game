@@ -146,6 +146,7 @@ public class GuessController implements Controller {
                     feedback = result.getChatMessage();
                     if (msg.getRole() == "user") {
                       feedbackController.displayFeedback(feedback.getContent());
+                      feedbackController.enableBackButton();
                     }
                   });
             } catch (ApiProxyException e) {

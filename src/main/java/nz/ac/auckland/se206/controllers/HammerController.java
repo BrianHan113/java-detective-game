@@ -12,6 +12,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.AudioPlayerManager;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.InteractionManager;
@@ -20,6 +21,9 @@ import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
 public class HammerController implements Controller {
+
+  private static InteractionManager interact = InteractionManager.getInstance();
+  private static AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
   @FXML private Circle exitCircle;
   @FXML private Label timerLabel;
@@ -34,7 +38,6 @@ public class HammerController implements Controller {
   private int second;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
-  private static InteractionManager interact = InteractionManager.getInstance();
 
   @FXML
   public void initialize() {
@@ -88,6 +91,8 @@ public class HammerController implements Controller {
       Evidence fingController = (Evidence) SceneManager.getController(AppUi.FINGERPRINT);
       isFingerprintDusted = true;
       evidenceLbl.setVisible(true);
+
+      audioPlayer.playAudio("fingerprintFinish.mp3");
 
       interact.setInteractClue(true);
       fingController.setFingerprintImageVisible();

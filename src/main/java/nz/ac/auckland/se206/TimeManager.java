@@ -61,6 +61,6 @@ public class TimeManager {
   }
 
   public void resetTimer(int min) {
-    time = min * 10000;
+    time = min * 60000;
   }
 }

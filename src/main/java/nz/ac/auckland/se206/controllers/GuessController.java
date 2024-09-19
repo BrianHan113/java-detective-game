@@ -104,6 +104,15 @@ public class GuessController implements Controller {
     second = timeManager.getSecond();
     if (minute == 0 && second == 0) {
       timerLabel.setText("Time's Up!");
+      FeedbackController feedbackController =
+          (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
     } else {
       timerLabel.setText(String.format("%02d:%02d", minute, second));
@@ -178,7 +187,6 @@ public class GuessController implements Controller {
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
       audioPlayer.playAudio("/announcer/explain_choice.mp3");
-      selectLabel.setText("Please enter your reasoning.");
       return;
     }
     txtInput.clear();
@@ -191,6 +199,16 @@ public class GuessController implements Controller {
     String submitPrefix = PromptEngineering.getPrompt("guess.txt", map);
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
     runGpt(msg);
+
+    FeedbackController feedbackController =
+        (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+
+    if (suspectName.equals("Ex-Wife")) {
+      feedbackController.getWonLostLbl().setText("YOU WON!");
+    } else {
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+    }
+
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
   }
 

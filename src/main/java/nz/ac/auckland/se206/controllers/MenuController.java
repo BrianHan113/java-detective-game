@@ -11,7 +11,7 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class MenuController implements Controller{
+public class MenuController implements Controller {
 
   @FXML private Button playButton;
   @FXML private Button quitButton;
@@ -26,7 +26,7 @@ public class MenuController implements Controller{
   @FXML
   private void playButtonClicked(ActionEvent event) throws IOException {
     // Change to correct room to start game.
-    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+    App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
     timeManager.startTimer();
   }
 

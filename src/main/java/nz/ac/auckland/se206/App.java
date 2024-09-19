@@ -1,15 +1,13 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import nz.ac.auckland.se206.SceneManager.AppUi;
+import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
 /**
@@ -19,6 +17,9 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
+  private static Parent menuRoot;
+  private static MenuController menuController;
+
 
   /**
    * The main method that launches the JavaFX application.
@@ -41,8 +42,12 @@ public class App extends Application {
     scene.setRoot(root);
   }
 
-  public static Scene getScene() {
-    return App.scene;
+  public static Parent getMenuRoot() {
+    return App.menuRoot;
+  }
+
+  public static MenuController getMenuController() {
+    return App.menuController;
   }
 
   /**
@@ -53,43 +58,16 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
+    FXMLLoader menuLoader = new FXMLLoader(App.class.getResource("/fxml/menu.fxml"));
+    menuRoot = menuLoader.load();
+    menuController = menuLoader.getController();
+    
 
-    // Initialise all scenes and store them in scene manager.
-    Map<AppUi, String> uiMap = new HashMap<>();
-
-    uiMap.put(AppUi.CCTV, "cctv");
-    uiMap.put(AppUi.FINGERPRINT, "fingerprint");
-    uiMap.put(AppUi.FOOTPRINT, "footprint");
-    uiMap.put(AppUi.EVIDENCE, "evidence");
-    uiMap.put(AppUi.MAIN_MENU, "menu");
-    uiMap.put(AppUi.SON, "son");
-
-    uiMap.put(AppUi.EX_WIFE, "exwife");
-    uiMap.put(AppUi.FEEDBACK, "feedback");
-
-    uiMap.put(AppUi.FRIEND, "friend");
-    uiMap.put(AppUi.GUESSING, "guess");
-    uiMap.put(AppUi.HAMMER, "hammer");
-    uiMap.put(AppUi.CRIME_SCENE, "crimeScene");
-
-    for (Map.Entry<AppUi, String> entry : uiMap.entrySet()) {
-      AppUi appUi = entry.getKey();
-      String value = entry.getValue();
-
-      FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/" + value + ".fxml"));
-      Parent root = loader.load();
-
-      SceneManager.addUi(appUi, root);
-      SceneManager.addController(appUi, loader.getController());
-    }
-
-    Parent root = SceneManager.getUiRoot(AppUi.MAIN_MENU);
-
-    scene = new Scene(root);
+    scene = new Scene(menuRoot);
     stage.setScene(scene);
     stage.show();
     stage.setOnCloseRequest(event -> handleWindowClose(event));
-    root.requestFocus();
+    menuRoot.requestFocus();
   }
 
   private void handleWindowClose(WindowEvent event) {

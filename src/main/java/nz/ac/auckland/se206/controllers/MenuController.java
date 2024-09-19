@@ -4,19 +4,19 @@ import java.io.IOException;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
-import nz.ac.auckland.se206.SceneManager.AppUi;
-import nz.ac.auckland.se206.TimeManager;
 
 public class MenuController implements Controller {
 
   @FXML private Button playButton;
   @FXML private Button quitButton;
-
-  private TimeManager timeManager = TimeManager.getInstance();
+  @FXML private ContextController contextController;
+  @FXML private Parent contextRoot;
 
   @FXML
   public void initialize() {
@@ -25,14 +25,20 @@ public class MenuController implements Controller {
 
   @FXML
   private void playButtonClicked(ActionEvent event) throws IOException {
-    // Change to correct room to start game.
-    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
-    timeManager.startTimer();
+    FXMLLoader contextLoader = new FXMLLoader(App.class.getResource("/fxml/context.fxml"));
+    contextRoot = contextLoader.load();
+    contextController = contextLoader.getController();
+    App.setRoot(contextRoot);
+    SceneManager.setupSceneMap();
   }
 
   @FXML
   private void quitButtonClicked(ActionEvent event) {
     // Quit game
     Platform.exit();
+  }
+  
+  public ContextController getContextController() {
+    return contextController;
   }
 }

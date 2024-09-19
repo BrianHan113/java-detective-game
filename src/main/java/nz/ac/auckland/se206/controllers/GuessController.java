@@ -44,8 +44,7 @@ public class GuessController implements Controller {
 
   private ChatCompletionRequest chatCompletionRequest;
   private ChatMessage feedback;
-  private FeedbackController feedbackController =
-      (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+  private FeedbackController feedbackController;
   private String suspectName;
   private int minute;
   private int second;
@@ -156,10 +155,13 @@ public class GuessController implements Controller {
 
               Platform.runLater(
                   () -> {
+                    feedbackController =
+                        (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
                     submitButton.setDisable(false);
                     feedback = result.getChatMessage();
                     if (msg.getRole() == "user") {
                       feedbackController.displayFeedback(feedback.getContent());
+                      feedbackController.enableBackButton();
                     }
                   });
             } catch (ApiProxyException e) {
@@ -218,6 +220,9 @@ public class GuessController implements Controller {
     }
 
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+    timeManager.stop();
+    timeManager.resetTimer(5);
+    timerLabel.setText(timeManager.formatTime());
   }
 
   @FXML

@@ -8,15 +8,11 @@ import javafx.scene.control.Button;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
-import nz.ac.auckland.se206.SceneManager.AppUi;
-import nz.ac.auckland.se206.TimeManager;
 
 public class MenuController implements Controller{
 
   @FXML private Button playButton;
   @FXML private Button quitButton;
-
-  private TimeManager timeManager = TimeManager.getInstance();
 
   @FXML
   public void initialize() {
@@ -25,10 +21,8 @@ public class MenuController implements Controller{
 
   @FXML
   private void playButtonClicked(ActionEvent event) throws IOException {
+    App.setRoot(App.getContextRoot());
     SceneManager.setupSceneMap();
-    // Change to correct room to start game.
-    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
-    timeManager.startTimer();
   }
 
   @FXML

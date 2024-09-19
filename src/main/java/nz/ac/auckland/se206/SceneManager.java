@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 public class SceneManager {
 
   public enum AppUi {
-    MAIN_MENU,
     SON,
     EX_WIFE,
     FRIEND,
@@ -32,7 +33,6 @@ public class SceneManager {
     Map.entry(AppUi.FINGERPRINT, "fingerprint"),
     Map.entry(AppUi.FOOTPRINT, "footprint"),
     Map.entry(AppUi.EVIDENCE, "evidence"),
-    Map.entry(AppUi.MAIN_MENU, "menu"),
     Map.entry(AppUi.SON, "son"),
     Map.entry(AppUi.EX_WIFE, "exwife"),
     Map.entry(AppUi.FEEDBACK, "feedback"),
@@ -59,20 +59,36 @@ public class SceneManager {
     return controllerMap.get(appUi);
   }
 
-  public static void setupSceneMap() throws IOException{
-    if (!sceneMap.isEmpty()) {
-      sceneMap.clear();
-      controllerMap.clear();
-    }
-    for (Map.Entry<AppUi, String> entry : uiMap.entrySet()) {
-      AppUi appUi = entry.getKey();
-      String value = entry.getValue();
+  public static void setupSceneMap() {
+    Task<Void> setupTask = new Task<Void>() {
+      @Override
+      protected Void call() {
+        try {
+          if (!sceneMap.isEmpty()) {
+            sceneMap.clear();
+            controllerMap.clear();
+          }
+          for (Map.Entry<AppUi, String> entry : uiMap.entrySet()) {
+            AppUi appUi = entry.getKey();
+            String value = entry.getValue();
+      
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/" + value + ".fxml"));
+            Parent root = loader.load();
+      
+            SceneManager.addUi(appUi, root);
+            SceneManager.addController(appUi, loader.getController());
+          }
+          Platform.runLater(() -> {
+            App.getContextController().enableContinueButton();
+          });
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+        return null;
+      }
+    };
 
-      FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/" + value + ".fxml"));
-      Parent root = loader.load();
-
-      SceneManager.addUi(appUi, root);
-      SceneManager.addController(appUi, loader.getController());
-    }
+    Thread bgThread = new Thread(setupTask);
+    bgThread.start();
   }
 }

@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import nz.ac.auckland.se206.controllers.ContextController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
 /**
@@ -16,6 +17,10 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
+  private static Parent menuRoot;
+  private static Parent contextRoot;
+  private static ContextController contextController;
+
 
   /**
    * The main method that launches the JavaFX application.
@@ -38,8 +43,12 @@ public class App extends Application {
     scene.setRoot(root);
   }
 
-  public static Scene getScene() {
-    return App.scene;
+  public static Parent getContextRoot() {
+    return App.contextRoot;
+  }
+
+  public static ContextController getContextController() {
+    return App.contextController;
   }
 
   /**
@@ -50,13 +59,18 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    Parent root = new FXMLLoader(App.class.getResource("/fxml/menu.fxml")).load();
+    FXMLLoader menuLoader = new FXMLLoader(App.class.getResource("/fxml/menu.fxml"));
+    menuRoot = menuLoader.load();
 
-    scene = new Scene(root);
+    FXMLLoader contextLoader = new FXMLLoader(App.class.getResource("/fxml/context.fxml"));
+    contextRoot = contextLoader.load();
+    contextController = contextLoader.getController();
+
+    scene = new Scene(menuRoot);
     stage.setScene(scene);
     stage.show();
     stage.setOnCloseRequest(event -> handleWindowClose(event));
-    root.requestFocus();
+    menuRoot.requestFocus();
   }
 
   private void handleWindowClose(WindowEvent event) {

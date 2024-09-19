@@ -163,6 +163,11 @@ public class CrimeSceneController implements Controller {
         App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "hammerRect":
+        // Clicking hammer doesnt count as fully interacting with clue, but it will allow user to
+        // see the clue view without the dusted fingerprint
+        evController.setFingerprintLabelVisible();
+        footController.setFingerprintLabelVisible();
+        cctvController.setFingerprintLabelVisible();
         App.setRoot(SceneManager.getUiRoot(AppUi.HAMMER));
         break;
 

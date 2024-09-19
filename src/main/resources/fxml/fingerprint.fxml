@@ -14,7 +14,7 @@
    <children>
       <AnchorPane layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="900.0">
          <children>
-            <ImageView fx:id="image" fitHeight="243.0" fitWidth="210.0" layoutX="80.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image" fitHeight="243.0" fitWidth="210.0" layoutX="80.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../images/fingerprint_exwife_blur.png" />
                </image>
@@ -34,7 +34,7 @@
                   <Image url="@../images/fingerprint_son.png" />
                </image>
             </ImageView>
-            <Label fx:id="imageHideLabel" layoutX="145.0" layoutY="213.0" text="???" visible="false">
+            <Label fx:id="imageHideLabel" layoutX="145.0" layoutY="213.0" text="???">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

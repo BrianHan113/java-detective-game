@@ -3,15 +3,10 @@ package nz.ac.auckland.se206.controllers;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.Evidence;
 
 public class FingerprintController extends Evidence {
-
-  @FXML private ImageView image;
-  @FXML private Label imageHideLabel;
 
   @FXML
   public void initialize() {

@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -20,6 +21,9 @@ public abstract class Evidence implements Controller {
   @FXML protected Label shoeprintHideLabel;
   @FXML protected Label securityCamHideLabel;
   @FXML protected Line crossLine;
+
+  @FXML protected ImageView image;
+  @FXML protected Label imageHideLabel;
 
   protected int minute;
   protected int second;
@@ -67,5 +71,10 @@ public abstract class Evidence implements Controller {
   public void setShoeprintLabelVisible() {
     shoeprintLabel.setVisible(true);
     shoeprintHideLabel.setVisible(false);
+  }
+
+  public void setFingerprintImageVisible() {
+    image.setVisible(true);
+    imageHideLabel.setVisible(false);
   }
 }

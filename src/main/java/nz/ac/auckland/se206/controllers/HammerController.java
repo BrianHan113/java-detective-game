@@ -81,20 +81,16 @@ public class HammerController implements Controller {
   }
 
   private void revealFingerprint() {
-    Evidence evController = (Evidence) SceneManager.getController(AppUi.EVIDENCE);
-    Evidence footController = (Evidence) SceneManager.getController(AppUi.FOOTPRINT);
-    Evidence cctvController = (Evidence) SceneManager.getController(AppUi.CCTV);
 
     this.opacity = this.opacity + 0.001;
     fingerprintImage.setOpacity(opacity);
     if (opacity >= 1) {
+      Evidence fingController = (Evidence) SceneManager.getController(AppUi.FINGERPRINT);
       isFingerprintDusted = true;
       evidenceLbl.setVisible(true);
 
       interact.setInteractClue(true);
-      evController.setFingerprintLabelVisible();
-      footController.setFingerprintLabelVisible();
-      cctvController.setFingerprintLabelVisible();
+      fingController.setFingerprintImageVisible();
     }
   }
 

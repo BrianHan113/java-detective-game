@@ -5,29 +5,13 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.Evidence;
-import nz.ac.auckland.se206.TimeManager;
 
-public class FingerprintController extends Evidence{
+public class FingerprintController extends Evidence {
 
-  @FXML private Circle exitCircle;
   @FXML private ImageView image;
-  @FXML private Label timerLabel;
-  @FXML private Label evidenceLabel;
-  @FXML private Label shoeprintLabel;
-  @FXML private Label securityCamLabel;
-  @FXML private Label shoeprintHideLabel;
-  @FXML private Label securityCamHideLabel;
   @FXML private Label imageHideLabel;
-  @FXML private Line crossLine;
-
-  private int minute;
-  private int second;
-  private Timeline timeline;
-  private TimeManager timeManager = TimeManager.getInstance();
 
   @FXML
   public void initialize() {

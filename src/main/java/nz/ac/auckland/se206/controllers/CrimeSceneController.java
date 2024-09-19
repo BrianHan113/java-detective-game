@@ -122,7 +122,7 @@ public class CrimeSceneController implements Controller {
   }
 
   @FXML
-  private void guessBtnClicked() throws IOException{
+  private void guessBtnClicked() throws IOException {
     App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
   }
 
@@ -143,6 +143,10 @@ public class CrimeSceneController implements Controller {
         break;
       case "securityCameraRect":
         interact.setInteractClue(true);
+        EvidenceController controller =
+            (EvidenceController) SceneManager.getController(AppUi.EVIDENCE);
+        controller.getFingerprintLabel().setVisible(true);
+        controller.getFingerprintHideLabel().setVisible(false);
         App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
       case "shoeprintRect":

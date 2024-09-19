@@ -139,8 +139,6 @@ public class GuessController implements Controller {
               Choice result = chatCompletionResult.getChoices().iterator().next();
               chatCompletionRequest.addMessage(result.getChatMessage());
 
-              System.out.println(result.getChatMessage().getContent());
-
               Platform.runLater(
                   () -> {
                     submitButton.setDisable(false);

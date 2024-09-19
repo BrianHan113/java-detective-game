@@ -10,7 +10,6 @@ public class FingerprintController extends Evidence {
 
   @FXML
   public void initialize() {
-    System.out.println("fingerprint" + shoeprintLabel);
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
   }

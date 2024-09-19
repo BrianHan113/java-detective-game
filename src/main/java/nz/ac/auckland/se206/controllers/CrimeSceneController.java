@@ -25,7 +25,6 @@ public class CrimeSceneController implements Controller {
   private static boolean isFirstTimeInit = true;
   private static boolean timeOver = false;
   private static InteractionManager interact = InteractionManager.getInstance();
-  private static AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
   @FXML private Button viewEvidenceBtn;
   @FXML private Rectangle shoeprintRect;

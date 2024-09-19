@@ -12,6 +12,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
+import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -130,6 +131,10 @@ public class CrimeSceneController implements Controller {
   private void handleRectangleClick(MouseEvent event) throws IOException {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
+    Evidence evController = (Evidence) SceneManager.getController(AppUi.EVIDENCE);
+    Evidence footController = (Evidence) SceneManager.getController(AppUi.FOOTPRINT);
+    Evidence fingController = (Evidence) SceneManager.getController(AppUi.FINGERPRINT);
+    Evidence cctvController = (Evidence) SceneManager.getController(AppUi.CCTV);
 
     switch (shapeId) {
       case "wifePinRect":
@@ -143,14 +148,18 @@ public class CrimeSceneController implements Controller {
         break;
       case "securityCameraRect":
         interact.setInteractClue(true);
-        EvidenceController controller =
-            (EvidenceController) SceneManager.getController(AppUi.EVIDENCE);
-        controller.getFingerprintLabel().setVisible(true);
-        controller.getFingerprintHideLabel().setVisible(false);
+        evController.setSecurityCamLabelVisible();
+        footController.setSecurityCamLabelVisible();
+        fingController.setSecurityCamLabelVisible();
+
         App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
       case "shoeprintRect":
         interact.setInteractClue(true);
+        evController.setShoeprintLabelVisible();
+        fingController.setShoeprintLabelVisible();
+        cctvController.setShoeprintLabelVisible();
+
         App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "hammerRect":

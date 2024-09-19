@@ -14,6 +14,7 @@ public class FootprintController extends Evidence {
 
   @FXML
   public void initialize() {
+    System.out.println("footprint" + shoeprintLabel);
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
   }

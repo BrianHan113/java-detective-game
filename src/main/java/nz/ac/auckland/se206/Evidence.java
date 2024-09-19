@@ -54,27 +54,18 @@ public abstract class Evidence implements Controller {
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 
-  public Label getFingerprintLabel() {
-    return fingerprintLabel;
+  public void setSecurityCamLabelVisible() {
+    securityCamLabel.setVisible(true);
+    securityCamHideLabel.setVisible(false);
   }
 
-  public Label getFingerprintHideLabel() {
-    return fingerprintHideLabel;
+  public void setFingerprintLabelVisible() {
+    fingerprintLabel.setVisible(true);
+    fingerprintHideLabel.setVisible(false);
   }
 
-  public Label getShoeprintLabel() {
-    return shoeprintLabel;
-  }
-
-  public Label getSecurityCamLabel() {
-    return securityCamLabel;
-  }
-
-  public Label getShoeprintHideLabel() {
-    return shoeprintHideLabel;
-  }
-
-  public Label getSecurityCamHideLabel() {
-    return securityCamHideLabel;
+  public void setShoeprintLabelVisible() {
+    shoeprintLabel.setVisible(true);
+    shoeprintHideLabel.setVisible(false);
   }
 }

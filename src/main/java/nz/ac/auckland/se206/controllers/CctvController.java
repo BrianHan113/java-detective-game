@@ -40,6 +40,7 @@ public class CctvController extends Evidence {
   @FXML
   @Override
   public void initialize() {
+    System.out.println("cctv" + shoeprintLabel);
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
 

@@ -10,7 +10,7 @@ public class EvidenceController extends Evidence {
 
   @FXML
   public void initialize() {
-
+    System.out.println("evidence" + shoeprintLabel);
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
   }

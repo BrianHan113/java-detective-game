@@ -36,7 +36,7 @@ public class ExwifeController extends Chat {
    */
   @FXML
   public void initialize() {
-    System.out.println("Initialized Ex-wife Chat: " + this);
+    // System.out.println("Initialized Ex-wife Chat: " + this);
     // Bind <Enter> key to sendButton
     txtInput.setOnKeyPressed(
         event -> {

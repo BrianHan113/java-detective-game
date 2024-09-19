@@ -40,7 +40,7 @@ public class GuessController implements Controller {
   @FXML private TextArea txtInput;
   @FXML private Button submitButton;
 
-  private static boolean timeOver = false;
+  private boolean timeOver = false;
 
   private ChatCompletionRequest chatCompletionRequest;
   private ChatMessage feedback;
@@ -115,6 +115,7 @@ public class GuessController implements Controller {
           .setText(
               "Try be a little faster next time! Top-notch detectives need to be able to think"
                   + " fast!");
+      feedbackController.enableBackButton();
       timeOver = true;
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
     } else {

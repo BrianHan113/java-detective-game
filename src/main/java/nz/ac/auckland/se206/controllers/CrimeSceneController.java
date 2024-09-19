@@ -23,7 +23,7 @@ import nz.ac.auckland.se206.Voicelines;
 public class CrimeSceneController implements Controller {
 
   private static boolean isFirstTimeInit = true;
-  private static boolean timeOver = false;
+  private boolean timeOver = false;
   private static InteractionManager interact = InteractionManager.getInstance();
 
   @FXML private Button viewEvidenceBtn;

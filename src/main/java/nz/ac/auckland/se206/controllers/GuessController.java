@@ -140,7 +140,8 @@ public class GuessController implements Controller {
 
               Platform.runLater(
                   () -> {
-                    feedbackController = (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+                    feedbackController =
+                        (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
                     submitButton.setDisable(false);
                     feedback = result.getChatMessage();
                     if (msg.getRole() == "user") {
@@ -188,6 +189,9 @@ public class GuessController implements Controller {
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
     runGpt(msg);
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+    timeManager.stop();
+    timeManager.resetTimer(5);
+    timerLabel.setText(timeManager.formatTime());
   }
 
   @FXML

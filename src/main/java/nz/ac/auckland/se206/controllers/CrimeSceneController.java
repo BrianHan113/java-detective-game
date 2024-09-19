@@ -17,6 +17,7 @@ import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
+import nz.ac.auckland.se206.Voicelines;
 
 public class CrimeSceneController implements Controller {
 
@@ -124,7 +125,37 @@ public class CrimeSceneController implements Controller {
 
   @FXML
   private void guessBtnClicked() throws IOException {
-    App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+    if (interact.getInteractClue()
+        && interact.getInteractExwife()
+        && interact.getInteractFriend()
+        && interact.getInteractSon()) {
+      System.out.println("Clues: Y, All suspects: Y");
+
+      timeManager.resetTimer(1);
+      timerLbl.setText(timeManager.formatTime());
+
+      App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
+
+      timeOver = true;
+    } else if (!interact.getInteractClue()
+        && interact.getInteractExwife()
+        && interact.getInteractFriend()
+        && interact.getInteractSon()) {
+      System.out.println("Clues: N, All suspects: Y");
+      System.out.println("Interact with an item");
+    } else if (interact.getInteractClue()
+        && (!interact.getInteractExwife()
+            || !interact.getInteractFriend()
+            || !interact.getInteractSon())) {
+      System.out.println("Clues: Y, All suspects: N");
+      System.out.println("Chat to all three suspects");
+    } else if (!interact.getInteractClue()
+        && (!interact.getInteractExwife()
+            || !interact.getInteractFriend()
+            || !interact.getInteractSon())) {
+      System.out.println("Clues: N, All suspects: N");
+      System.out.println("Interact with an item and chat with all three suspects");
+    }
   }
 
   @FXML
@@ -139,12 +170,24 @@ public class CrimeSceneController implements Controller {
     switch (shapeId) {
       case "wifePinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        if (!InteractionManager.isVisitExWife()) {
+          Voicelines.introVoiceLines("Ex-Wife");
+          InteractionManager.setVisitExWife(true);
+        }
         break;
       case "friendPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        if (!InteractionManager.isVisitFriend()) {
+          Voicelines.introVoiceLines("Friend");
+          InteractionManager.setVisitFriend(true);
+        }
         break;
       case "sonPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        if (!InteractionManager.isVisitSon()) {
+          Voicelines.introVoiceLines("Son");
+          InteractionManager.setVisitSon(true);
+        }
         break;
       case "securityCameraRect":
         interact.setInteractClue(true);

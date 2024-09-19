@@ -40,7 +40,6 @@ public class CctvController extends Evidence {
   @FXML
   @Override
   public void initialize() {
-    System.out.println("cctv" + shoeprintLabel);
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
 
@@ -113,6 +112,41 @@ public class CctvController extends Evidence {
     playButton.setText("PLAY");
     isPlaying = false;
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  }
+
+  @FXML
+  private void moveToOtherEvidence(MouseEvent event) throws IOException {
+    Label label = (Label) event.getSource();
+    String labelId = label.getId();
+
+    switch (labelId) {
+      case "evidenceLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
+        break;
+      case "fingerprintLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
+        break;
+      case "shoeprintLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
+        break;
+      case "securityCamLabel":
+        videoPlayer.pause();
+        playButton.setText("PLAY");
+        isPlaying = false;
+        App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
+        break;
+      default:
+        break;
+    }
   }
 
   private void decrementTime() {

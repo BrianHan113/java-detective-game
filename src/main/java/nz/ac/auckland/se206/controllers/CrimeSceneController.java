@@ -25,6 +25,7 @@ public class CrimeSceneController implements Controller {
   private static boolean isFirstTimeInit = true;
   private static boolean timeOver = false;
   private static InteractionManager interact = InteractionManager.getInstance();
+  private static AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
   @FXML private Button viewEvidenceBtn;
   @FXML private Rectangle shoeprintRect;
@@ -189,6 +190,7 @@ public class CrimeSceneController implements Controller {
         }
         break;
       case "securityCameraRect":
+        audioPlayer.playAudio("cctv.mp3");
         interact.setInteractClue(true);
         evController.setSecurityCamLabelVisible();
         footController.setSecurityCamLabelVisible();
@@ -197,6 +199,7 @@ public class CrimeSceneController implements Controller {
         App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
       case "shoeprintRect":
+        audioPlayer.playAudio("footstep.mp3");
         interact.setInteractClue(true);
         evController.setShoeprintLabelVisible();
         fingController.setShoeprintLabelVisible();
@@ -205,8 +208,7 @@ public class CrimeSceneController implements Controller {
         App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "hammerRect":
-        // Clicking hammer doesnt count as fully interacting with clue, but it will allow user to
-        // see the clue view without the dusted fingerprint
+        audioPlayer.playAudio("hammer.mp3");
         evController.setFingerprintLabelVisible();
         footController.setFingerprintLabelVisible();
         cctvController.setFingerprintLabelVisible();

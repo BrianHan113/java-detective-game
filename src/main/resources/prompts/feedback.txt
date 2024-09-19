@@ -11,6 +11,9 @@ Guesses the Ex-wife is the culprit.
 
 The perfect answer should make some points that are similar to the above.
 
-Only give comments on the evidence I have gathered. If I did not get the evidence, DO NOT MENTION IT when grading my explanation. Also, DO NOT tell me who the culprit was if I got it wrong. Just tell me if I was right or wrong. 
+Only give comments on the evidence I have gathered. If I did not get the evidence, DO NOT MENTION IT when grading my explanation. 
+This also includes if I do not mention demeanour. If I do not mention it in my explanation, do not spoil me by giving the correct answer. 
+Also, DO NOT tell me who the culprit was if I got it wrong. Just tell me if I was right or wrong. 
+Also, do not ask any follow-up questions, and keep your feedback under 200 words. It can be much shorter if there is not much to discuss.
 
 My next message will be my explanation, grade it, and go through each metric ONLY IF I have gathered the relevant physical evidence.

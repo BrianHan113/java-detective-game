@@ -7,7 +7,6 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -20,13 +19,15 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.SceneManager.AppUi;
+
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
-public abstract class Chat {
+public abstract class Chat implements Controller {
   private ChatCompletionRequest chatCompletionRequest;
   private String role;
   private String promptFilename;
   private String suspectName;
+  private InteractionManager interact = InteractionManager.getInstance();
 
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
@@ -138,6 +139,20 @@ public abstract class Chat {
 
     txtInput.clear();
 
+    switch (role) {
+      case "Friend":
+        interact.setInteractFriend(true);
+        break;
+      case "Son":
+        interact.setInteractSon(true);
+        break;
+      case "Ex-Wife":
+        interact.setInteractExwife(true);
+        break;
+      default:
+        break;
+    }
+
     // Create tempMsg to change role name
     ChatMessage tempMsg = new ChatMessage("Detective", message);
     appendChatMessage(tempMsg);
@@ -149,32 +164,31 @@ public abstract class Chat {
   private void handleRectangleClick(MouseEvent event) {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
-    Scene sceneOfShape = shape.getScene();
 
     switch (shapeId) {
       case "wifePinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
         if (!InteractionManager.isVisitExWife()) {
           Voicelines.introVoiceLines("Ex-Wife");
           InteractionManager.setVisitExWife(true);
         }
         break;
       case "friendPinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
         if (!InteractionManager.isVisitFriend()) {
           Voicelines.introVoiceLines("Friend");
           InteractionManager.setVisitFriend(true);
         }
         break;
       case "sonPinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        App.setRoot(SceneManager.getUiRoot(AppUi.SON));
         if (!InteractionManager.isVisitSon()) {
           Voicelines.introVoiceLines("Son");
           InteractionManager.setVisitSon(true);
         }
         break;
       case "crimeScenePinRect":
-        sceneOfShape.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+        App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
         break;
 
       default:

@@ -1,21 +1,24 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.Controller;
+import nz.ac.auckland.se206.InteractionManager;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
-public class HammerController {
+public class HammerController implements Controller {
 
   @FXML private Circle exitCircle;
   @FXML private Label timerLabel;
@@ -30,6 +33,7 @@ public class HammerController {
   private int second;
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
+  private static InteractionManager interact = InteractionManager.getInstance();
 
   @FXML
   public void initialize() {
@@ -53,17 +57,8 @@ public class HammerController {
   }
 
   @FXML
-  private void exitToCrimeScene(MouseEvent event) {
-    Circle button = (Circle) event.getSource();
-    Scene scene = button.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
-  }
-
-  @FXML
-  private void exitToCrimeSceneLine(MouseEvent event) {
-    Line line = (Line) event.getSource();
-    Scene scene = line.getScene();
-    scene.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+  private void exitToCrimeScene(MouseEvent event) throws IOException {
+    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 
   private boolean isCollidingWithFingerprint() {
@@ -91,8 +86,7 @@ public class HammerController {
       isFingerprintDusted = true;
       evidenceLbl.setVisible(true);
 
-      // To the guy implementing fingerprint clue scene,
-      // this is where fingerprint is fully dusted
+      interact.setInteractClue(true);
     }
   }
 

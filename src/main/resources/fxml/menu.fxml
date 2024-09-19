@@ -9,12 +9,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
    <children>
-      <ImageView fitHeight="550.0" fitWidth="900.0" opacity="0.6" pickOnBounds="true">
+      <ImageView fitHeight="550.0" fitWidth="900.0" opacity="0.4" pickOnBounds="true">
          <image>
             <Image url="@../images/MainMenu.png" />
          </image>
       </ImageView>
-      <Text fill="#b1e5f2" layoutX="118.0" layoutY="274.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="The Great Jewel Caper">
+      <Text layoutX="118.0" layoutY="182.0" stroke="#b1e5f2" strokeType="OUTSIDE" strokeWidth="2.0" text="The Great Jewel Caper">
          <font>
             <Font name="Niagara Solid" size="124.0" />
          </font>

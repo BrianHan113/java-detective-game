@@ -13,13 +13,16 @@
             <Font name="System Bold" size="43.0" />
          </font>
       </Label>
-      <Label fx:id="feedbackStatusLbl" layoutX="372.0" layoutY="96.0" text="Loading Feedback...">
+      <Label fx:id="feedbackStatusLbl" alignment="CENTER" layoutX="290.0" layoutY="96.0" prefHeight="27.0" prefWidth="321.0" text="Loading Feedback...">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
 
-      <TextArea fx:id="feedbackTextArea" editable="false" layoutX="106.0" layoutY="156.0" prefHeight="238.0" prefWidth="688.0" wrapText="true" />
+      <TextArea fx:id="feedbackTextArea" editable="false" layoutX="106.0" layoutY="156.0" prefHeight="238.0" prefWidth="688.0" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
       <Button fx:id="backButton" layoutX="359.0" layoutY="436.0" mnemonicParsing="false" onAction="#onBackPressed" prefHeight="73.0" prefWidth="181.0" style="-fx-background-color: B1E5F2;" text="Back to Main Menu">
 
          <font>

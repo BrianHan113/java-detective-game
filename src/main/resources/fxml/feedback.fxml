@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.FeedbackController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.FeedbackController">
    <children>
       <Label fx:id="wonLostLbl" alignment="CENTER" layoutX="333.0" layoutY="14.0" prefHeight="95.0" prefWidth="234.0" text="YOU WON">
          <font>
@@ -23,7 +23,7 @@
          <font>
             <Font size="16.0" />
          </font></TextArea>
-      <Button fx:id="backButton" layoutX="359.0" layoutY="436.0" mnemonicParsing="false" onAction="#onBackPressed" prefHeight="73.0" prefWidth="181.0" style="-fx-background-color: B1E5F2;" text="Back to Main Menu">
+      <Button fx:id="backButton" layoutX="359.0" layoutY="436.0" mnemonicParsing="false" onAction="#onBackPressed" prefHeight="73.0" prefWidth="181.0" text="Back to Main Menu">
 
          <font>
             <Font name="System Bold" size="16.0" />

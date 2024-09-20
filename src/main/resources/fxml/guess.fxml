@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
    <children>
       <ImageView fitHeight="370.0" fitWidth="650.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -47,12 +47,15 @@
       <Rectangle fx:id="sonRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="249.0" layoutX="447.0" layoutY="136.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="134.0" />
       <AnchorPane layoutY="386.0" prefHeight="165.0" prefWidth="900.0">
          <children>
-            <TextArea fx:id="txtInput" layoutX="15.0" layoutY="14.0" prefHeight="136.0" prefWidth="780.0" wrapText="true">
+            <TextArea fx:id="txtInput" layoutX="15.0" layoutY="14.0" prefHeight="136.0" prefWidth="758.0" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font>
             </TextArea>
-            <Button fx:id="submitButton" layoutX="800.0" layoutY="125.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="25.0" prefWidth="85.0" text="Submit" />
+            <Button fx:id="submitButton" layoutX="780.0" layoutY="61.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="42.0" prefWidth="113.0" text="Submit">
+               <font>
+                  <Font name="Engravers MT" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </children>

@@ -1,0 +1,12 @@
+.button {
+  -fx-background-color: #fff;
+  -fx-background-radius: 15px;
+  -fx-border-style: solid;
+  -fx-border-radius: 15px;
+  -fx-border-width: 1px;
+  -fx-font-family: "Engraves MT";
+}
+
+.button:hover {
+  -fx-background-color: #a7a7a7;
+}

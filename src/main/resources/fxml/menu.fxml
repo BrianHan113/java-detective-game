@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
    <children>
       <ImageView fitHeight="550.0" fitWidth="900.0" opacity="0.4" pickOnBounds="true">
          <image>
@@ -19,12 +19,12 @@
             <Font name="Niagara Solid" size="124.0" />
          </font>
       </Text>
-      <Button fx:id="playButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#playButtonClicked" prefHeight="49.0" prefWidth="344.0" style="-fx-border-width: 2; -fx-border-style: solid; -fx-border-radius: 15px; -fx-background-color: fff;" text="PLAY">
+      <Button fx:id="playButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#playButtonClicked" prefHeight="49.0" prefWidth="344.0" text="PLAY">
          <font>
             <Font name="Engravers MT" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="503.0" layoutY="429.0" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="52.0" prefWidth="344.0" style="-fx-border-radius: 15; -fx-background-color: fff; -fx-border-width: 2; -fx-border-style: solid;" text="Quit">
+      <Button fx:id="quitButton" layoutX="503.0" layoutY="429.0" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="52.0" prefWidth="344.0" text="Quit">
          <font>
             <Font name="Engravers MT" size="36.0" />
          </font>

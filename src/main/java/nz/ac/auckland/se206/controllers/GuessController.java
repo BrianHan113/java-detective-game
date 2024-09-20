@@ -117,6 +117,9 @@ public class GuessController implements Controller {
                   + " fast!");
       feedbackController.enableBackButton();
       timeOver = true;
+      timeManager.stop();
+      timeManager.resetTimer(5);
+      timerLabel.setText(timeManager.formatTime());
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
     } else {
       timerLabel.setText(String.format("%02d:%02d", minute, second));

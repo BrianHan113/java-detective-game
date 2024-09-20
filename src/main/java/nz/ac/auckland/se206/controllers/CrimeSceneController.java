@@ -73,6 +73,8 @@ public class CrimeSceneController implements Controller {
   }
 
   private void afterTimeLimit() throws IOException {
+    FeedbackController feedbackController =
+        (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
 
     if (!timeOver
         && interact.getInteractClue()
@@ -93,6 +95,17 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
 
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
+      feedbackController.enableBackButton();
+      timeOver = true;
+
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 
       timeManager.stop();
@@ -106,6 +119,17 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
 
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
+      feedbackController.enableBackButton();
+      timeOver = true;
+
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 
       timeManager.stop();
@@ -118,6 +142,17 @@ public class CrimeSceneController implements Controller {
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
+
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
+      feedbackController.enableBackButton();
+      timeOver = true;
 
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 

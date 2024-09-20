@@ -19,12 +19,12 @@
             <Font name="Niagara Solid" size="124.0" />
          </font>
       </Text>
-      <Button fx:id="playButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#playButtonClicked" prefHeight="49.0" prefWidth="344.0" text="PLAY">
+      <Button fx:id="playButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#onPlayClicked" prefHeight="49.0" prefWidth="344.0" text="PLAY">
          <font>
             <Font name="Engravers MT" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="503.0" layoutY="429.0" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="52.0" prefWidth="344.0" text="Quit">
+      <Button fx:id="quitButton" layoutX="503.0" layoutY="429.0" mnemonicParsing="false" onAction="#onQuitClicked" prefHeight="52.0" prefWidth="344.0" text="Quit">
          <font>
             <Font name="Engravers MT" size="36.0" />
          </font>

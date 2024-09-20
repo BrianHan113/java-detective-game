@@ -58,7 +58,7 @@ public class CctvController extends Evidence {
   }
 
   @FXML
-  private void handlePlayClick(ActionEvent event) {
+  private void onPlayClick(ActionEvent event) {
     // Logic for play/pause button for security cam footage
     if (isPlaying) {
       videoPlayer.pause();

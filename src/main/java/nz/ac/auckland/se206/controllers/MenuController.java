@@ -24,7 +24,7 @@ public class MenuController implements Controller {
   }
 
   @FXML
-  private void playButtonClicked(ActionEvent event) throws IOException {
+  private void onPlayClicked(ActionEvent event) throws IOException {
     FXMLLoader contextLoader = new FXMLLoader(App.class.getResource("/fxml/context.fxml"));
     contextRoot = contextLoader.load();
     contextController = contextLoader.getController();
@@ -33,7 +33,7 @@ public class MenuController implements Controller {
   }
 
   @FXML
-  private void quitButtonClicked(ActionEvent event) {
+  private void onQuitClicked(ActionEvent event) {
     // Quit game
     Platform.exit();
   }

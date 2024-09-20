@@ -144,12 +144,12 @@ public class CrimeSceneController implements Controller {
   }
 
   @FXML
-  private void showEvidence(ActionEvent event) throws IOException {
+  private void onShowEvidence(ActionEvent event) throws IOException {
     App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
   }
 
   @FXML
-  private void guessBtnClicked() throws IOException {
+  private void onGuessClicked() throws IOException {
     // Interact with clue and all suspects
     if (interact.getInteractClue()
         && interact.getInteractExwife()

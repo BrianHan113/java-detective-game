@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CctvController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/evidence.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CctvController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272635" height="90.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
       <Circle fx:id="exitCircle" fill="#b1e5f2" layoutX="45.0" layoutY="45.0" onMouseClicked="#exitToCrimeScene" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
@@ -97,7 +97,10 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="92.0" prefWidth="874.0" spacing="50.0">
                      <children>
-                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#handlePlayClick" prefHeight="25.0" prefWidth="96.0" text="PLAY" />
+                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#handlePlayClick" prefHeight="37.0" prefWidth="132.0" text="PLAY">
+                           <font>
+                              <Font name="Engravers MT" size="18.0" />
+                           </font></Button>
                      </children>
                   </HBox>
                </children>

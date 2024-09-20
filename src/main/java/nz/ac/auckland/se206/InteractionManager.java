@@ -3,6 +3,17 @@ package nz.ac.auckland.se206;
 public class InteractionManager {
 
   private static InteractionManager instance;
+  private static boolean interactClue = false;
+  private static boolean interactExwife = false;
+  private static boolean interactFriend = false;
+  private static boolean interactSon = false;
+  private static boolean interactHammer = false;
+  private static boolean interactFingerprintDusted = false;
+  private static boolean interactFootprint = false;
+  private static boolean interactSecurityCamera = false;
+  private static boolean isVisitExWife = false;
+  private static boolean isVisitFriend = false;
+  private static boolean isVisitSon = false;
 
   public static InteractionManager getInstance() {
     if (instance == null) {
@@ -10,20 +21,6 @@ public class InteractionManager {
     }
     return instance;
   }
-
-  private static boolean interactClue = false;
-  private static boolean interactExwife = false;
-  private static boolean interactFriend = false;
-  private static boolean interactSon = false;
-
-  private static boolean interactHammer = false;
-  private static boolean interactFingerprintDusted = false;
-  private static boolean interactFootprint = false;
-  private static boolean interactSecurityCamera = false;
-
-  private static boolean isVisitExWife = false;
-  private static boolean isVisitFriend = false;
-  private static boolean isVisitSon = false;
 
   public static boolean isVisitExWife() {
     return isVisitExWife;
@@ -49,7 +46,26 @@ public class InteractionManager {
     InteractionManager.isVisitSon = isVisitSon;
   }
 
-  private InteractionManager() {}
+  public static void resetManager() {
+    // Reset all important variables to prepare for game restart
+    interactClue = false;
+    interactExwife = false;
+    interactFriend = false;
+    interactSon = false;
+
+    interactHammer = false;
+    interactFingerprintDusted = false;
+    interactFootprint = false;
+    interactSecurityCamera = false;
+
+    isVisitExWife = false;
+    isVisitFriend = false;
+    isVisitSon = false;
+  }
+
+  private InteractionManager() {
+    // Constructor
+  }
 
   public boolean getInteractClue() {
     return interactClue;
@@ -113,22 +129,5 @@ public class InteractionManager {
 
   public void setInteractSecurityCamera(boolean bool) {
     interactSecurityCamera = bool;
-  }
-
-  public static void resetManager() {
-    // Reset all important variables to prepare for game restart
-    interactClue = false;
-    interactExwife = false;
-    interactFriend = false;
-    interactSon = false;
-
-    interactHammer = false;
-    interactFingerprintDusted = false;
-    interactFootprint = false;
-    interactSecurityCamera = false;
-
-    isVisitExWife = false;
-    isVisitFriend = false;
-    isVisitSon = false;
   }
 }

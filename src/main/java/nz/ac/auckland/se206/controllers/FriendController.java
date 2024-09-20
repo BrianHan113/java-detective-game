@@ -30,7 +30,6 @@ public class FriendController extends Chat {
    */
   @FXML
   public void initialize() {
-    // System.out.println("Initialized Friend Chat: " + this);
     // Bind <Enter> key to sendButton
     txtInput.setOnKeyPressed(
         event -> {

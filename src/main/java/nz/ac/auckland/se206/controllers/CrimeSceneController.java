@@ -23,8 +23,9 @@ import nz.ac.auckland.se206.Voicelines;
 public class CrimeSceneController implements Controller {
 
   private static boolean isFirstTimeInit = true;
-  private boolean timeOver = false;
   private static InteractionManager interact = InteractionManager.getInstance();
+
+  private boolean timeOver = false;
 
   @FXML private Button viewEvidenceBtn;
   @FXML private Rectangle shoeprintRect;
@@ -41,8 +42,7 @@ public class CrimeSceneController implements Controller {
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
   private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
-  private FeedbackController feedbackController =
-      (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+  private FeedbackController feedbackController;
 
   @FXML
   public void initialize() {
@@ -98,6 +98,7 @@ public class CrimeSceneController implements Controller {
   }
 
   private void afterTimeLimit() throws IOException {
+    feedbackController = (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
     // Called when timer reaches 0
 
     // If user has met all requirments, go through to guessing scene
@@ -144,12 +145,12 @@ public class CrimeSceneController implements Controller {
   }
 
   @FXML
-  private void showEvidence(ActionEvent event) throws IOException {
+  private void onShowEvidence(ActionEvent event) throws IOException {
     App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
   }
 
   @FXML
-  private void guessBtnClicked() throws IOException {
+  private void onGuessClicked() throws IOException {
     // Interact with clue and all suspects
     if (interact.getInteractClue()
         && interact.getInteractExwife()

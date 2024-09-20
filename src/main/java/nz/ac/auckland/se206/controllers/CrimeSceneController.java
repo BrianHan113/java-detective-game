@@ -175,14 +175,13 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
-
+      timeOver = true;
       timeManager.resetTimer(1);
       timerLbl.setText(timeManager.formatTime());
 
       audioPlayer.playAudio("/announcer/click_theif_submit.mp3");
       App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
 
-      timeOver = true;
     } else if (!interact.getInteractClue()
         && interact.getInteractExwife()
         && interact.getInteractFriend()

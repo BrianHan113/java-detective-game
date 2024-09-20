@@ -78,9 +78,11 @@ public class CrimeSceneController implements Controller {
   }
 
   private void timeoutFeedbackScene() throws IOException {
+    // Edit feedback label and play audio
     feedbackController.getWonLostLbl().setText("YOU LOST");
     audioPlayer.playAudio("/announcer/lost.mp3");
     feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+    // Append appropriate message
     feedbackController
         .getFeedbackTextArea()
         .setText(
@@ -90,7 +92,8 @@ public class CrimeSceneController implements Controller {
     timeOver = true;
 
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
-
+    
+    // Ensure timer resets
     timeManager.stop();
     timeManager.resetTimer(5);
     timerLbl.setText(timeManager.formatTime());

@@ -251,7 +251,10 @@ public class GuessController implements Controller {
 
   @FXML
   private void handleRectangleClick(MouseEvent event) {
+    // Get fxid for clicked shape
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+
+    // Go to corresponding scene
     switch (clickedRectangle.getId()) {
       case "exwifeRect":
         suspectName = "Ex-Wife";

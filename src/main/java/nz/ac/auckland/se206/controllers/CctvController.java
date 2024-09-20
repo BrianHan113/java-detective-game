@@ -118,7 +118,7 @@ public class CctvController extends Evidence {
   }
 
   @FXML
-  private void onMediaError(MediaErrorEvent event) {
+  private void onMediaFailed(MediaErrorEvent event) {
     System.out.println("Media error occurred: " + event.getMediaError().getMessage());
     loadMedia();
   }

@@ -19,7 +19,6 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.SceneManager.AppUi;
-
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public abstract class Chat implements Controller {
@@ -131,14 +130,18 @@ public abstract class Chat implements Controller {
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
     String message = txtInput.getText().trim();
+
+    // Dont let user send blank text
     if (message.isEmpty()) {
       return;
     }
 
+    // Play filler voiceline to hide chat delay
     Voicelines.fillerVoiceLines(this.role);
 
     txtInput.clear();
 
+    // User has interacted/chatted with suspect
     switch (role) {
       case "Friend":
         interact.setInteractFriend(true);
@@ -162,9 +165,12 @@ public abstract class Chat implements Controller {
 
   @FXML
   private void handleRectangleClick(MouseEvent event) throws IOException {
+
+    // Find fxid of clicked object
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
 
+    // Go to corresponding scene, and play intro voiceline if first time clicking
     switch (shapeId) {
       case "wifePinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));

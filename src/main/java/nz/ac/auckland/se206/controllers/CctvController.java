@@ -51,6 +51,7 @@ public class CctvController extends Evidence {
     Platform.runLater(
         new Runnable() {
           public void run() {
+            // Update current position in progress bar to relative time in the video
             progressSlider.setValue(
                 videoPlayer.getCurrentTime().toMillis()
                     / videoPlayer.getTotalDuration().toMillis()
@@ -61,6 +62,7 @@ public class CctvController extends Evidence {
 
   @FXML
   private void handlePlayClick(ActionEvent event) {
+    // Logic for play/pause button for security cam footage
     if (isPlaying) {
       videoPlayer.pause();
       playButton.setText("PLAY");
@@ -82,9 +84,12 @@ public class CctvController extends Evidence {
 
   @FXML
   private void moveToOtherEvidence(MouseEvent event) throws IOException {
+
+    // Find fxid of clicked object
     Label label = (Label) event.getSource();
     String labelId = label.getId();
 
+    // Go to corresponding scene, and also puase the video
     switch (labelId) {
       case "evidenceLabel":
         videoPlayer.pause();

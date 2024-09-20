@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,7 +18,6 @@ public class FeedbackController implements Controller {
   public void initialize() {
     backButton.setDisable(true);
   }
-
 
   @FXML
   private void onBackPressed() throws IOException {

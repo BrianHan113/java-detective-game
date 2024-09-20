@@ -116,6 +116,7 @@ public class InteractionManager {
   }
 
   public static void resetManager() {
+    // Reset all important variables to prepare for game restart
     interactClue = false;
     interactExwife = false;
     interactFriend = false;

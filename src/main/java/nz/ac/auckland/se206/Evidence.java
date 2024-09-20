@@ -32,9 +32,12 @@ public abstract class Evidence implements Controller {
 
   @FXML
   private void moveToOtherEvidence(MouseEvent event) throws IOException {
+
+    // Find fxid of clicked object
     Label label = (Label) event.getSource();
     String labelId = label.getId();
 
+    // Go to the corresponding scene
     switch (labelId) {
       case "evidenceLabel":
         App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));

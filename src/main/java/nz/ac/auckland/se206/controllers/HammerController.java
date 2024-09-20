@@ -29,7 +29,7 @@ public class HammerController implements Controller {
   @FXML private Label evidenceLbl;
   @FXML private Line crossLine;
 
-  public double opacity = 0;
+  private double opacity = 0;
   private boolean isFingerprintDusted = false;
   private TimeManager timeManager = TimeManager.getInstance();
 

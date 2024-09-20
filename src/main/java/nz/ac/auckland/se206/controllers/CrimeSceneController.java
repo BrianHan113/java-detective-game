@@ -41,8 +41,7 @@ public class CrimeSceneController implements Controller {
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
   private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
-  private FeedbackController feedbackController =
-      (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
+  private FeedbackController feedbackController;
 
   @FXML
   public void initialize() {
@@ -98,6 +97,7 @@ public class CrimeSceneController implements Controller {
   }
 
   private void afterTimeLimit() throws IOException {
+    feedbackController = (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
     // Called when timer reaches 0
 
     // If user has met all requirments, go through to guessing scene

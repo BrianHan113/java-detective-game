@@ -95,6 +95,10 @@ public class CrimeSceneController implements Controller {
 
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 
+      timeManager.stop();
+      timeManager.resetTimer(5);
+      timerLbl.setText(timeManager.formatTime());
+
       timeOver = true;
     } else if (!timeOver
         && interact.getInteractClue()
@@ -104,6 +108,10 @@ public class CrimeSceneController implements Controller {
 
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
 
+      timeManager.stop();
+      timeManager.resetTimer(5);
+      timerLbl.setText(timeManager.formatTime());
+
       timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
@@ -112,6 +120,10 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractSon())) {
 
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
+      timeManager.stop();
+      timeManager.resetTimer(5);
+      timerLbl.setText(timeManager.formatTime());
 
       timeOver = true;
     }

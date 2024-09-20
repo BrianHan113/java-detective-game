@@ -25,11 +25,13 @@ public class TimeManager {
   }
 
   public void startTimer() {
+    // Start the timer using timeline
     timeline =
         new Timeline(
             new KeyFrame(
                 Duration.millis(1),
                 e -> {
+                  // Decrement timer while not reached 0
                   if (time > 0) {
                     time--;
                   } else {

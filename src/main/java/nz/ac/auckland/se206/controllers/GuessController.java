@@ -59,6 +59,7 @@ public class GuessController implements Controller {
    */
   @FXML
   public void initialize() {
+    // Set up the feedback gpt
     Map<String, String> map = new HashMap<>();
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
@@ -85,6 +86,7 @@ public class GuessController implements Controller {
   }
 
   private void decrementTime() {
+    // Start timer countdown
     timeline =
         new Timeline(
             new KeyFrame(
@@ -103,8 +105,12 @@ public class GuessController implements Controller {
   private void updateTimerLabel() throws IOException {
     minute = timeManager.getMinute();
     second = timeManager.getSecond();
+
+    // When timeout
     if (!timeOver && minute == 0 && second == 0) {
       timerLabel.setText("Time's Up!");
+
+      // Setup feedback scene to show timeout ending
       FeedbackController feedbackController =
           (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
       feedbackController.getWonLostLbl().setText("YOU LOST");
@@ -115,9 +121,12 @@ public class GuessController implements Controller {
           .setText(
               "Try be a little faster next time! Top-notch detectives need to be able to think"
                   + " fast!");
+      // Let user return to menu
       feedbackController.enableBackButton();
       timeOver = true;
       timeManager.stop();
+
+      // Prep timer for next playthrough
       timeManager.resetTimer(5);
       timerLabel.setText(timeManager.formatTime());
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
@@ -153,10 +162,12 @@ public class GuessController implements Controller {
               // Disable button so another request cannot be sent
               submitButton.setDisable(true);
 
+              // Get response from openAI API
               ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
               Choice result = chatCompletionResult.getChoices().iterator().next();
               chatCompletionRequest.addMessage(result.getChatMessage());
 
+              // Render the message to UI when we recieve it
               Platform.runLater(
                   () -> {
                     feedbackController =
@@ -175,6 +186,7 @@ public class GuessController implements Controller {
           }
         };
 
+    // Run in background to prevent GUI freezing
     Thread bgThread = new Thread(gptTask);
     bgThread.start();
   }
@@ -188,24 +200,29 @@ public class GuessController implements Controller {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
+    // Prevent user going to feedback without selecting a suspect
     if (suspectName == null) {
       selectLabel.setText("Please click on who you think it is.");
       audioPlayer.playAudio("/announcer/select_suspect.mp3");
       return;
     }
 
+    // Prevent user proceeding without giving an explanation
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
       audioPlayer.playAudio("/announcer/explain_choice.mp3");
       return;
     }
     txtInput.clear();
+
+    // Organize evidence user gathered
     Map<String, String> map = new HashMap<>();
     map.put("suspect", suspectName);
     map.put("fingerprint", ""); // Temp blank
     map.put("security_footage", "");
     map.put("shoe", "");
 
+    // Load prompt and explanation into gpt
     String submitPrefix = PromptEngineering.getPrompt("guess.txt", map);
     ChatMessage msg = new ChatMessage("user", submitPrefix + message);
     runGpt(msg);
@@ -213,6 +230,7 @@ public class GuessController implements Controller {
     FeedbackController feedbackController =
         (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
 
+    // Update feedback scene based on guess
     if (suspectName.equals("Ex-Wife")) {
       feedbackController.getWonLostLbl().setText("YOU WON!");
       audioPlayer.playAudio("/announcer/won.mp3");
@@ -224,6 +242,8 @@ public class GuessController implements Controller {
     }
 
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
+    // Setup timer for next playthrough
     timeManager.stop();
     timeManager.resetTimer(5);
     timerLabel.setText(timeManager.formatTime());

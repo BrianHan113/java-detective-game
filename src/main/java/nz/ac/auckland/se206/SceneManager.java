@@ -58,16 +58,22 @@ public class SceneManager {
   }
 
   public static void setupSceneMap() {
+    // Task to finish by background thread
     Task<Void> setupTask =
         new Task<Void>() {
           @Override
           protected Void call() {
             try {
+              // Reset all interactions
               InteractionManager.resetManager();
+
+              // Delete all controllers
               if (!sceneMap.isEmpty()) {
                 sceneMap.clear();
                 controllerMap.clear();
               }
+
+              // Reload fxml scenes and controllers
               for (Map.Entry<AppUi, String> entry : uiMap.entrySet()) {
                 AppUi appUi = entry.getKey();
                 String value = entry.getValue();
@@ -79,6 +85,8 @@ public class SceneManager {
                 SceneManager.addUi(appUi, root);
                 SceneManager.addController(appUi, loader.getController());
               }
+
+              // Enable continue only if above is finished
               Platform.runLater(
                   () -> {
                     App.getMenuController().getContextController().enableContinueButton();

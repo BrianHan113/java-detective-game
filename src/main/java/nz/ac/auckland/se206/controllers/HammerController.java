@@ -84,11 +84,16 @@ public class HammerController implements Controller {
   }
 
   private void revealFingerprint() {
+    // Slightly increase opacity of fingeprint to simulate dusting
 
     this.opacity = this.opacity + 0.001;
     fingerprintImage.setOpacity(opacity);
+
+    // Fully dusted
     if (opacity >= 1) {
       Evidence fingController = (Evidence) SceneManager.getController(AppUi.FINGERPRINT);
+
+      // Fingerprint unlocked in clue view
       isFingerprintDusted = true;
       evidenceLbl.setVisible(true);
 

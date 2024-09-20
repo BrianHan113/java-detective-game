@@ -18,9 +18,12 @@ public class AudioPlayerManager {
 
   public void playAudio(String audioFile) {
     try {
+      // Prevent playing more than 1 audio at once
       if (mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
         mediaPlayer.stop();
       }
+
+      // Load and play audio
       Media media = new Media(App.class.getResource("/sounds/" + audioFile).toURI().toString());
       mediaPlayer = new MediaPlayer(media);
       mediaPlayer.play();

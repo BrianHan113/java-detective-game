@@ -23,8 +23,9 @@ import nz.ac.auckland.se206.Voicelines;
 public class CrimeSceneController implements Controller {
 
   private static boolean isFirstTimeInit = true;
-  private boolean timeOver = false;
   private static InteractionManager interact = InteractionManager.getInstance();
+
+  private boolean timeOver = false;
 
   @FXML private Button viewEvidenceBtn;
   @FXML private Rectangle shoeprintRect;

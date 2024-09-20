@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaErrorEvent;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
@@ -42,42 +43,7 @@ public class CctvController extends Evidence {
   public void initialize() {
     timerLabel.setText(timeManager.formatTime());
     decrementTime();
-
-    try {
-      footage = new Media(App.class.getResource("/videos/SecurityCam4.mp4").toURI().toString());
-      videoPlayer = new MediaPlayer(footage);
-      mediaView.setMediaPlayer(videoPlayer);
-    } catch (URISyntaxException e) {
-      // Handle the exception as needed
-      System.out.println("Problem with the media file");
-      e.printStackTrace();
-    }
-
-    // Bind video player progress with progress slider
-    videoPlayer
-        .currentTimeProperty()
-        .addListener(
-            new InvalidationListener() {
-              public void invalidated(Observable ov) {
-                updateValues();
-              }
-            });
-
-    // Bind progress slider with video property to allow for jumping
-    progressSlider
-        .valueProperty()
-        .addListener(
-            new InvalidationListener() {
-              public void invalidated(Observable ov) {
-                if (progressSlider.isPressed()) {
-                  videoPlayer.seek(
-                      videoPlayer
-                          .getMedia()
-                          .getDuration()
-                          .multiply(progressSlider.getValue() / 100));
-                }
-              }
-            });
+    loadMedia();
   }
 
   // Method to update progress slider to follow video
@@ -163,5 +129,49 @@ public class CctvController extends Evidence {
     } else {
       timerLabel.setText(String.format("%02d:%02d", minute, second));
     }
+  }
+
+  @FXML
+  private void onMediaError(MediaErrorEvent event) {
+    System.out.println("Media error occurred: " + event.getMediaError().getMessage());
+    loadMedia();
+  }
+
+  private void loadMedia() {
+    try {
+      footage = new Media(App.class.getResource("/videos/SecurityCam4.mp4").toURI().toString());
+      videoPlayer = new MediaPlayer(footage);
+      mediaView.setMediaPlayer(videoPlayer);
+    } catch (URISyntaxException e) {
+      // Handle the exception as needed
+      System.out.println("Problem with the media file");
+      e.printStackTrace();
+    }
+
+    // Bind video player progress with progress slider
+    videoPlayer
+        .currentTimeProperty()
+        .addListener(
+            new InvalidationListener() {
+              public void invalidated(Observable ov) {
+                updateValues();
+              }
+            });
+
+    // Bind progress slider with video property to allow for jumping
+    progressSlider
+        .valueProperty()
+        .addListener(
+            new InvalidationListener() {
+              public void invalidated(Observable ov) {
+                if (progressSlider.isPressed()) {
+                  videoPlayer.seek(
+                      videoPlayer
+                          .getMedia()
+                          .getDuration()
+                          .multiply(progressSlider.getValue() / 100));
+                }
+              }
+            });
   }
 }

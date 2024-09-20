@@ -81,9 +81,9 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Pane layoutY="78.0" prefHeight="479.0" prefWidth="687.0">
+      <Pane layoutY="78.0" prefHeight="479.0" prefWidth="900.0">
          <children>
-            <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="227.0" layoutY="50.0">
+            <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="227.0" layoutY="50.0" onError="#onMediaError" preserveRatio="false">
                <viewport>
                   <Rectangle2D />
                </viewport>

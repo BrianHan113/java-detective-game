@@ -23,7 +23,7 @@ import nz.ac.auckland.se206.Voicelines;
 public class CrimeSceneController implements Controller {
 
   private static boolean isFirstTimeInit = true;
-  private static boolean timeOver = false;
+  private boolean timeOver = false;
   private static InteractionManager interact = InteractionManager.getInstance();
 
   @FXML private Button viewEvidenceBtn;
@@ -73,6 +73,8 @@ public class CrimeSceneController implements Controller {
   }
 
   private void afterTimeLimit() throws IOException {
+    FeedbackController feedbackController =
+        (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
 
     if (!timeOver
         && interact.getInteractClue()
@@ -93,7 +95,22 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
 
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
+      feedbackController.enableBackButton();
+      timeOver = true;
+
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
+      timeManager.stop();
+      timeManager.resetTimer(5);
+      timerLbl.setText(timeManager.formatTime());
 
       timeOver = true;
     } else if (!timeOver
@@ -102,7 +119,22 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
 
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
+      feedbackController.enableBackButton();
+      timeOver = true;
+
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
+      timeManager.stop();
+      timeManager.resetTimer(5);
+      timerLbl.setText(timeManager.formatTime());
 
       timeOver = true;
     } else if (!timeOver
@@ -111,7 +143,22 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
 
+      feedbackController.getWonLostLbl().setText("YOU LOST");
+      audioPlayer.playAudio("/announcer/lost.mp3");
+      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+      feedbackController
+          .getFeedbackTextArea()
+          .setText(
+              "Try be a little faster next time! Top-notch detectives need to be able to think"
+                  + " fast!");
+      feedbackController.enableBackButton();
+      timeOver = true;
+
       App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
+      timeManager.stop();
+      timeManager.resetTimer(5);
+      timerLbl.setText(timeManager.formatTime());
 
       timeOver = true;
     }
@@ -128,14 +175,13 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractExwife()
         && interact.getInteractFriend()
         && interact.getInteractSon()) {
-
+      timeOver = true;
       timeManager.resetTimer(1);
       timerLbl.setText(timeManager.formatTime());
 
       audioPlayer.playAudio("/announcer/click_theif_submit.mp3");
       App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
 
-      timeOver = true;
     } else if (!interact.getInteractClue()
         && interact.getInteractExwife()
         && interact.getInteractFriend()

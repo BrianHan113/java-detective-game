@@ -27,8 +27,6 @@ public class App extends Application {
    * @param args the command line arguments
    */
   public static void main(final String[] args) {
-    // TextToSpeech.speak("Why [pause] is that [pause] umm [pause] relevant?");
-
     launch();
   }
 

@@ -30,7 +30,6 @@ public class SonController extends Chat {
    */
   @FXML
   public void initialize() {
-    // System.out.println("Initialized Son Chat: " + this);
     // Bind <Enter> key to sendButton
     txtInput.setOnKeyPressed(
         event -> {

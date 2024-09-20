@@ -41,6 +41,8 @@ public class CrimeSceneController implements Controller {
   private Timeline timeline;
   private TimeManager timeManager = TimeManager.getInstance();
   private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
+  private FeedbackController feedbackController =
+      (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
 
   @FXML
   public void initialize() {
@@ -75,11 +77,28 @@ public class CrimeSceneController implements Controller {
     }
   }
 
+  private void timeoutFeedbackScene() throws IOException {
+    feedbackController.getWonLostLbl().setText("YOU LOST");
+    audioPlayer.playAudio("/announcer/lost.mp3");
+    feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+    feedbackController
+        .getFeedbackTextArea()
+        .setText(
+            "Try be a little faster next time! Top-notch detectives need to be able to think"
+                + " fast!");
+    feedbackController.enableBackButton();
+    timeOver = true;
+
+    App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
+
+    timeManager.stop();
+    timeManager.resetTimer(5);
+    timerLbl.setText(timeManager.formatTime());
+    timeOver = true;
+  }
+
   private void afterTimeLimit() throws IOException {
     // Called when timer reaches 0
-
-    FeedbackController feedbackController =
-        (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
 
     // If user has met all requirments, go through to guessing scene
     if (!timeOver
@@ -104,73 +123,23 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractSon()) {
 
       // You lost feedback screen
-      feedbackController.getWonLostLbl().setText("YOU LOST");
-      audioPlayer.playAudio("/announcer/lost.mp3");
-      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
-      feedbackController
-          .getFeedbackTextArea()
-          .setText(
-              "Try be a little faster next time! Top-notch detectives need to be able to think"
-                  + " fast!");
-      feedbackController.enableBackButton();
-      timeOver = true;
+      timeoutFeedbackScene();
 
-      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
-
-      // Setup timer for next playthrough
-      timeManager.stop();
-      timeManager.resetTimer(5);
-      timerLbl.setText(timeManager.formatTime());
-
-      timeOver = true;
     } else if (!timeOver
         && interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
 
-      feedbackController.getWonLostLbl().setText("YOU LOST");
-      audioPlayer.playAudio("/announcer/lost.mp3");
-      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
-      feedbackController
-          .getFeedbackTextArea()
-          .setText(
-              "Try be a little faster next time! Top-notch detectives need to be able to think"
-                  + " fast!");
-      feedbackController.enableBackButton();
-      timeOver = true;
+      timeoutFeedbackScene();
 
-      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
-
-      timeManager.stop();
-      timeManager.resetTimer(5);
-      timerLbl.setText(timeManager.formatTime());
-
-      timeOver = true;
     } else if (!timeOver
         && !interact.getInteractClue()
         && (!interact.getInteractExwife()
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
 
-      feedbackController.getWonLostLbl().setText("YOU LOST");
-      audioPlayer.playAudio("/announcer/lost.mp3");
-      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
-      feedbackController
-          .getFeedbackTextArea()
-          .setText(
-              "Try be a little faster next time! Top-notch detectives need to be able to think"
-                  + " fast!");
-      feedbackController.enableBackButton();
-      timeOver = true;
-
-      App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
-
-      timeManager.stop();
-      timeManager.resetTimer(5);
-      timerLbl.setText(timeManager.formatTime());
-
-      timeOver = true;
+      timeoutFeedbackScene();
     }
   }
 

@@ -19,7 +19,6 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.SceneManager.AppUi;
-
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public abstract class Chat implements Controller {

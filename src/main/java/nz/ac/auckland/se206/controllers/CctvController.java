@@ -2,8 +2,6 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -17,7 +15,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaErrorEvent;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Evidence;
@@ -42,7 +39,7 @@ public class CctvController extends Evidence {
   @FXML
   public void initialize() {
     timerLabel.setText(timeManager.formatTime());
-    decrementTime();
+    timeManager.decrementTime(timerLabel);
     loadMedia();
   }
 
@@ -117,22 +114,6 @@ public class CctvController extends Evidence {
         break;
       default:
         break;
-    }
-  }
-
-  private void decrementTime() {
-    timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel()));
-    timeline.setCycleCount(Timeline.INDEFINITE);
-    timeline.play();
-  }
-
-  private void updateTimerLabel() {
-    minute = timeManager.getMinute();
-    second = timeManager.getSecond();
-    if (minute == 0 && second == 0) {
-      timerLabel.setText("Time's Up!");
-    } else {
-      timerLabel.setText(String.format("%02d:%02d", minute, second));
     }
   }
 

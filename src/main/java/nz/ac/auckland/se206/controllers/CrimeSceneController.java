@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -36,6 +37,9 @@ public class CrimeSceneController implements Controller {
   @FXML private Rectangle friendPinRect;
   @FXML private Rectangle wifePinRect;
   @FXML private Button guessBtn;
+  @FXML private ImageView sonHover;
+  @FXML private ImageView exwifeHover;
+  @FXML private ImageView friendHover;
 
   private int minute;
   private int second;
@@ -92,7 +96,7 @@ public class CrimeSceneController implements Controller {
     timeOver = true;
 
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
-    
+
     // Ensure timer resets
     timeManager.stop();
     timeManager.resetTimer(5);
@@ -261,6 +265,48 @@ public class CrimeSceneController implements Controller {
         App.setRoot(SceneManager.getUiRoot(AppUi.HAMMER));
         break;
 
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  private void handleRectangleEnter(MouseEvent event) {
+    Rectangle shape = (Rectangle) event.getSource();
+    String shapeId = shape.getId();
+
+    // Handle map clicks
+    switch (shapeId) {
+      case "wifePinRect":
+        exwifeHover.setVisible(true);
+        break;
+      case "friendPinRect":
+        friendHover.setVisible(true);
+        break;
+      case "sonPinRect":
+        sonHover.setVisible(true);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  private void handleRectangleExit(MouseEvent event) {
+    Rectangle shape = (Rectangle) event.getSource();
+    String shapeId = shape.getId();
+
+    // Handle map clicks
+    switch (shapeId) {
+      case "wifePinRect":
+        exwifeHover.setVisible(false);
+        break;
+      case "friendPinRect":
+        friendHover.setVisible(false);
+        break;
+      case "sonPinRect":
+        sonHover.setVisible(false);
+        break;
       default:
         break;
     }

@@ -50,9 +50,9 @@
             <Image url="@../images/black-icon-hover.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="sonPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="721.0" layoutY="152.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="sonPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="721.0" layoutY="152.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="viewEvidenceBtn" layoutX="698.0" layoutY="412.0" mnemonicParsing="false" onAction="#onShowEvidence" prefHeight="43.0" prefWidth="160.0" style="-fx-background-color: B1E5F2;" text="View Evidence">
          <font>
             <Font name="System Bold" size="12.0" />

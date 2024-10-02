@@ -35,6 +35,21 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <ImageView fx:id="sonHover" fitHeight="66.0" fitWidth="57.0" layoutX="703.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/black-icon-hover.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="exwifeHover" fitHeight="66.0" fitWidth="57.0" layoutX="689.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/black-icon-hover.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="friendHover" fitHeight="66.0" fitWidth="57.0" layoutX="760.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/black-icon-hover.png" />
+         </image>
+      </ImageView>
       <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="sonPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="721.0" layoutY="152.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />

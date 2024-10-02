@@ -6,6 +6,7 @@ import javafx.scene.media.MediaPlayer;
 public class AudioPlayerManager {
 
   private static AudioPlayerManager instance;
+  private static double volume = 0.5;
 
   public static AudioPlayerManager getInstance() {
     if (instance == null) {
@@ -26,6 +27,7 @@ public class AudioPlayerManager {
       // Load and play audio
       Media media = new Media(App.class.getResource("/sounds/" + audioFile).toURI().toString());
       mediaPlayer = new MediaPlayer(media);
+      mediaPlayer.setVolume(volume);
       mediaPlayer.play();
     } catch (Exception e) {
       e.printStackTrace();

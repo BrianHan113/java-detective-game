@@ -8,6 +8,7 @@ import javafx.util.Duration;
 public class TimeManager {
 
   private static TimeManager instance;
+  private static boolean isFirstTimeUp = true;
 
   public static TimeManager getInstance() {
     if (instance == null) {
@@ -67,6 +68,14 @@ public class TimeManager {
     time = min * 60000;
   }
 
+  public boolean isFirstTimeUp() {
+    return isFirstTimeUp;
+  }
+
+  public void setFirstTimeUp(boolean firstTimeUp) {
+    isFirstTimeUp = firstTimeUp;
+  }
+
   public void decrementTime(Label timerLabel) {
     timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel(timerLabel)));
     timeline.setCycleCount(Timeline.INDEFINITE);
@@ -77,6 +86,7 @@ public class TimeManager {
     minute = getMinute();
     second = getSecond();
     if (minute == 0 && second == 0) {
+      System.out.println("Time's Up from the time manager!");
       timerLabel.setText("Time's Up!");
     } else {
       timerLabel.setText(String.format("%02d:%02d", minute, second));

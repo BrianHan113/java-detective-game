@@ -107,7 +107,8 @@ public class GuessController implements Controller {
     second = timeManager.getSecond();
 
     // When timeout
-    if (!timeOver && minute == 0 && second == 0) {
+    if (!timeOver && minute == 0 && second == 0 && !timeManager.isFirstTimeUp()) {
+      System.out.println("Time's Up from the guessing scene!");
       timerLabel.setText("Time's Up!");
 
       // Setup feedback scene to show timeout ending

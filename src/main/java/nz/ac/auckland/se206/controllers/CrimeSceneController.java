@@ -64,6 +64,7 @@ public class CrimeSceneController implements Controller {
     minute = timeManager.getMinute();
     second = timeManager.getSecond();
     if (minute == 0 && second == 0) {
+      System.out.println("Time's Up from the crime scene");
       timerLbl.setText("Time's Up!");
       try {
         // Timeout
@@ -90,9 +91,10 @@ public class CrimeSceneController implements Controller {
                 + " fast!");
     feedbackController.enableBackButton();
     timeOver = true;
+    timeManager.setFirstTimeUp(false);
 
     App.setRoot(SceneManager.getUiRoot(AppUi.FEEDBACK));
-    
+
     // Ensure timer resets
     timeManager.stop();
     timeManager.resetTimer(5);
@@ -118,6 +120,7 @@ public class CrimeSceneController implements Controller {
       App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
 
       timeOver = true;
+      timeManager.setFirstTimeUp(false);
 
       // Otherwise give lost to timeout screen on feedback
     } else if (!timeOver

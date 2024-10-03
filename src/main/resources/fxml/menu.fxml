@@ -14,9 +14,9 @@
             <Image url="@../images/MainMenu.png" />
          </image>
       </ImageView>
-      <Text layoutX="118.0" layoutY="182.0" stroke="#b1e5f2" strokeType="OUTSIDE" strokeWidth="2.0" text="The Great Jewel Caper">
+      <Text layoutX="47.0" layoutY="190.0" stroke="#b1e5f2" strokeType="OUTSIDE" strokeWidth="2.0" text="The Great Jewel Caper">
          <font>
-            <Font name="Niagara Solid" size="124.0" />
+            <Font name="Courier New Bold Italic" size="64.0" />
          </font>
       </Text>
       <Button fx:id="playButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#onPlayClicked" prefHeight="49.0" prefWidth="344.0" text="PLAY">

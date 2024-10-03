@@ -42,6 +42,7 @@ public class CrimeSceneController implements Controller {
   @FXML private ImageView friendHover;
   @FXML private ImageView securityCameraHover;
   @FXML private ImageView hammerHover;
+  @FXML private ImageView shoeprintHover;
 
   private int minute;
   private int second;
@@ -294,6 +295,9 @@ public class CrimeSceneController implements Controller {
       case "hammerRect":
         hammerHover.setVisible(true);
         break;
+      case "shoeprintRect":
+        shoeprintHover.setVisible(true);
+        break;
       default:
         break;
     }
@@ -320,6 +324,9 @@ public class CrimeSceneController implements Controller {
         break;
       case "hammerRect":
         hammerHover.setVisible(false);
+        break;
+      case "shoeprintRect":
+        shoeprintHover.setVisible(false);
         break;
       default:
         break;

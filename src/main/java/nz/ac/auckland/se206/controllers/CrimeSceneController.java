@@ -40,6 +40,7 @@ public class CrimeSceneController implements Controller {
   @FXML private ImageView sonHover;
   @FXML private ImageView exwifeHover;
   @FXML private ImageView friendHover;
+  @FXML private ImageView securityCameraHover;
 
   private int minute;
   private int second;
@@ -286,6 +287,9 @@ public class CrimeSceneController implements Controller {
       case "sonPinRect":
         sonHover.setVisible(true);
         break;
+      case "securityCameraRect":
+        securityCameraHover.setVisible(true);
+        break;
       default:
         break;
     }
@@ -306,6 +310,9 @@ public class CrimeSceneController implements Controller {
         break;
       case "sonPinRect":
         sonHover.setVisible(false);
+        break;
+      case "securityCameraRect":
+        securityCameraHover.setVisible(false);
         break;
       default:
         break;

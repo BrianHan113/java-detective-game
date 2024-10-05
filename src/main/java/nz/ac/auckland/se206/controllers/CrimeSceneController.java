@@ -64,7 +64,6 @@ public class CrimeSceneController implements Controller {
     minute = timeManager.getMinute();
     second = timeManager.getSecond();
     if (minute == 0 && second == 0) {
-      System.out.println("Time's Up from the crime scene");
       timerLbl.setText("Time's Up!");
       try {
         // Timeout

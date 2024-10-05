@@ -86,7 +86,6 @@ public class TimeManager {
     minute = getMinute();
     second = getSecond();
     if (minute == 0 && second == 0) {
-      System.out.println("Time's Up from the time manager!");
       timerLabel.setText("Time's Up!");
     } else {
       timerLabel.setText(String.format("%02d:%02d", minute, second));

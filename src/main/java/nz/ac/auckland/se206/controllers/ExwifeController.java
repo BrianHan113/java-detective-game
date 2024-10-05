@@ -1,5 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.beans.value.ChangeListener;
+
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,7 +41,7 @@ public class ExwifeController extends Chat {
           }
         });
     setRole("Ex-Wife", "exwife.txt");
-
+    
     timerLabel.setText(timeManager.formatTime());
     timeManager.decrementTime(timerLabel);
   }

@@ -27,6 +27,7 @@ public abstract class Chat implements Controller {
   private String promptFilename;
   private String suspectName;
   private InteractionManager interact = InteractionManager.getInstance();
+  private String thinkingText;
 
   @FXML private Button sendButton;
   @FXML private TextArea txtArea;
@@ -52,6 +53,7 @@ public abstract class Chat implements Controller {
     this.role = role;
     this.promptFilename = promptFilename;
     this.suspectName = role; // Add suspectName param when names are given
+    this.thinkingText = suspectName + " is thinking ...";
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
       chatCompletionRequest =
@@ -72,7 +74,7 @@ public abstract class Chat implements Controller {
    * @param msg the chat message to append
    */
   private void appendChatMessage(ChatMessage msg) {
-    txtArea.appendText("\n" + msg.getRole() + ": " + msg.getContent() + "\n");
+    txtArea.appendText(msg.getRole() + ": " + msg.getContent() + "\n\n");
   }
 
   /**
@@ -92,6 +94,7 @@ public abstract class Chat implements Controller {
             try {
               // Disable button so another request cannot be sent
               sendButton.setDisable(true);
+              txtArea.appendText(thinkingText);
 
               ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
               Choice result = chatCompletionResult.getChoices().iterator().next();
@@ -103,6 +106,11 @@ public abstract class Chat implements Controller {
 
               Platform.runLater(
                   () -> {
+                    // Remove the "is thinking..." text
+                    int start = txtArea.getText().lastIndexOf(thinkingText);
+                    if (start != -1) {
+                      txtArea.deleteText(start, start + thinkingText.length());
+                    }
                     // Append text and re-enable button on task complete
                     appendChatMessage(tempMsg);
                     sendButton.setDisable(false);
@@ -201,4 +209,5 @@ public abstract class Chat implements Controller {
         break;
     }
   }
+
 }

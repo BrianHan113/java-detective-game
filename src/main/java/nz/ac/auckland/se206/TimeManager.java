@@ -8,6 +8,7 @@ import javafx.util.Duration;
 public class TimeManager {
 
   private static TimeManager instance;
+  private static boolean isFirstTimeUp = true;
 
   public static TimeManager getInstance() {
     if (instance == null) {
@@ -65,6 +66,14 @@ public class TimeManager {
 
   public void resetTimer(int min) {
     time = min * 60000;
+  }
+
+  public boolean isFirstTimeUp() {
+    return isFirstTimeUp;
+  }
+
+  public void setFirstTimeUp(boolean firstTimeUp) {
+    isFirstTimeUp = firstTimeUp;
   }
 
   public void decrementTime(Label timerLabel) {

@@ -37,7 +37,7 @@ public class MenuController implements Controller {
     // Quit game
     Platform.exit();
   }
-  
+
   public ContextController getContextController() {
     return contextController;
   }

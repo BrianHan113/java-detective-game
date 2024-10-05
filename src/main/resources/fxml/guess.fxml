@@ -57,9 +57,9 @@
             <Image url="@../images/son_glow.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="exwifeRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="236.0" layoutX="120.0" layoutY="149.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
-      <Rectangle fx:id="friendRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="289.0" layoutY="142.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="sonRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="249.0" layoutX="447.0" layoutY="136.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="134.0" />
+      <Rectangle fx:id="exwifeRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="236.0" layoutX="120.0" layoutY="149.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      <Rectangle fx:id="friendRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="289.0" layoutY="142.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="sonRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="249.0" layoutX="447.0" layoutY="136.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="134.0" />
       <AnchorPane layoutY="386.0" prefHeight="165.0" prefWidth="900.0">
          <children>
             <TextArea fx:id="txtInput" layoutX="15.0" layoutY="14.0" prefHeight="136.0" prefWidth="758.0" wrapText="true">

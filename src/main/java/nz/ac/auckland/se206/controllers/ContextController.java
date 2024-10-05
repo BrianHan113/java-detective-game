@@ -24,7 +24,7 @@ public class ContextController implements Controller {
   @FXML
   private void onContinuePressed(ActionEvent event) throws IOException {
     // Change to correct room to start game.
-    App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
+    App.setRoot(SceneManager.getUiRoot(AppUi.GUESSING));
     timeManager.startTimer();
   }
 

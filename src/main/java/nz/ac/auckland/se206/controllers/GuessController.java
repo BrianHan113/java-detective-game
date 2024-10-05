@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
@@ -39,6 +40,9 @@ public class GuessController implements Controller {
   @FXML private Rectangle friendRect;
   @FXML private TextArea txtInput;
   @FXML private Button submitButton;
+  @FXML private ImageView exwifeHover;
+  @FXML private ImageView sonHover;
+  @FXML private ImageView friendHover;
 
   private boolean timeOver = false;
 
@@ -270,5 +274,47 @@ public class GuessController implements Controller {
         return;
     }
     selectLabel.setText(suspectName);
+  }
+
+  @FXML
+  private void handleRectangleEnter(MouseEvent event) {
+    Rectangle shape = (Rectangle) event.getSource();
+    String shapeId = shape.getId();
+
+    // Handle Hover effects in guessing scene
+    switch (shapeId) {
+      case "exwifeRect":
+        exwifeHover.setVisible(true);
+        break;
+      case "friendRect":
+        friendHover.setVisible(true);
+        break;
+      case "sonRect":
+        sonHover.setVisible(true);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  private void handleRectangleExit(MouseEvent event) {
+    Rectangle shape = (Rectangle) event.getSource();
+    String shapeId = shape.getId();
+
+    // Handle Hover effects in guessing scene
+    switch (shapeId) {
+      case "exwifeRect":
+        exwifeHover.setVisible(false);
+        break;
+      case "friendRect":
+        friendHover.setVisible(false);
+        break;
+      case "sonRect":
+        sonHover.setVisible(false);
+        break;
+      default:
+        break;
+    }
   }
 }

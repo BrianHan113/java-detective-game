@@ -262,12 +262,18 @@ public class GuessController implements Controller {
     switch (clickedRectangle.getId()) {
       case "exwifeRect":
         suspectName = "Ex-Wife";
+        sonHover.setVisible(false);
+        friendHover.setVisible(false);
         break;
       case "friendRect":
         suspectName = "Friend";
+        sonHover.setVisible(false);
+        exwifeHover.setVisible(false);
         break;
       case "sonRect":
         suspectName = "Son";
+        exwifeHover.setVisible(false);
+        friendHover.setVisible(false);
         break;
       default:
         System.out.println("Invalid Rectangle");
@@ -305,13 +311,19 @@ public class GuessController implements Controller {
     // Handle Hover effects in guessing scene
     switch (shapeId) {
       case "exwifeRect":
-        exwifeHover.setVisible(false);
+        if (suspectName != "Ex-Wife") {
+          exwifeHover.setVisible(false);
+        }
         break;
       case "friendRect":
-        friendHover.setVisible(false);
+        if (suspectName != "Friend") {
+          friendHover.setVisible(false);
+        }
         break;
       case "sonRect":
-        sonHover.setVisible(false);
+        if (suspectName != "Son") {
+          sonHover.setVisible(false);
+        }
         break;
       default:
         break;

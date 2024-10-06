@@ -5,7 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.Chat;
@@ -20,6 +22,9 @@ public class SonController extends Chat {
   @FXML private Rectangle crimeScenePinRect;
   @FXML private Rectangle friendPinRect;
   @FXML private Rectangle wifeRect;
+  @FXML private ImageView crimeSceneHover;
+  @FXML private ImageView exwifeHover;
+  @FXML private ImageView friendHover;
 
   private TimeManager timeManager = TimeManager.getInstance();
 
@@ -41,5 +46,47 @@ public class SonController extends Chat {
 
     timerLabel.setText(timeManager.formatTime());
     timeManager.decrementTime(timerLabel);
+  }
+
+  @FXML
+  private void handleRectangleEnter(MouseEvent event) {
+    Rectangle shape = (Rectangle) event.getSource();
+    String shapeId = shape.getId();
+
+    // Handle map clicks
+    switch (shapeId) {
+      case "wifePinRect":
+        exwifeHover.setVisible(true);
+        break;
+      case "friendPinRect":
+        friendHover.setVisible(true);
+        break;
+      case "crimeScenePinRect":
+        crimeSceneHover.setVisible(true);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  private void handleRectangleExit(MouseEvent event) {
+    Rectangle shape = (Rectangle) event.getSource();
+    String shapeId = shape.getId();
+
+    // Handle map clicks
+    switch (shapeId) {
+      case "wifePinRect":
+        exwifeHover.setVisible(false);
+        break;
+      case "friendPinRect":
+        friendHover.setVisible(false);
+        break;
+      case "crimeScenePinRect":
+        crimeSceneHover.setVisible(false);
+        break;
+      default:
+        break;
+    }
   }
 }

@@ -35,17 +35,52 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="sonPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="721.0" layoutY="152.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <ImageView fx:id="sonHover" fitHeight="66.0" fitWidth="57.0" layoutX="703.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/black-icon-hover.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="exwifeHover" fitHeight="66.0" fitWidth="57.0" layoutX="689.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/black-icon-hover.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="friendHover" fitHeight="66.0" fitWidth="57.0" layoutX="760.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/black-icon-hover.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="crimeSceneHover" fitHeight="66.0" fitWidth="57.0" layoutX="785.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/black-icon-hover.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="sonPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="721.0" layoutY="152.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="viewEvidenceBtn" layoutX="698.0" layoutY="412.0" mnemonicParsing="false" onAction="#onShowEvidence" prefHeight="43.0" prefWidth="160.0" style="-fx-background-color: B1E5F2;" text="View Evidence">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Rectangle fx:id="hammerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" layoutX="458.0" layoutY="405.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
-      <Rectangle fx:id="shoeprintRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="100.0" layoutY="326.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
-      <Rectangle fx:id="securityCameraRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="509.0" layoutY="48.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+      <ImageView fx:id="securityCameraHover" fitHeight="178.0" fitWidth="185.0" layoutX="446.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/security_camera_large.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hammerHover" fitHeight="196.0" fitWidth="186.0" layoutX="411.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/crowbar_item_large.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shoeprintHover" fitHeight="124.0" fitWidth="125.0" layoutX="76.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/footprint_large.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="hammerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" layoutX="458.0" layoutY="405.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="shoeprintRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="100.0" layoutY="326.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
+      <Rectangle fx:id="securityCameraRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="509.0" layoutY="48.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
       <Button fx:id="guessBtn" layoutX="698.0" layoutY="479.0" mnemonicParsing="false" onAction="#onGuessClicked" prefHeight="43.0" prefWidth="160.0" style="-fx-background-color: B1E5F2;" text="Guess">
          <font>
             <Font name="System Bold" size="12.0" />

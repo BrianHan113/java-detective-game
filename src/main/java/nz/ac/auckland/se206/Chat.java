@@ -106,11 +106,7 @@ public abstract class Chat implements Controller {
 
               Platform.runLater(
                   () -> {
-                    // Remove the "is thinking..." text
-                    int start = txtArea.getText().lastIndexOf(thinkingText);
-                    if (start != -1) {
-                      txtArea.deleteText(start, start + thinkingText.length());
-                    }
+                    txtArea.clear();
                     // Append text and re-enable button on task complete
                     appendChatMessage(tempMsg);
                     sendButton.setDisable(false);
@@ -165,8 +161,8 @@ public abstract class Chat implements Controller {
     }
 
     // Create tempMsg to change role name
-    ChatMessage tempMsg = new ChatMessage("Detective", message);
-    appendChatMessage(tempMsg);
+    // ChatMessage tempMsg = new ChatMessage("Detective", message);
+    // appendChatMessage(tempMsg);
     ChatMessage msg = new ChatMessage("user", message);
     runGpt(msg);
   }

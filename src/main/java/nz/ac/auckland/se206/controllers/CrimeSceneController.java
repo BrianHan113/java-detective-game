@@ -112,6 +112,10 @@ public class CrimeSceneController implements Controller {
     feedbackController = (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
     // Called when timer reaches 0
 
+    // Pause CCTV when timeout occurs
+    CctvController cctvController = (CctvController) SceneManager.getController(AppUi.CCTV);
+    cctvController.getMediaPlayer().pause();
+
     // If user has met all requirments, go through to guessing scene
     if (!timeOver
         && interact.getInteractClue()

@@ -80,7 +80,7 @@ public class HammerController implements Controller {
   private void revealFingerprint() {
     // Slightly increase opacity of fingeprint to simulate dusting
 
-    this.opacity = this.opacity + 0.001;
+    this.opacity = this.opacity + 0.002;
     fingerprintImage.setOpacity(opacity);
 
     // Fully dusted

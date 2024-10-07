@@ -221,6 +221,7 @@ public class CrimeSceneController implements Controller {
     switch (shapeId) {
       case "wifePinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        ((ExwifeController) SceneManager.getController(AppUi.EX_WIFE)).requestInputFocus();
         if (!InteractionManager.isVisitExWife()) {
           Voicelines.introVoiceLines("Ex-Wife");
           InteractionManager.setVisitExWife(true);
@@ -228,6 +229,7 @@ public class CrimeSceneController implements Controller {
         break;
       case "friendPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        ((FriendController) SceneManager.getController(AppUi.FRIEND)).requestInputFocus();
         if (!InteractionManager.isVisitFriend()) {
           Voicelines.introVoiceLines("Friend");
           InteractionManager.setVisitFriend(true);
@@ -235,6 +237,7 @@ public class CrimeSceneController implements Controller {
         break;
       case "sonPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        ((SonController) SceneManager.getController(AppUi.SON)).requestInputFocus();
         if (!InteractionManager.isVisitSon()) {
           Voicelines.introVoiceLines("Son");
           InteractionManager.setVisitSon(true);

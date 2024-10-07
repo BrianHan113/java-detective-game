@@ -128,12 +128,13 @@ public class GuessController implements Controller {
             .setText(
                 "Try be a little faster next time! Top-notch detectives need to be able to think"
                     + " fast!");
+        // Enable back button only on empty timeout
+        feedbackController.enableBackButton();
       } else {
         submitButton.fire();
       }
 
       // Let user return to menu
-      feedbackController.enableBackButton();
       timeOver = true;
       timeManager.stop();
 

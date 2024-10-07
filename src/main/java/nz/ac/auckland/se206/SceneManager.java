@@ -66,6 +66,7 @@ public class SceneManager {
             try {
               // Reset all interactions
               InteractionManager.resetManager();
+              TimeManager.getInstance().setFirstTimeUp(true);
 
               // Delete all controllers
               if (!sceneMap.isEmpty()) {

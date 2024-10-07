@@ -134,7 +134,7 @@ public class CrimeSceneController implements Controller {
       // You lost feedback screen
       timeoutFeedbackScene(
           "You won't be able to accuse anyone because you did not gather any evidence in the"
-              + " crime scene! You need to interact with atleast one piece of evidence before"
+              + " crime scene! You need to interact with at least one piece of evidence before"
               + " throwing out arrests.");
 
     } else if (!timeOver

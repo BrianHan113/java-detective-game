@@ -160,10 +160,6 @@ public abstract class Chat implements Controller {
       default:
         break;
     }
-
-    // Create tempMsg to change role name
-    // ChatMessage tempMsg = new ChatMessage("Detective", message);
-    // appendChatMessage(tempMsg);
     ChatMessage msg = new ChatMessage("user", message);
     runGpt(msg);
   }

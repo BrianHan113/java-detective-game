@@ -84,17 +84,13 @@ public class CrimeSceneController implements Controller {
     }
   }
 
-  private void timeoutFeedbackScene() throws IOException {
+  private void timeoutFeedbackScene(String msg) throws IOException {
     // Edit feedback label and play audio
     feedbackController.getWonLostLbl().setText("YOU LOST");
     audioPlayer.playAudio("/announcer/lost.mp3");
     feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
     // Append appropriate message
-    feedbackController
-        .getFeedbackTextArea()
-        .setText(
-            "Try be a little faster next time! Top-notch detectives need to be able to think"
-                + " fast!");
+    feedbackController.getFeedbackTextArea().setText(msg);
     feedbackController.enableBackButton();
     timeOver = true;
     timeManager.setFirstTimeUp(false);
@@ -136,7 +132,10 @@ public class CrimeSceneController implements Controller {
         && interact.getInteractSon()) {
 
       // You lost feedback screen
-      timeoutFeedbackScene();
+      timeoutFeedbackScene(
+          "You won't be able to accuse anyone because you did not gather any evidence in the"
+              + " crime scene! You need to interact with atleast one piece of evidence before"
+              + " throwing out arrests.");
 
     } else if (!timeOver
         && interact.getInteractClue()
@@ -144,7 +143,9 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
 
-      timeoutFeedbackScene();
+      timeoutFeedbackScene(
+          "You won't be able to accuse anyone because you did not chat with all the suspects! You"
+              + " must chat with all three suspects before throwing out arrests.");
 
     } else if (!timeOver
         && !interact.getInteractClue()
@@ -152,7 +153,10 @@ public class CrimeSceneController implements Controller {
             || !interact.getInteractFriend()
             || !interact.getInteractSon())) {
 
-      timeoutFeedbackScene();
+      timeoutFeedbackScene(
+          "You won't be able to accuse anyone because you did not interact with any evidence or"
+              + " chat with all the suspects! You must do all of these before throwing out"
+              + " arrests.");
     }
   }
 

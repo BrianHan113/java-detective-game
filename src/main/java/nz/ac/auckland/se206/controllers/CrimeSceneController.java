@@ -171,6 +171,7 @@ public class CrimeSceneController implements Controller {
 
       // proceed to guessing scene
       timeOver = true;
+      timeManager.setFirstTimeUp(false);
       timeManager.resetTimer(1);
       timerLbl.setText(timeManager.formatTime());
 

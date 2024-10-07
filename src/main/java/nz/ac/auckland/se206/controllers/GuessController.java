@@ -117,14 +117,21 @@ public class GuessController implements Controller {
       // Setup feedback scene to show timeout ending
       FeedbackController feedbackController =
           (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
-      feedbackController.getWonLostLbl().setText("YOU LOST");
-      audioPlayer.playAudio("/announcer/lost.mp3");
-      feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
-      feedbackController
-          .getFeedbackTextArea()
-          .setText(
-              "Try be a little faster next time! Top-notch detectives need to be able to think"
-                  + " fast!");
+
+      String message = txtInput.getText().trim();
+      if (message.isEmpty() || suspectName == null) {
+        feedbackController.getWonLostLbl().setText("YOU LOST");
+        audioPlayer.playAudio("/announcer/lost.mp3");
+        feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");
+        feedbackController
+            .getFeedbackTextArea()
+            .setText(
+                "Try be a little faster next time! Top-notch detectives need to be able to think"
+                    + " fast!");
+      } else {
+        submitButton.fire();
+      }
+
       // Let user return to menu
       feedbackController.enableBackButton();
       timeOver = true;

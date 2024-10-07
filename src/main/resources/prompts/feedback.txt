@@ -13,7 +13,7 @@ The perfect answer should make some points that are similar to the above.
 
 Only give comments on the evidence I have gathered. If I did not get the evidence, DO NOT MENTION IT when grading my explanation. 
 This is very important. If I do not mention it in my explanation, do not spoil me by giving the correct answer. Instead give me some very subtle, helpful pointers, but never lead me to the answer. 
-Also, DO NOT tell me who the culprit was if I got it wrong.
+You should NEVER tell me who the correct culprit was if I got it wrong. But you should give feedback on why my selection was wrong, linking it to the explanation I give. 
 Also, do not ask any follow-up questions, and keep your feedback under 200 words. It can be much shorter if there is not much to discuss.
 
 My next message will be my explanation, grade it, and go through each metric ONLY IF I have gathered the relevant physical evidence.

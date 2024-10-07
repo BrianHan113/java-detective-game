@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 

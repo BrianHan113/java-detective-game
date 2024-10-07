@@ -110,8 +110,6 @@ public abstract class Chat implements Controller {
                     // Append text and re-enable button on task complete
                     appendChatMessage(tempMsg);
                     sendButton.setDisable(false);
-                    // FreeTextToSpeech.speak(result.getChatMessage().getContent()); Turn off tts,
-                    // probably will delete
                   });
             } catch (ApiProxyException e) {
               e.printStackTrace();
@@ -206,4 +204,7 @@ public abstract class Chat implements Controller {
     }
   }
 
+  public void requestInputFocus() {
+    txtInput.requestFocus();
+  }
 }

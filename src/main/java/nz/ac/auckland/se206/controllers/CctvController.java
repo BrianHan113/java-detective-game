@@ -163,4 +163,8 @@ public class CctvController extends Evidence {
               }
             });
   }
+
+  public MediaPlayer getMediaPlayer() {
+    return videoPlayer;
+  }
 }

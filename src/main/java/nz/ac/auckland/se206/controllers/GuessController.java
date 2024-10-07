@@ -133,7 +133,6 @@ public class GuessController implements Controller {
       }
 
       // Let user return to menu
-      feedbackController.enableBackButton();
       timeOver = true;
       timeManager.stop();
 

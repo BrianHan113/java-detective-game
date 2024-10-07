@@ -119,7 +119,7 @@ public class GuessController implements Controller {
           (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
 
       String message = txtInput.getText().trim();
-      if (message.isEmpty()) {
+      if (message.isEmpty() || suspectName == null) {
         feedbackController.getWonLostLbl().setText("YOU LOST");
         audioPlayer.playAudio("/announcer/lost.mp3");
         feedbackController.getFeedbackStatusLbl().setText("You ran out of Time");

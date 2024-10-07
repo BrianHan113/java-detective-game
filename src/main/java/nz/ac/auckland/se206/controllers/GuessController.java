@@ -128,6 +128,7 @@ public class GuessController implements Controller {
             .setText(
                 "You must select a suspect, and write an explanation! Top-notch detectives need to"
                     + " be able to think fast!");
+        feedbackController.enableBackButton();
       } else {
         submitButton.fire();
       }

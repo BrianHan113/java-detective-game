@@ -19,6 +19,9 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.SceneManager.AppUi;
+import nz.ac.auckland.se206.controllers.ExwifeController;
+import nz.ac.auckland.se206.controllers.FriendController;
+import nz.ac.auckland.se206.controllers.SonController;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public abstract class Chat implements Controller {
@@ -172,10 +175,11 @@ public abstract class Chat implements Controller {
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
 
-    // Go to corresponding scene, and play intro voiceline if first time clicking
+    // Handle map clicks
     switch (shapeId) {
       case "wifePinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.EX_WIFE));
+        ((ExwifeController) SceneManager.getController(AppUi.EX_WIFE)).requestInputFocus();
         if (!InteractionManager.isVisitExWife()) {
           Voicelines.introVoiceLines("Ex-Wife");
           InteractionManager.setVisitExWife(true);
@@ -183,6 +187,7 @@ public abstract class Chat implements Controller {
         break;
       case "friendPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.FRIEND));
+        ((FriendController) SceneManager.getController(AppUi.FRIEND)).requestInputFocus();
         if (!InteractionManager.isVisitFriend()) {
           Voicelines.introVoiceLines("Friend");
           InteractionManager.setVisitFriend(true);
@@ -190,6 +195,7 @@ public abstract class Chat implements Controller {
         break;
       case "sonPinRect":
         App.setRoot(SceneManager.getUiRoot(AppUi.SON));
+        ((SonController) SceneManager.getController(AppUi.SON)).requestInputFocus();
         if (!InteractionManager.isVisitSon()) {
           Voicelines.introVoiceLines("Son");
           InteractionManager.setVisitSon(true);

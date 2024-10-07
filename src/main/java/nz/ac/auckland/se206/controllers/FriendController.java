@@ -1,6 +1,5 @@
 package nz.ac.auckland.se206.controllers;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -47,21 +46,6 @@ public class FriendController extends Chat {
 
     timerLabel.setText(timeManager.formatTime());
     timeManager.decrementTime(timerLabel);
-
-    // Debugging: Check if txtInput is focusable
-    System.out.println("txtInput is focusable: " + txtInput.isFocusTraversable());
-
-    // Request focus for txtInput with a slight delay
-    Platform.runLater(() -> {
-      try {
-        Thread.sleep(100); // Add a slight delay
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-      txtInput.requestFocus();
-      // Debugging: Check if txtInput has focus
-      System.out.println("txtInput has focus: " + txtInput.isFocused());
-    });
   }
 
   @FXML

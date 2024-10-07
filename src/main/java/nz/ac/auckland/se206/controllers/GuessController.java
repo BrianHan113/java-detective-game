@@ -126,9 +126,8 @@ public class GuessController implements Controller {
         feedbackController
             .getFeedbackTextArea()
             .setText(
-                "Try be a little faster next time! Top-notch detectives need to be able to think"
-                    + " fast!");
-        // Enable back button only on empty timeout
+                "You must select a suspect, and write an explanation! Top-notch detectives need to"
+                    + " be able to think fast!");
         feedbackController.enableBackButton();
       } else {
         submitButton.fire();

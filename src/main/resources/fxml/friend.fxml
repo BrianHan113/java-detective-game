@@ -18,7 +18,7 @@
             <Image url="@../images/friend_bg.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="521.0" fitWidth="310.0" layoutX="211.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="520.0" fitWidth="310.0" layoutX="210.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/friend.png" />
          </image>

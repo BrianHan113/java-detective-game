@@ -1,11 +1,14 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import nz.ac.auckland.se206.SceneManager.AppUi;
@@ -21,6 +24,10 @@ public abstract class Evidence implements Controller {
   @FXML protected Label shoeprintHideLabel;
   @FXML protected Label securityCamHideLabel;
   @FXML protected Line crossLine;
+  @FXML protected ImageView fingerprintTab;
+  @FXML protected ImageView shoeprintTab;
+  @FXML protected ImageView securityCamTab;
+  @FXML protected ImageView evidenceTab;
 
   @FXML protected ImageView image;
   @FXML protected Label imageHideLabel;
@@ -57,6 +64,76 @@ public abstract class Evidence implements Controller {
   }
 
   @FXML
+  private void handleEvidenceEnter(MouseEvent event) {
+    // evidenceLabel.setStyle("-fx-background-color: #f2f2f2");
+
+    Label label = (Label) event.getSource();
+    String labelId = label.getId();
+    Image clueHover = null;
+    Image evidenceHover = null;
+
+    try {
+      clueHover =
+          new Image(App.class.getResource("/images/other_page_hover.png").toURI().toString());
+      evidenceHover =
+          new Image(
+              App.class.getResource("/images/other_page_colour_hover.png").toURI().toString());
+    } catch (URISyntaxException e) {
+      e.printStackTrace();
+    }
+
+    switch (labelId) {
+      case "evidenceLabel":
+        evidenceTab.setImage(evidenceHover);
+        break;
+      case "fingerprintLabel":
+        fingerprintTab.setImage(clueHover);
+        break;
+      case "shoeprintLabel":
+        shoeprintTab.setImage(clueHover);
+        break;
+      case "securityCamLabel":
+        securityCamTab.setImage(clueHover);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  private void handleEvidenceExit(MouseEvent event) {
+    Label label = (Label) event.getSource();
+    String labelId = label.getId();
+    Image clueHover = null;
+    Image evidenceHover = null;
+
+    try {
+      clueHover = new Image(App.class.getResource("/images/other_page.png").toURI().toString());
+      evidenceHover =
+          new Image(App.class.getResource("/images/other_page_colour.png").toURI().toString());
+    } catch (URISyntaxException e) {
+      e.printStackTrace();
+    }
+
+    switch (labelId) {
+      case "evidenceLabel":
+        evidenceTab.setImage(evidenceHover);
+        break;
+      case "fingerprintLabel":
+        fingerprintTab.setImage(clueHover);
+        break;
+      case "shoeprintLabel":
+        shoeprintTab.setImage(clueHover);
+        break;
+      case "securityCamLabel":
+        securityCamTab.setImage(clueHover);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
   private void exitToCrimeScene(MouseEvent event) throws IOException {
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
@@ -79,5 +156,17 @@ public abstract class Evidence implements Controller {
   public void setFingerprintImageVisible() {
     image.setVisible(true);
     imageHideLabel.setVisible(false);
+  }
+
+  @FXML
+  private void handleExitBtnEnter() {
+    Paint color = Paint.valueOf("#6e9aa4");
+    exitCircle.setFill(color);
+  }
+
+  @FXML
+  private void handleExitBtnExit() {
+    Paint color = Paint.valueOf("#b1e5f2");
+    exitCircle.setFill(color);
   }
 }

@@ -6,6 +6,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import nz.ac.auckland.se206.App;
@@ -96,5 +97,17 @@ public class HammerController implements Controller {
       interact.setInteractClue(true);
       fingController.setFingerprintImageVisible();
     }
+  }
+
+  @FXML
+  private void handleExitBtnEnter() {
+    Paint color = Paint.valueOf("#6e9aa4");
+    exitCircle.setFill(color);
+  }
+
+  @FXML
+  private void handleExitBtnExit() {
+    Paint color = Paint.valueOf("#b1e5f2");
+    exitCircle.setFill(color);
   }
 }

@@ -209,4 +209,14 @@ public abstract class Chat implements Controller {
   public void requestInputFocus() {
     txtInput.requestFocus();
   }
+
+  @FXML
+  private void handleSendBtnEnter() {
+    sendButton.setStyle("-fx-background-color: #6f7c89;");
+  }
+
+  @FXML
+  private void handleSendBtnExit() {
+    sendButton.setStyle("-fx-background-color: #BBD1E8;");
+  }
 }

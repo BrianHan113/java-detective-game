@@ -47,7 +47,7 @@
                   <Font size="16.0" />
                </font></TextArea>
             <TextField fx:id="txtInput" layoutX="25.0" layoutY="115.0" prefHeight="25.0" prefWidth="755.0" />
-            <Button fx:id="sendButton" layoutX="790.0" layoutY="113.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #BBD1E8;" text="SEND">
+            <Button fx:id="sendButton" layoutX="790.0" layoutY="113.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseEntered="#handleSendBtnEnter" onMouseExited="#handleSendBtnExit" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #BBD1E8;" text="SEND">
                <font>
                   <Font name="Engravers MT" size="12.0" />
                </font>

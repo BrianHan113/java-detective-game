@@ -24,7 +24,7 @@
          </image>
       </ImageView>
       <AnchorPane layoutX="670.0" layoutY="15.0" opacity="0.9" prefHeight="330.0" prefWidth="215.0" style="-fx-background-color: #343a40; -fx-background-radius: 15;" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="679.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="680.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/timer.png" />
          </image>
@@ -34,7 +34,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="timerLabel" alignment="CENTER" layoutX="698.0" layoutY="40.0" prefHeight="35.0" prefWidth="160.0" text="Timer">
+      <Label fx:id="timerLabel" alignment="CENTER" layoutX="700.0" layoutY="40.0" prefHeight="35.0" prefWidth="160.0" text="Timer">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -42,12 +42,12 @@
       <AnchorPane layoutX="14.0" layoutY="362.0" opacity="0.9" prefHeight="176.0" prefWidth="871.0" style="-fx-background-color: #343a40; -fx-background-radius: 20;" />
       <AnchorPane layoutY="386.0" prefHeight="165.0" prefWidth="874.0">
          <children>
-            <TextArea fx:id="txtArea" editable="false" layoutX="26.0" layoutY="-11.0" prefHeight="118.0" prefWidth="847.0" wrapText="true">
+            <TextArea fx:id="txtArea" editable="false" layoutX="25.0" layoutY="-13.0" prefHeight="120.0" prefWidth="850.0" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font></TextArea>
-            <TextField fx:id="txtInput" layoutX="26.0" layoutY="118.0" prefHeight="25.0" prefWidth="756.0" />
-            <Button fx:id="sendButton" layoutX="793.0" layoutY="116.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: #BBD1E8;" text="SEND">
+            <TextField fx:id="txtInput" layoutX="25.0" layoutY="115.0" prefHeight="25.0" prefWidth="755.0" />
+            <Button fx:id="sendButton" layoutX="790.0" layoutY="113.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #BBD1E8;" text="SEND">
                <font>
                   <Font name="Engravers MT" size="12.0" />
                </font>

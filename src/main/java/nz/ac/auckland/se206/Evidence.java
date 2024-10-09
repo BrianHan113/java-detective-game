@@ -65,13 +65,12 @@ public abstract class Evidence implements Controller {
 
   @FXML
   private void handleEvidenceEnter(MouseEvent event) {
-    // evidenceLabel.setStyle("-fx-background-color: #f2f2f2");
-
     Label label = (Label) event.getSource();
     String labelId = label.getId();
     Image clueHover = null;
     Image evidenceHover = null;
 
+    // Setup the hover on the evidence tabs
     try {
       clueHover =
           new Image(App.class.getResource("/images/other_page_hover.png").toURI().toString());
@@ -82,6 +81,7 @@ public abstract class Evidence implements Controller {
       e.printStackTrace();
     }
 
+    // Label identifying logic
     switch (labelId) {
       case "evidenceLabel":
         evidenceTab.setImage(evidenceHover);
@@ -107,6 +107,7 @@ public abstract class Evidence implements Controller {
     Image clueHover = null;
     Image evidenceHover = null;
 
+    // Setup the hover on the evidence tabs
     try {
       clueHover = new Image(App.class.getResource("/images/other_page.png").toURI().toString());
       evidenceHover =
@@ -115,6 +116,7 @@ public abstract class Evidence implements Controller {
       e.printStackTrace();
     }
 
+    // Label identifying logic
     switch (labelId) {
       case "evidenceLabel":
         evidenceTab.setImage(evidenceHover);

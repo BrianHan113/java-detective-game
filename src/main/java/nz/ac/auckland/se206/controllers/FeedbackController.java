@@ -49,7 +49,7 @@ public class FeedbackController implements Controller {
   }
   
   public void setArrestImage(String name) {
-    Image image = new Image("images/Ex-Wife_arrest.png");
+    Image image = new Image("images/"+ name +"_arrest.png");
     arrestImage.setImage(image);
   }
 }

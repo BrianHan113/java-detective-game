@@ -34,7 +34,7 @@
       
             <TextArea fx:id="feedbackTextArea" editable="false" prefHeight="406.0" prefWidth="536.0" wrapText="true">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Palatino Linotype" size="16.0" />
                </font>
             </TextArea>
          </children>
@@ -44,5 +44,9 @@
             <Image url="@../images/background_evidence.png" />
          </image>
       </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#868e96" height="321.0" layoutX="625.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" width="12.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#868e96" height="321.0" layoutX="690.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" width="12.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#868e96" height="321.0" layoutX="767.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" width="12.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#868e96" height="321.0" layoutX="829.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" width="12.0" />
    </children>
 </Pane>

@@ -15,9 +15,9 @@
    <children>
       <AnchorPane layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="900.0">
          <children>
-            <Label layoutX="201.0" layoutY="43.0" text="Drag the Ruler and Measure the Size of the Footprint">
+            <Label layoutX="208.0" layoutY="43.0" text="Drag the Ruler and Measure the Size of the Footprint">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="Palatino Linotype Bold" size="20.0" />
                </font>
             </Label>
             <Ellipse fill="WHITE" layoutX="269.0" layoutY="230.0" radiusX="106.0" radiusY="181.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="4.0" />
@@ -38,8 +38,8 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272635" height="90.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
-      <Circle fx:id="exitCircle" fill="#b1e5f2" layoutX="45.0" layoutY="45.0" onMouseClicked="#exitToCrimeScene" onMouseEntered="#handleExitBtnEnter" onMouseExited="#handleExitBtnExit" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#343a40" height="90.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
+      <Circle fx:id="exitCircle" fill="#bbd1e8" layoutX="45.0" layoutY="45.0" onMouseClicked="#exitToCrimeScene" onMouseEntered="#handleExitBtnEnter" onMouseExited="#handleExitBtnExit" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
       <Line fx:id="crossLine" endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" onMouseClicked="#exitToCrimeScene" onMouseEntered="#handleExitBtnEnter" onMouseExited="#handleExitBtnExit" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
       <Line fx:id="crossLine" endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" onMouseClicked="#exitToCrimeScene" onMouseEntered="#handleExitBtnEnter" onMouseExited="#handleExitBtnExit" rotate="45.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="685.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
@@ -59,7 +59,7 @@
       </ImageView>
       <Label fx:id="evidenceLabel" alignment="CENTER" layoutX="100.0" layoutY="45.0" onMouseClicked="#moveToOtherEvidence" onMouseEntered="#handleEvidenceEnter" onMouseExited="#handleEvidenceExit" prefHeight="45.0" prefWidth="180.0" text="EVIDENCE">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Palatino Linotype Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fx:id="fingerprintTab" fitHeight="150.0" fitWidth="180.0" layoutX="300.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -69,7 +69,7 @@
       </ImageView>
       <Label fx:id="fingerprintLabel" alignment="CENTER" layoutX="300.0" layoutY="45.0" onMouseClicked="#moveToOtherEvidence" onMouseEntered="#handleEvidenceEnter" onMouseExited="#handleEvidenceExit" prefHeight="45.0" prefWidth="180.0" text="Fingerprint" visible="false">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Palatino Linotype Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="500.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
@@ -79,7 +79,7 @@
       </ImageView>
       <Label fx:id="shoeprintLabel" alignment="CENTER" layoutX="500.0" layoutY="45.0" prefHeight="45.0" prefWidth="180.0" text="Shoeprint">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Palatino Linotype Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fx:id="securityCamTab" fitHeight="150.0" fitWidth="180.0" layoutX="700.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -89,17 +89,17 @@
       </ImageView>
       <Label fx:id="securityCamLabel" alignment="CENTER" layoutX="700.0" layoutY="45.0" onMouseClicked="#moveToOtherEvidence" onMouseEntered="#handleEvidenceEnter" onMouseExited="#handleEvidenceExit" prefHeight="45.0" prefWidth="180.0" text="Security Cam" visible="false">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Palatino Linotype Bold" size="24.0" />
          </font>
       </Label>
       <Label fx:id="fingerprintHideLabel" layoutX="374.0" layoutY="50.0" text="???">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Palatino Linotype Bold" size="24.0" />
          </font>
       </Label>
       <Label fx:id="securityCamHideLabel" layoutX="774.0" layoutY="50.0" text="???">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Palatino Linotype Bold" size="24.0" />
          </font>
       </Label>
    </children>

@@ -34,7 +34,6 @@ import nz.ac.auckland.se206.prompts.PromptEngineering;
 public class GuessController implements Controller {
 
   @FXML private Label timerLabel;
-  @FXML private Label selectLabel;
   @FXML private Rectangle exwifeRect;
   @FXML private Rectangle sonRect;
   @FXML private Rectangle friendRect;
@@ -213,7 +212,6 @@ public class GuessController implements Controller {
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
     // Prevent user going to feedback without selecting a suspect
     if (suspectName == null) {
-      selectLabel.setText("Please click on who you think it is.");
       audioPlayer.playAudio("/announcer/select_suspect.mp3");
       return;
     }
@@ -290,7 +288,6 @@ public class GuessController implements Controller {
         System.out.println("Invalid Rectangle");
         return;
     }
-    selectLabel.setText(suspectName);
   }
 
   @FXML

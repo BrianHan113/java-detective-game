@@ -10,68 +10,89 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" style="-fx-background-color: #000115;" stylesheets="@../css/crimeScene.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
    <children>
-      <ImageView fitHeight="556.0" fitWidth="998.0" layoutX="-31.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+
+      <ImageView fitHeight="393.0" fitWidth="780.0" layoutX="102.0" pickOnBounds="true" preserveRatio="true">
+
          <image>
-            <Image url="@../images/background_guess.png" />
+            <Image url="@../images/guess_bg.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="654.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+
+      <ImageView fitHeight="350.0" fitWidth="200.0" layoutX="137.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/exwife.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="200.0" layoutX="350.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/friend.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="200.0" layoutX="568.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/son.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="690.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+
          <image>
             <Image url="@../images/timer.png" />
          </image>
       </ImageView>
-      <Label layoutX="689.0" layoutY="140.0" text="Select and explain &#10;why you think that &#10;he/she is the thief.&#10;You have 60 seconds." textAlignment="CENTER">
+      <Label layoutX="214.0" layoutY="43.0" style="-fx-background-color: #050a1d;" text="Select and explain your choice. You have 60 seconds." textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="Palatino Linotype" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="timerLabel" alignment="CENTER" layoutX="721.0" layoutY="49.0" text="Timer">
+
+      <Label fx:id="timerLabel" alignment="CENTER" layoutX="710.0" layoutY="35.0" prefWidth="160.0" text="Timer">
+
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="709.0" layoutY="294.0" text="You have selected: ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="selectLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="686.0" layoutY="323.0" prefHeight="57.0" prefWidth="189.0" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="exwifeHover" fitHeight="432.0" fitWidth="246.0" layoutX="85.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+
+      <ImageView fx:id="exwifeHover" fitHeight="350.0" fitWidth="200.0" layoutX="137.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+
          <image>
             <Image url="@../images/exwife_glow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="friendHover" fitHeight="429.0" fitWidth="245.0" layoutX="344.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+
+      <ImageView fx:id="friendHover" fitHeight="350.0" fitWidth="200.0" layoutX="350.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+
          <image>
             <Image url="@../images/friend_glow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sonHover" fitHeight="517.0" fitWidth="517.0" layoutX="454.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+
+      <ImageView fx:id="sonHover" fitHeight="350.0" fitWidth="200.0" layoutX="574.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" visible="false">
+
          <image>
             <Image url="@../images/son_glow.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="exwifeRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="152.0" layoutX="380.0" layoutY="178.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="171.0" />
-      <Rectangle fx:id="sonRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="155.0" layoutX="633.0" layoutY="176.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="173.0" />
-      <Rectangle fx:id="friendRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="137.0" layoutX="131.0" layoutY="195.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="156.0" />
-      <AnchorPane layoutX="-1.0" layoutY="337.0" prefHeight="165.0" prefWidth="900.0">
+
+      <Rectangle fx:id="exwifeRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="224.0" layoutX="169.0" layoutY="143.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="137.0" />
+      <Rectangle fx:id="friendRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="236.0" layoutX="380.0" layoutY="131.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="148.0" />
+      <Rectangle fx:id="sonRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="237.0" layoutX="590.0" layoutY="129.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <AnchorPane layoutX="50.0" layoutY="350.0" opacity="0.9" prefHeight="190.0" prefWidth="800.0" style="-fx-background-color: #343a40; -fx-background-radius: 20;" />
+      <AnchorPane layoutY="341.0" prefHeight="210.0" prefWidth="900.0">
          <children>
-            <Button fx:id="submitButton" layoutX="427.0" layoutY="140.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="42.0" prefWidth="113.0" text="Submit">
-               <font>
-                  <Font name="Engravers MT" size="12.0" />
-               </font>
-            </Button>
-            <TextArea fx:id="txtInput" layoutX="98.0" prefHeight="136.0" prefWidth="758.0" wrapText="true">
+            <TextArea fx:id="txtInput" layoutX="71.0" layoutY="20.0" prefHeight="136.0" prefWidth="758.0" wrapText="true">
+
                <font>
                   <Font size="16.0" />
                </font>
             </TextArea>
+
+            <Button fx:id="submitButton" layoutX="400.0" layoutY="160.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #BBD1E8;" text="Submit">
+               <font>
+                  <Font name="Engravers MT" size="12.0" />
+               </font></Button>
+
          </children>
       </AnchorPane>
    </children>

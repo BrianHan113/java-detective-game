@@ -13,63 +13,77 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/chat.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.SonController">
    <children>
-      <ImageView fitHeight="370.0" fitWidth="650.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="550.0" fitWidth="907.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/background_son.png" />
+            <Image url="@../images/son_bg.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="685.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="520.0" fitWidth="310.0" layoutX="210.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/son.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="670.0" layoutY="15.0" opacity="0.9" prefHeight="330.0" prefWidth="215.0" style="-fx-background-color: #343a40; -fx-background-radius: 15;" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="680.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/timer.png" />
          </image>
       </ImageView>
-      <Label layoutX="700.0" layoutY="325.0" text="Chat with the Son">
+      <Label layoutX="695.0" layoutY="100.0" text="Chat with the Son" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="timerLabel" alignment="CENTER" layoutX="704.0" layoutY="30.0" prefWidth="160.0" text="Timer">
+      <Label fx:id="timerLabel" alignment="CENTER" layoutX="700.0" layoutY="40.0" prefWidth="160.0" text="Timer">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <AnchorPane layoutX="14.0" layoutY="362.0" opacity="0.9" prefHeight="176.0" prefWidth="871.0" style="-fx-background-color: #343a40; -fx-background-radius: 20;" />
       <AnchorPane layoutY="386.0" prefHeight="165.0" prefWidth="900.0">
          <children>
-            <TextArea fx:id="txtArea" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="105.0" prefWidth="870.0" wrapText="true">
+            <TextArea fx:id="txtArea" editable="false" layoutX="25.0" layoutY="-13.0" prefHeight="120.0" prefWidth="850.0" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font></TextArea>
-            <TextField fx:id="txtInput" layoutX="15.0" layoutY="125.0" prefHeight="25.0" prefWidth="780.0" />
-            <Button fx:id="sendButton" layoutX="800.0" layoutY="125.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="25.0" prefWidth="85.0" text="Send" />
+            <TextField fx:id="txtInput" layoutX="25.0" layoutY="115.0" prefHeight="25.0" prefWidth="755.0" />
+            <Button fx:id="sendButton" layoutX="790.0" layoutY="113.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseEntered="#handleSendBtnEnter" onMouseExited="#handleSendBtnExit" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #BBD1E8;" text="SEND">
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/sendIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="196.0" fitWidth="200.0" layoutX="685.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="196.0" fitWidth="200.0" layoutX="679.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/map_son.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sonHover" fitHeight="66.0" fitWidth="57.0" layoutX="703.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="sonHover" fitHeight="66.0" fitWidth="57.0" layoutX="697.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/black-icon-hover.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="exwifeHover" fitHeight="66.0" fitWidth="57.0" layoutX="689.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="exwifeHover" fitHeight="66.0" fitWidth="57.0" layoutX="683.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/black-icon-hover.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="friendHover" fitHeight="66.0" fitWidth="57.0" layoutX="760.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="friendHover" fitHeight="66.0" fitWidth="57.0" layoutX="754.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/black-icon-hover.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="crimeSceneHover" fitHeight="66.0" fitWidth="57.0" layoutX="785.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="crimeSceneHover" fitHeight="66.0" fitWidth="57.0" layoutX="779.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/black-icon-hover.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="708.0" layoutY="246.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="778.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="crimeScenePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="804.0" layoutY="138.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="wifePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="702.0" layoutY="289.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="friendPinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="772.0" layoutY="262.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="crimeScenePinRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="798.0" layoutY="181.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
    </children>
 </Pane>

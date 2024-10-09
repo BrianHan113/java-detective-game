@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/crimeScene.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
    <children>
       <ImageView fitHeight="556.0" fitWidth="900.0" pickOnBounds="true">
          <image>
@@ -24,12 +24,12 @@
       </Text>
       <Button fx:id="playButton" layoutX="278.0" layoutY="337.0" mnemonicParsing="false" onAction="#onPlayClicked" prefHeight="49.0" prefWidth="344.0" text="PLAY">
          <font>
-            <Font name="Engravers MT" size="36.0" />
+            <Font name="Palatino Linotype" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="278.0" layoutY="424.0" mnemonicParsing="false" onAction="#onQuitClicked" prefHeight="52.0" prefWidth="344.0" text="Quit">
+      <Button fx:id="quitButton" layoutX="278.0" layoutY="424.0" mnemonicParsing="false" onAction="#onQuitClicked" prefHeight="52.0" prefWidth="344.0" text="QUIT">
          <font>
-            <Font name="Engravers MT" size="36.0" />
+            <Font name="Palatino Linotype" size="36.0" />
          </font>
       </Button>
       <HBox layoutX="678.0" layoutY="14.0" prefHeight="28.0" prefWidth="215.0" spacing="10.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">

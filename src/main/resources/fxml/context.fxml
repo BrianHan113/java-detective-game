@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ContextController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../css/crimeScene.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.ContextController">
    <children>
       <ImageView fitHeight="556.0" fitWidth="900.0" pickOnBounds="true">
          <image>
@@ -16,12 +16,12 @@
       </ImageView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="103.0" prefHeight="312.0" prefWidth="559.0" style="-fx-background-color: edfffc; -fx-background-radius: 50;" text="Being one of the best detectives in town, &#10;you have been assigned a recent high-priority case. &#10;A GREAT JEWEL has been stolen from a very opulent &#10;man and it is imperative we get it back! &#10;We have narrowed down the suspects to just 3 people! &#10;The rich man's SON, EX-WIFE, and CLOSE FRIEND.&#10;&#10;Good Luck Detective! You'll need it.&#10;&#10;" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Century" size="21.0" />
+            <Font size="21.0" />
          </font>
       </Label>
       <Button fx:id="continueButton" layoutX="279.0" layoutY="453.0" mnemonicParsing="false" onAction="#onContinuePressed" prefHeight="52.0" prefWidth="344.0" style="-fx-background-radius: 30;" text="BEGIN INVESTIGATION">
          <font>
-            <Font name="Engravers MT" size="18.0" />
+            <Font name="Palatino Linotype" size="18.0" />
          </font>
       </Button>
    </children>

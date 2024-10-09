@@ -21,12 +21,12 @@ public class MenuController implements Controller {
   @FXML private Parent contextRoot;
   @FXML private Slider volumeSlider;
 
-  AudioPlayerManager audioPlayerManager = AudioPlayerManager.getInstance();
+  private AudioPlayerManager audioPlayerManager = AudioPlayerManager.getInstance();
 
   @FXML
   public void initialize() {
     // Bind the volume slider to the volume property of the audio player
-    volumeSlider.valueProperty().bindBidirectional(audioPlayerManager.volumeProperty());
+    volumeSlider.valueProperty().bindBidirectional(audioPlayerManager.getVolumeProperty());
   }
 
   @FXML

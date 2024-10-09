@@ -12,11 +12,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" style="-fx-background-color: #000115;" stylesheets="@../css/crimeScene.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
    <children>
+
       <ImageView fitHeight="393.0" fitWidth="780.0" layoutX="102.0" pickOnBounds="true" preserveRatio="true">
+
          <image>
             <Image url="@../images/guess_bg.png" />
          </image>
       </ImageView>
+
       <ImageView fitHeight="350.0" fitWidth="200.0" layoutX="137.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/exwife.png" />
@@ -33,6 +36,7 @@
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="690.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+
          <image>
             <Image url="@../images/timer.png" />
          </image>
@@ -42,26 +46,35 @@
             <Font name="Palatino Linotype" size="20.0" />
          </font>
       </Label>
+
       <Label fx:id="timerLabel" alignment="CENTER" layoutX="710.0" layoutY="35.0" prefWidth="160.0" text="Timer">
+
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+
       <ImageView fx:id="exwifeHover" fitHeight="350.0" fitWidth="200.0" layoutX="137.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+
          <image>
             <Image url="@../images/exwife_glow.png" />
          </image>
       </ImageView>
+
       <ImageView fx:id="friendHover" fitHeight="350.0" fitWidth="200.0" layoutX="350.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+
          <image>
             <Image url="@../images/friend_glow.png" />
          </image>
       </ImageView>
+
       <ImageView fx:id="sonHover" fitHeight="350.0" fitWidth="200.0" layoutX="574.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" visible="false">
+
          <image>
             <Image url="@../images/son_glow.png" />
          </image>
       </ImageView>
+
       <Rectangle fx:id="exwifeRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="224.0" layoutX="169.0" layoutY="143.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="137.0" />
       <Rectangle fx:id="friendRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="236.0" layoutX="380.0" layoutY="131.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="148.0" />
       <Rectangle fx:id="sonRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="237.0" layoutX="590.0" layoutY="129.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleEnter" onMouseExited="#handleRectangleExit" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
@@ -69,14 +82,17 @@
       <AnchorPane layoutY="341.0" prefHeight="210.0" prefWidth="900.0">
          <children>
             <TextArea fx:id="txtInput" layoutX="71.0" layoutY="20.0" prefHeight="136.0" prefWidth="758.0" wrapText="true">
+
                <font>
                   <Font size="16.0" />
                </font>
             </TextArea>
+
             <Button fx:id="submitButton" layoutX="400.0" layoutY="160.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #BBD1E8;" text="Submit">
                <font>
                   <Font name="Engravers MT" size="12.0" />
                </font></Button>
+
          </children>
       </AnchorPane>
    </children>

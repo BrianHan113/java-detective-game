@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 
@@ -13,6 +15,7 @@ public class FeedbackController implements Controller {
   @FXML private Label feedbackStatusLbl;
   @FXML private TextArea feedbackTextArea;
   @FXML private Button backButton;
+  @FXML private ImageView arrestImage;
 
   @FXML
   public void initialize() {
@@ -43,5 +46,10 @@ public class FeedbackController implements Controller {
 
   public TextArea getFeedbackTextArea() {
     return feedbackTextArea;
+  }
+  
+  public void setArrestImage(String name) {
+    Image image = new Image("images/"+ name +"_arrest.png");
+    arrestImage.setImage(image);
   }
 }

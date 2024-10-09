@@ -239,10 +239,14 @@ public class GuessController implements Controller {
     FeedbackController feedbackController =
         (FeedbackController) SceneManager.getController(AppUi.FEEDBACK);
 
+    // Update arrestImage
+    feedbackController.setArrestImage(suspectName);
+
     // Update feedback scene based on guess
     if (suspectName.equals("Ex-Wife")) {
       feedbackController.getWonLostLbl().setText("YOU WON!");
       audioPlayer.playAudio("/announcer/won.mp3");
+
       timeOver = true;
     } else {
       feedbackController.getWonLostLbl().setText("YOU LOST");

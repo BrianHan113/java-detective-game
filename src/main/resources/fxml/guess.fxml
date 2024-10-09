@@ -39,7 +39,7 @@
       </ImageView>
       <Label layoutX="214.0" layoutY="43.0" style="-fx-background-color: #050a1d;" text="Select and explain your choice. You have 60 seconds." textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="Palatino Linotype" size="20.0" />
          </font>
       </Label>
       <Label fx:id="timerLabel" alignment="CENTER" layoutX="710.0" layoutY="35.0" prefWidth="160.0" text="Timer">

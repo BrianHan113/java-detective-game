@@ -82,14 +82,19 @@
       </Label>
       <Pane layoutY="78.0" prefHeight="479.0" prefWidth="900.0">
          <children>
-            <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="227.0" layoutY="50.0" onError="#onMediaFailed" preserveRatio="false">
+            <ImageView fitHeight="507.0" fitWidth="566.0" layoutX="167.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/monitor.png" />
+               </image>
+            </ImageView>
+            <MediaView fx:id="mediaView" fitHeight="301.0" fitWidth="534.0" layoutX="183.0" layoutY="39.0" onError="#onMediaFailed" preserveRatio="false">
                <viewport>
                   <Rectangle2D />
                </viewport>
             </MediaView>
-            <VBox layoutX="152.0" layoutY="331.0" prefHeight="45.0" prefWidth="597.0">
+            <VBox layoutX="152.0" layoutY="325.0" prefHeight="45.0" prefWidth="597.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="86.0" prefWidth="598.0" spacing="20.0">
+                  <HBox alignment="CENTER" prefHeight="86.0" prefWidth="598.0" spacing="5.0">
                      <children>
                         <Pane prefHeight="34.0" prefWidth="46.0">
                            <children>
@@ -107,7 +112,7 @@
                               <Circle fill="RED" layoutX="21.0" layoutY="23.0" onMouseClicked="#handlePlayClick" onMouseEntered="#handlePlayBtnEnter" onMouseExited="#handlePlayBtnExit" opacity="0.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>
-                        <Slider fx:id="progressSlider" prefHeight="14.0" prefWidth="466.0" />
+                        <Slider fx:id="progressSlider" prefHeight="14.0" prefWidth="425.0" />
                      </children>
                   </HBox>
                </children>

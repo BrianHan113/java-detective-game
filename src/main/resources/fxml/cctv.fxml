@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
@@ -88,19 +87,27 @@
                   <Rectangle2D />
                </viewport>
             </MediaView>
-            <VBox layoutX="168.0" layoutY="357.0" prefHeight="98.0" prefWidth="597.0">
+            <VBox layoutX="152.0" layoutY="331.0" prefHeight="45.0" prefWidth="597.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="86.0" prefWidth="598.0" spacing="20.0">
                      <children>
-                        <Slider fx:id="progressSlider" prefHeight="0.0" prefWidth="527.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="92.0" prefWidth="874.0" spacing="50.0">
-                     <children>
-                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#onPlayClick" prefHeight="37.0" prefWidth="132.0" text="PLAY">
-                           <font>
-                              <Font name="Engravers MT" size="18.0" />
-                           </font></Button>
+                        <Pane prefHeight="34.0" prefWidth="46.0">
+                           <children>
+                              <Circle fx:id="playBtnCircle" fill="WHITE" layoutX="21.0" layoutY="23.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fx:id="playBtnImage" fitHeight="46.0" fitWidth="25.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/play_icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="pauseBtnImage" fitHeight="46.0" fitWidth="25.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../images/pause_icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Circle fill="RED" layoutX="21.0" layoutY="23.0" onMouseClicked="#handlePlayClick" onMouseEntered="#handlePlayBtnEnter" onMouseExited="#handlePlayBtnExit" opacity="0.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
+                        <Slider fx:id="progressSlider" prefHeight="14.0" prefWidth="466.0" />
                      </children>
                   </HBox>
                </children>

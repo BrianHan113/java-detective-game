@@ -5,16 +5,17 @@ import java.net.URISyntaxException;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaErrorEvent;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.AudioPlayerManager;
@@ -25,8 +26,10 @@ import nz.ac.auckland.se206.SceneManager.AppUi;
 public class CctvController extends Evidence {
 
   @FXML private MediaView mediaView;
-  @FXML private Button playButton;
   @FXML private Slider progressSlider;
+  @FXML private ImageView playBtnImage;
+  @FXML private ImageView pauseBtnImage;
+  @FXML private Circle playBtnCircle;
 
   private Media footage;
   private MediaPlayer videoPlayer;
@@ -60,57 +63,60 @@ public class CctvController extends Evidence {
   }
 
   @FXML
-  private void onPlayClick(ActionEvent event) {
+  private void handlePlayClick(MouseEvent event) throws URISyntaxException {
     // Logic for play/pause button for security cam footage
     if (isPlaying) {
       videoPlayer.pause();
-      playButton.setText("PLAY");
+      playBtnImage.setVisible(true);
+      pauseBtnImage.setVisible(false);
       isPlaying = false;
     } else {
       videoPlayer.play();
-      playButton.setText("PAUSE");
+      playBtnImage.setVisible(false);
+      pauseBtnImage.setVisible(true);
       isPlaying = true;
     }
   }
 
   @FXML
-  private void exitToCrimeScene(MouseEvent event) throws IOException {
+  private void exitToCrimeScene(MouseEvent event) throws IOException, URISyntaxException {
     videoPlayer.pause();
-    playButton.setText("PLAY");
+    playBtnImage.setVisible(true);
+    pauseBtnImage.setVisible(false);
     isPlaying = false;
     App.setRoot(SceneManager.getUiRoot(AppUi.CRIME_SCENE));
   }
 
   @FXML
-  private void moveToOtherEvidence(MouseEvent event) throws IOException {
+  private void moveToOtherEvidence(MouseEvent event) throws IOException, URISyntaxException {
 
     // Find fxid of clicked object
     Label label = (Label) event.getSource();
     String labelId = label.getId();
 
+    playBtnImage.setVisible(true);
+    pauseBtnImage.setVisible(false);
+
     // Go to corresponding scene, and also puase the video
     switch (labelId) {
       case "evidenceLabel":
         videoPlayer.pause();
-        playButton.setText("PLAY");
         isPlaying = false;
+
         App.setRoot(SceneManager.getUiRoot(AppUi.EVIDENCE));
         break;
       case "fingerprintLabel":
         videoPlayer.pause();
-        playButton.setText("PLAY");
         isPlaying = false;
         App.setRoot(SceneManager.getUiRoot(AppUi.FINGERPRINT));
         break;
       case "shoeprintLabel":
         videoPlayer.pause();
-        playButton.setText("PLAY");
         isPlaying = false;
         App.setRoot(SceneManager.getUiRoot(AppUi.FOOTPRINT));
         break;
       case "securityCamLabel":
         videoPlayer.pause();
-        playButton.setText("PLAY");
         isPlaying = false;
         App.setRoot(SceneManager.getUiRoot(AppUi.CCTV));
         break;
@@ -166,5 +172,15 @@ public class CctvController extends Evidence {
 
   public MediaPlayer getMediaPlayer() {
     return videoPlayer;
+  }
+
+  @FXML
+  private void handlePlayBtnEnter() {
+    playBtnCircle.setFill(Paint.valueOf("#e7e7e7"));
+  }
+
+  @FXML
+  private void handlePlayBtnExit() {
+    playBtnCircle.setFill(Paint.valueOf("#ffffff"));
   }
 }

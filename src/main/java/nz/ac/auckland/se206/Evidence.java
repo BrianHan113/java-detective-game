@@ -160,13 +160,13 @@ public abstract class Evidence implements Controller {
 
   @FXML
   private void handleExitBtnEnter() {
-    Paint color = Paint.valueOf("#6e9aa4");
+    Paint color = Paint.valueOf("#6f7c89");
     exitCircle.setFill(color);
   }
 
   @FXML
   private void handleExitBtnExit() {
-    Paint color = Paint.valueOf("#b1e5f2");
+    Paint color = Paint.valueOf("#bbd1e8");
     exitCircle.setFill(color);
   }
 }

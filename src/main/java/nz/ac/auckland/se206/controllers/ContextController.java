@@ -10,6 +10,7 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
+/** Controller class for the Context scene. This class implements the Controller interface. */
 public class ContextController implements Controller {
 
   @FXML private Button continueButton;

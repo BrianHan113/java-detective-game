@@ -21,6 +21,11 @@ import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 import nz.ac.auckland.se206.Voicelines;
 
+/**
+ * Controller class for the Crime Scene scene. This class implements the Controller interface. This
+ * class is responsible for handling the user input and changing the scene to the evidence scene.
+ * This class is responsible for handling features in the crime scene.
+ */
 public class CrimeSceneController implements Controller {
 
   private static boolean isFirstTimeInit = true;
@@ -52,6 +57,12 @@ public class CrimeSceneController implements Controller {
   private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
   private FeedbackController feedbackController;
 
+  /**
+   * Initializes the crime scene view.
+   *
+   * <p>This method is called automatically by JavaFX after the fxml file has been loaded. It
+   * initializes the timer and decrements the time.
+   */
   @FXML
   public void initialize() {
     if (isFirstTimeInit) {

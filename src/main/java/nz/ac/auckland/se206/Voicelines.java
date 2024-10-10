@@ -2,9 +2,20 @@ package nz.ac.auckland.se206;
 
 import java.util.Random;
 
+/**
+ * Class to play voice lines for each suspect in the game. The voice lines are played based on the
+ * role of the suspect. The voice lines are played when the user first visits, or sends a message to
+ * the suspect.
+ */
 public class Voicelines {
   private static AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
+  /**
+   * Play a random voice line for each suspect in the game when the user sends a message to them.
+   * The voice line is played based on the role of the suspect.
+   *
+   * @param role the role of the suspect
+   */
   public static void fillerVoiceLines(String role) {
     // Generate random int from 1 to 4 to get random voice lines
     Random random = new Random();
@@ -28,6 +39,12 @@ public class Voicelines {
     }
   }
 
+  /**
+   * Play a intro voice line for each suspect in the game when the user first visits them. The voice
+   * line is played based on the role of the suspect.
+   *
+   * @param role the role of the suspect
+   */
   public static void introVoiceLines(String role) {
 
     // Play a intro voice line for each suspect in the game

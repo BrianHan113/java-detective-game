@@ -18,6 +18,10 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 
+/**
+ * Controller class for the Hammer scene. This class implements the Controller interface. This class
+ * is responsible for handling the hammer scene.
+ */
 public class HammerController implements Controller {
 
   private static InteractionManager interact = InteractionManager.getInstance();
@@ -34,6 +38,10 @@ public class HammerController implements Controller {
   private boolean isFingerprintDusted = false;
   private TimeManager timeManager = TimeManager.getInstance();
 
+  /**
+   * Initializes the Hammer view. Sets the timer and the opacity of the fingerprint image. Starts
+   * the timer and decrements the time.
+   */
   @FXML
   public void initialize() {
     fingerprintImage.setOpacity(opacity);

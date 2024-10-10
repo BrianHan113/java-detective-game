@@ -5,6 +5,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import nz.ac.auckland.se206.Evidence;
 
+/**
+ * Controller class for the Footprint scene. This class extends the Evidence class. This class is
+ * responsible for handling features in the footprint scene.
+ */
 public class FootprintController extends Evidence {
 
   @FXML private ImageView rulerImage;

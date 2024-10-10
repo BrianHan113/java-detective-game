@@ -31,6 +31,11 @@ import nz.ac.auckland.se206.SceneManager.AppUi;
 import nz.ac.auckland.se206.TimeManager;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
+/**
+ * Controller class for the Guessing scene. This class implements the Controller interface. This
+ * class is responsible for handling the user input and changing the scene to the feedback scene.
+ * This class is responsible for handling features in the guessing scene.
+ */
 public class GuessController implements Controller {
 
   @FXML private Label timerLabel;
@@ -56,7 +61,11 @@ public class GuessController implements Controller {
   private AudioPlayerManager audioPlayer = AudioPlayerManager.getInstance();
 
   /**
-   * Initializes the chat view.
+   * Initializes the chat view for the guessing scene.
+   *
+   * <p>This method is called automatically by JavaFX after the fxml file has been loaded. It binds
+   * the <Enter> key to the sendButton and sets the role of the chat user. It also initializes the
+   * timer and decrements the time. It also sets up the GPT model to generate feedback.
    *
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */

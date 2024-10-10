@@ -1,5 +1,10 @@
 package nz.ac.auckland.se206;
 
+/**
+ * InteractionManager class is a singleton class that manages the interactions between the player
+ * and the characters and objects in the game. It is used to keep track of the interactions that
+ * have occurred in the game.
+ */
 public class InteractionManager {
 
   private static InteractionManager instance;
@@ -15,6 +20,14 @@ public class InteractionManager {
   private static boolean isVisitFriend = false;
   private static boolean isVisitSon = false;
 
+  /**
+   * Returns the instance of the InteractionManager class. If the instance is null, a new instance
+   * is created. The instance is used to access the methods of the InteractionManager class. This is
+   * so that only one instance of the InteractionManager class is created and used throughout the
+   * game.
+   *
+   * @return the instance of the InteractionManager class
+   */
   public static InteractionManager getInstance() {
     if (instance == null) {
       instance = new InteractionManager();
@@ -46,6 +59,11 @@ public class InteractionManager {
     InteractionManager.isVisitSon = isVisitSon;
   }
 
+  /**
+   * Resets all important variables to prepare for game restart. This method is used to reset the
+   * interactions between the player and the characters and objects in the game. It is called when
+   * the user chooses to play again.
+   */
   public static void resetManager() {
     // Reset all important variables to prepare for game restart
     interactClue = false;

@@ -13,6 +13,11 @@ import nz.ac.auckland.se206.AudioPlayerManager;
 import nz.ac.auckland.se206.Controller;
 import nz.ac.auckland.se206.SceneManager;
 
+/**
+ * Controller class for the Menu scene. This class implements the Controller interface. This class
+ * is responsible for handling the user input and changing the scene to the context scene. This
+ * class is responsible for handling features in the menu scene.
+ */
 public class MenuController implements Controller {
 
   @FXML private Button playButton;

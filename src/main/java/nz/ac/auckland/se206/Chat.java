@@ -24,6 +24,11 @@ import nz.ac.auckland.se206.controllers.FriendController;
 import nz.ac.auckland.se206.controllers.SonController;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
+/**
+ * Abstract class for the chat scene. This class implements the Controller interface. This class is
+ * responsible for handling the chat scene, including the chat text area, input field and send
+ * button. This class is responsible for handling features in the chat scene.
+ */
 public abstract class Chat implements Controller {
   private ChatCompletionRequest chatCompletionRequest;
   private String role;

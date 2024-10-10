@@ -23,6 +23,11 @@ import nz.ac.auckland.se206.Evidence;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 
+/**
+ * Controller class for the Security Cam scene. This class extends the Evidence class. This class is
+ * responsible for handling the security cam scene, including the video player, play button and the
+ * progress bar.
+ */
 public class CctvController extends Evidence {
 
   @FXML private MediaView mediaView;

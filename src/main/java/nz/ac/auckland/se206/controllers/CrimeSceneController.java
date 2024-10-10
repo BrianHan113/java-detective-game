@@ -290,10 +290,11 @@ public class CrimeSceneController implements Controller {
 
   @FXML
   private void handleRectangleEnter(MouseEvent event) {
+    // Get rectange that mouse is on
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
 
-    // Handle map clicks
+    // Handle map marker identifier logic
     switch (shapeId) {
       case "wifePinRect":
         exwifeHover.setVisible(true);
@@ -321,10 +322,11 @@ public class CrimeSceneController implements Controller {
 
   @FXML
   private void handleRectangleExit(MouseEvent event) {
+    // Get rectange that mouse is on
     Rectangle shape = (Rectangle) event.getSource();
     String shapeId = shape.getId();
 
-    // Handle map clicks
+    // Handle map marker identifier logic
     switch (shapeId) {
       case "wifePinRect":
         exwifeHover.setVisible(false);

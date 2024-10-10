@@ -127,7 +127,6 @@ public class CctvController extends Evidence {
 
   @FXML
   private void onMediaFailed(MediaErrorEvent event) {
-    System.out.println("Media error occurred: " + event.getMediaError().getMessage());
     loadMedia();
   }
 
@@ -135,7 +134,7 @@ public class CctvController extends Evidence {
     try {
       footage = new Media(App.class.getResource("/videos/SecurityCam4.mp4").toURI().toString());
       videoPlayer = new MediaPlayer(footage);
-      videoPlayer.volumeProperty().bind(audioPlayerManager.volumeProperty());
+      videoPlayer.volumeProperty().bind(audioPlayerManager.getVolumeProperty());
       mediaView.setMediaPlayer(videoPlayer);
     } catch (URISyntaxException e) {
       // Handle the exception as needed

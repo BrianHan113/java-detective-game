@@ -8,7 +8,6 @@ import javafx.scene.media.MediaPlayer;
 public class AudioPlayerManager {
 
   private static AudioPlayerManager instance;
-  private DoubleProperty volume = new SimpleDoubleProperty(1.0);
 
   public static AudioPlayerManager getInstance() {
     if (instance == null) {
@@ -18,6 +17,7 @@ public class AudioPlayerManager {
   }
 
   private MediaPlayer mediaPlayer;
+  private DoubleProperty volume = new SimpleDoubleProperty(1.0);
 
   public void playAudio(String audioFile) {
     try {
@@ -36,7 +36,7 @@ public class AudioPlayerManager {
     }
   }
 
-  public DoubleProperty volumeProperty() {
+  public DoubleProperty getVolumeProperty() {
     return volume;
   }
 }

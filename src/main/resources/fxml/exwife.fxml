@@ -31,7 +31,7 @@
       </ImageView>
       <Label layoutX="675.0" layoutY="100.0" text="Chat with the Ex-Wife" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="Palatino Linotype Bold" size="20.0" />
          </font>
       </Label>
       <Label fx:id="timerLabel" alignment="CENTER" layoutX="700.0" layoutY="40.0" prefWidth="160.0" text="Timer">

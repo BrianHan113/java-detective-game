@@ -8,8 +8,17 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
+/**
+ * Class to manage all the scenes and their controllers in the application. This class is
+ * responsible for setting up the scene map and storing all the scenes and their controllers. It is
+ * also responsible for providing the scenes and their controllers to the application.
+ */
 public class SceneManager {
 
+  /**
+   * Enum to represent all the UIs in the application. Each enum represents a different scene in the
+   * application.
+   */
   public enum AppUi {
     SON,
     EX_WIFE,
@@ -57,6 +66,11 @@ public class SceneManager {
     return controllerMap.get(appUi);
   }
 
+  /**
+   * Method to setup the scene map. This method is called when the game is started. It loads all the
+   * scenes and their controllers into the scene manager. This is to ensure that the scenes are
+   * re-loaded and ready to be displayed when the user navigates to them.
+   */
   public static void setupSceneMap() {
     // Task to finish by background thread
     Task<Void> setupTask =

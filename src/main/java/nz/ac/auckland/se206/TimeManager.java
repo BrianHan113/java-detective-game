@@ -5,11 +5,23 @@ import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
+/**
+ * TimeManager class is a singleton class that manages the time for the game. It is used to start,
+ * stop, reset and decrement the time. It also formats the time in minutes and seconds.
+ */
 public class TimeManager {
 
   private static TimeManager instance;
   private static boolean isFirstTimeUp = true;
 
+  /**
+   * Returns the instance of the TimeManager class. If the instance is null, a new instance is
+   * created. The instance is used to access the methods of the TimeManager class. This is so that
+   * only one instance of the TimeManager class is created and used throughout the game, sycning the
+   * time between scenes.
+   *
+   * @return the instance of the TimeManager class
+   */
   public static TimeManager getInstance() {
     if (instance == null) {
       instance = new TimeManager();
@@ -26,6 +38,11 @@ public class TimeManager {
     time = 5 * 60 * 1000;
   }
 
+  /**
+   * Initializes and starts a countdown timer that decrements the {@code time} field every
+   * millisecond until it reaches zero, at which point it stops. The timer is implemented using a
+   * {@link Timeline} with indefinite cycles.
+   */
   public void startTimer() {
     // Start the timer using timeline
     timeline =
@@ -44,6 +61,11 @@ public class TimeManager {
     timeline.play();
   }
 
+  /**
+   * Formats the time in minutes and seconds.
+   *
+   * @return the formatted time in minutes and seconds
+   */
   public String formatTime() {
     minute = time / 60000;
     second = (time % 60000) / 1000;
@@ -76,6 +98,12 @@ public class TimeManager {
     isFirstTimeUp = firstTimeUp;
   }
 
+  /**
+   * Decrements the time by 1 millisecond and updates the timer label with the new time. The timer
+   * is implemented using a {@link Timeline} with indefinite cycles.
+   *
+   * @param timerLabel the label to display the time
+   */
   public void decrementTime(Label timerLabel) {
     timeline = new Timeline(new KeyFrame(Duration.millis(1), e -> updateTimerLabel(timerLabel)));
     timeline.setCycleCount(Timeline.INDEFINITE);

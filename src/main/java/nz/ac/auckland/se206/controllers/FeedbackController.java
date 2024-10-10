@@ -10,6 +10,11 @@ import javafx.scene.image.ImageView;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Controller;
 
+/**
+ * Controller class for the Feedback scene. This class implements the Controller interface. This
+ * class is responsible for handling the feedback scene. This class is responsible for displaying
+ * the feedback and the status of the feedback.
+ */
 public class FeedbackController implements Controller {
   @FXML private Label wonLostLbl;
   @FXML private Label feedbackStatusLbl;
@@ -47,9 +52,9 @@ public class FeedbackController implements Controller {
   public TextArea getFeedbackTextArea() {
     return feedbackTextArea;
   }
-  
+
   public void setArrestImage(String name) {
-    Image image = new Image("images/"+name+"_arrest.png");
+    Image image = new Image("images/" + name + "_arrest.png");
     arrestImage.setImage(image);
   }
 }

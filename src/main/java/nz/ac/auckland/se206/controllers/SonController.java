@@ -9,10 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
-import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.Chat;
 import nz.ac.auckland.se206.TimeManager;
 
+/**
+ * Controller class for the Son scene. This class extends the Chat class. This class is responsible
+ * for handling the chat view for the son scene, as well as the map hover and clicks.
+ */
 public class SonController extends Chat {
 
   @FXML private Button sendButton;
@@ -29,9 +32,11 @@ public class SonController extends Chat {
   private TimeManager timeManager = TimeManager.getInstance();
 
   /**
-   * Initializes the chat view.
+   * Initializes the chat view for the son scene.
    *
-   * @throws ApiProxyException if there is an error communicating with the API proxy
+   * <p>This method is called automatically by JavaFX after the fxml file has been loaded. It binds
+   * the <Enter> key to the sendButton and sets the role of the chat user. It also initializes the
+   * timer and decrements the time.
    */
   @FXML
   public void initialize() {

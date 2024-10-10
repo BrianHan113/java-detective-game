@@ -13,6 +13,11 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import nz.ac.auckland.se206.SceneManager.AppUi;
 
+/**
+ * Abstract class for the Evidence scene. This class implements the Controller interface. This class
+ * is responsible for handling the evidence scene. This class is responsible for displaying the
+ * evidence and the status of the evidence.
+ */
 public abstract class Evidence implements Controller {
   @FXML protected Label evidenceLabel;
   @FXML protected Circle exitCircle;

@@ -14,7 +14,7 @@
             <Image url="@../images/menu_bg.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="103.0" prefHeight="312.0" prefWidth="559.0" style="-fx-background-color: edfffc; -fx-background-radius: 50;" text="Being one of the best detectives in town, &#10;you have been assigned a recent high-priority case. &#10;A GREAT JEWEL has been stolen from a very opulent &#10;man and it is imperative we get it back! &#10;We have narrowed down the suspects to just 3 people! &#10;The rich man's SON, EX-WIFE, and CLOSE FRIEND.&#10;&#10;Good Luck Detective! You'll need it.&#10;&#10;" textAlignment="CENTER" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="103.0" prefHeight="312.0" prefWidth="559.0" style="-fx-background-color: edfffc; -fx-background-radius: 50;" text="Being one of the best detectives in town, &#10;you have been assigned a recent high-priority case. &#10;A GREAT JEWEL has been stolen from a very opulent &#10;man and it is imperative we get it back! &#10;We have narrowed down the suspects to just 3 people! &#10;The rich man's SON, EX-WIFE, and CLOSE FRIEND.&#10;&#10;Good Luck Detective! You'll need it." textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="21.0" />
          </font>

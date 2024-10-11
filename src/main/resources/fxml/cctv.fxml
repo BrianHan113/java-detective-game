@@ -37,7 +37,7 @@
       </ImageView>
       <Label fx:id="evidenceLabel" alignment="CENTER" layoutX="100.0" layoutY="45.0" onMouseClicked="#moveToOtherEvidence" onMouseEntered="#handleEvidenceEnter" onMouseExited="#handleEvidenceExit" prefHeight="45.0" prefWidth="180.0" text="EVIDENCE">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fx:id="fingerprintTab" fitHeight="150.0" fitWidth="180.0" layoutX="300.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -47,7 +47,7 @@
       </ImageView>
       <Label fx:id="fingerprintLabel" alignment="CENTER" layoutX="300.0" layoutY="45.0" onMouseClicked="#moveToOtherEvidence" onMouseEntered="#handleEvidenceEnter" onMouseExited="#handleEvidenceExit" prefHeight="45.0" prefWidth="180.0" text="Fingerprint" visible="false">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fx:id="shoeprintTab" fitHeight="150.0" fitWidth="180.0" layoutX="500.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -57,7 +57,7 @@
       </ImageView>
       <Label fx:id="shoeprintLabel" alignment="CENTER" layoutX="500.0" layoutY="45.0" onMouseClicked="#moveToOtherEvidence" onMouseEntered="#handleEvidenceEnter" onMouseExited="#handleEvidenceExit" prefHeight="45.0" prefWidth="180.0" text="Shoeprint" visible="false">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="700.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
@@ -67,17 +67,17 @@
       </ImageView>
       <Label fx:id="securityCamLabel" alignment="CENTER" layoutX="700.0" layoutY="45.0" prefHeight="45.0" prefWidth="180.0" text="Security Cam">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Label fx:id="fingerprintHideLabel" layoutX="374.0" layoutY="50.0" text="???">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Label fx:id="shoeprintHideLabel" layoutX="574.0" layoutY="50.0" text="???">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Pane layoutY="78.0" prefHeight="479.0" prefWidth="900.0">

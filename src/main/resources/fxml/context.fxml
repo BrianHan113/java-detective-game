@@ -21,7 +21,7 @@
       </Label>
       <Button fx:id="continueButton" layoutX="279.0" layoutY="453.0" mnemonicParsing="false" onAction="#onContinuePressed" prefHeight="52.0" prefWidth="344.0" style="-fx-background-radius: 30;" text="BEGIN INVESTIGATION">
          <font>
-            <Font name="Palatino Linotype" size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
    </children>

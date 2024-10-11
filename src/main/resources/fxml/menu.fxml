@@ -17,19 +17,19 @@
             <Image url="@../images/menu_bg.png" />
          </image>
       </ImageView>
-      <Text layoutX="122.0" layoutY="177.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="The Great Jewel Caper" wrappingWidth="656.1312255859375">
+      <Text layoutX="122.0" layoutY="130.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="The Great Jewel Caper" wrappingWidth="717.1312255859375">
          <font>
-            <Font size="64.0" />
+            <Font name="Palatino Linotype Bold" size="64.0" />
          </font>
       </Text>
       <Button fx:id="playButton" layoutX="313.0" layoutY="350.0" mnemonicParsing="false" onAction="#onPlayClicked" prefHeight="4.0" prefWidth="273.0" text="PLAY">
          <font>
-            <Font name="System Bold" size="29.0" />
+            <Font name="Palatino Linotype Bold" size="29.0" />
          </font>
       </Button>
       <Button fx:id="quitButton" layoutX="313.0" layoutY="434.0" mnemonicParsing="false" onAction="#onQuitClicked" prefHeight="28.0" prefWidth="273.0" text="QUIT">
          <font>
-            <Font name="System Bold" size="29.0" />
+            <Font name="Palatino Linotype Bold" size="29.0" />
          </font>
       </Button>
       <HBox layoutX="678.0" layoutY="14.0" prefHeight="28.0" prefWidth="215.0" spacing="10.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">

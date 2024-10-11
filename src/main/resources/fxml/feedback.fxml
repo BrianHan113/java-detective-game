@@ -15,19 +15,19 @@
       <Button fx:id="backButton" layoutX="360.0" layoutY="478.0" mnemonicParsing="false" onAction="#onBackPressed" prefHeight="44.0" prefWidth="181.0" text="Back to Main Menu">
 
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="Palatino Linotype Bold" size="16.0" />
          </font>
       </Button>
       <VBox layoutX="23.0" layoutY="26.0" prefHeight="429.0" prefWidth="529.0">
          <children>
             <Label fx:id="wonLostLbl" alignment="CENTER" prefHeight="60.0" prefWidth="542.0" style="-fx-background-color: #868e96;" text="YOU WON" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="43.0" />
+                  <Font name="Palatino Linotype Bold" size="43.0" />
                </font>
             </Label>
             <Label fx:id="feedbackStatusLbl" alignment="CENTER" prefHeight="133.0" prefWidth="536.0" text="Loading Feedback..." textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Palatino Linotype Bold" size="18.0" />
                </font>
             </Label>
       

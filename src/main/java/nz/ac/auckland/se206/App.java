@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.controllers.MenuController;
@@ -19,7 +20,6 @@ public class App extends Application {
   private static Scene scene;
   private static Parent menuRoot;
   private static MenuController menuController;
-
 
   /**
    * The main method that launches the JavaFX application.
@@ -60,6 +60,7 @@ public class App extends Application {
     menuRoot = menuLoader.load();
     menuController = menuLoader.getController();
     
+    Font.loadFont(App.class.getResourceAsStream("/fonts/palatinolinotype_bold.ttf"), 12);
 
     scene = new Scene(menuRoot);
     stage.setScene(scene);

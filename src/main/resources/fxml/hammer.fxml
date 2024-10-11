@@ -30,7 +30,7 @@
       <Line fx:id="crossLine" endX="65.0" endY="50.0" layoutX="-5.0" layoutY="-5.0" onMouseClicked="#exitToCrimeScene" onMouseEntered="#handleExitBtnEnter" onMouseExited="#handleExitBtnExit" rotate="315.0" startX="35.0" startY="50.0" strokeWidth="3.0" />
       <Label layoutX="91.0" layoutY="494.0" prefHeight="35.0" prefWidth="752.0" text="Click and Drag the Brush on the Hammer to Dust for Fingerprints" textFill="#fffafa">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="680.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
@@ -45,7 +45,7 @@
       </Label>
       <Label fx:id="evidenceLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="331.0" layoutY="13.0" prefHeight="90.0" prefWidth="248.0" text="Added Fingerprint. Go to evidence view" textAlignment="CENTER" textFill="#fffafa" wrapText="true">
          <font>
-            <Font name="Palatino Linotype Bold" size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
    </children>

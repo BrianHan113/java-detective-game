@@ -34,9 +34,9 @@ public class SonController extends Chat {
   /**
    * Initializes the chat view for the son scene.
    *
-   * <p>This method is called automatically by JavaFX after the fxml file has been loaded. It binds
-   * the <Enter> key to the sendButton and sets the role of the chat user. It also initializes the
-   * timer and decrements the time.
+   * <p>This method is called automatically by JavaFX after the FXML file has been loaded. It binds
+   * the "Enter" key to the sendButton and sets the role of the chat user. Additionally, it
+   * initializes the timer and starts decrementing the time.
    */
   @FXML
   public void initialize() {
@@ -53,6 +53,13 @@ public class SonController extends Chat {
     timeManager.decrementTime(timerLabel);
   }
 
+  /**
+   * Handles the mouse entering a map pin (rectangle) area.
+   *
+   * <p>Displays the corresponding hover image for the map location that the mouse entered.
+   *
+   * @param event the mouse event triggered when the user hovers over a map pin
+   */
   @FXML
   private void handleRectangleEnter(MouseEvent event) {
     Rectangle shape = (Rectangle) event.getSource();
@@ -74,6 +81,13 @@ public class SonController extends Chat {
     }
   }
 
+  /**
+   * Handles the mouse exiting a map pin (rectangle) area.
+   *
+   * <p>Hides the corresponding hover image for the map location that the mouse exited.
+   *
+   * @param event the mouse event triggered when the user stops hovering over a map pin
+   */
   @FXML
   private void handleRectangleExit(MouseEvent event) {
     Rectangle shape = (Rectangle) event.getSource();

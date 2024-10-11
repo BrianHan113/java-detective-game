@@ -35,7 +35,7 @@ public class FriendController extends Chat {
    * Initializes the chat view for the friend scene.
    *
    * <p>This method is called automatically by JavaFX after the fxml file has been loaded. It binds
-   * the <Enter> key to the sendButton and sets the role of the chat user. It also initializes the
+   * the "Enter" key to the sendButton and sets the role of the chat user. It also initializes the
    * timer and decrements the time.
    */
   @FXML

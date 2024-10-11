@@ -64,7 +64,7 @@ public class GuessController implements Controller {
    * Initializes the chat view for the guessing scene.
    *
    * <p>This method is called automatically by JavaFX after the fxml file has been loaded. It binds
-   * the <Enter> key to the sendButton and sets the role of the chat user. It also initializes the
+   * the "Enter" key to the sendButton and sets the role of the chat user. It also initializes the
    * timer and decrements the time. It also sets up the GPT model to generate feedback.
    *
    * @throws ApiProxyException if there is an error communicating with the API proxy

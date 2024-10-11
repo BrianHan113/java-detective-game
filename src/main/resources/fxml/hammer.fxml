@@ -10,7 +10,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HammerController">
    <children>
-      <ImageView fitHeight="550.0" fitWidth="1099.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="556.0" fitWidth="915.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/crowbar_close.png" />
          </image>

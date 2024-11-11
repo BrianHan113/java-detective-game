@@ -2,7 +2,7 @@
 Detective game to train aspiring private investigators using JavaFX and AI technology. Built for our clients, PI Masters, working in a group of 3 using GitHub Flow.
 
 ## Gameplay
-![Video](/assets/game.mp4)
+[![Gameplay Video](/assets/thumbnail1.png)](https://youtu.be/HUeZ7XMh9rU)
 
 ## Features/Project Requirements
 - Realistic and immersive storyline
